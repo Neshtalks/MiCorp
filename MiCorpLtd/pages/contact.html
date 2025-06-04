@@ -3,34 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Micorp Trading LLC | Bridging Innovation and Reliability</title>
-    <meta name="description" content="Get in touch with Micorp Trading LLC, premier general trading company in Dubai specializing in Electronics, IT Products, and Automobiles">
+    <title>Contact Us | Micorp Trading LLC</title>
+    <meta name="description" content="Get in touch with Micorp Trading LLC, premier general trading company in Dubai. We are here to help with your Electronics, IT Products, and Automobiles needs.">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
     
-    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="../CSS/animations.css">
     <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../css/animations.css"
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
-<body>
-    <!-- Header Section -->
+<body class="contact-page">
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <header class="site-header">
         <nav class="navbar">
             <div class="container">
                 <a href="index.html" class="logo">
-                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC" width="150">
+                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo">
                 </a>
-                <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-nav-list">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                <div class="nav-wrapper" id="navigation">
-                    <ul class="nav-links">
+                <div class="nav-wrapper">
+                     <ul class="nav-links" id="main-nav-list">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="products.html">Products & Services</a></li>
+                        <li class="dropdown">
+                            <a href="products.html" aria-haspopup="true">Products & Services <i class="fas fa-chevron-down dropdown-indicator"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="products.html#electronics">Electronics</a></li>
+                                <li><a href="it-products.html">IT Products</a></li>
+                                <li><a href="automobiles.html">Automobiles</a></li>
+                            </ul>
+                        </li>
                         <li><a href="why-choose-us.html">Why Choose Us</a></li>
                         <li><a href="clients.html">Clients</a></li>
                         <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
@@ -41,81 +56,62 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="contact-hero">
+        <section class="page-hero contact-hero">
             <div class="hero-background">
-                <img src="../assets/images/contact-hero-bg.jpg" alt="Contact Us">
+                <img src="../assets/images/contact-hero-bg.jpg" alt="Skyline view of Dubai for contact page background" loading="eager">
                 <div class="hero-overlay"></div>
             </div>
-            <div class="hero-content">
-                <h1>Get in Touch</h1>
-                <p>We're here to help and answer any questions you might have</p>
-                <div class="contact-quick-links">
+            <div class="container hero-content">
+                <h1 class="animate-on-scroll animate-fade-in-up">Get in Touch</h1>
+                <p class="animate-on-scroll animate-fade-in-up delay-200">We're here to help and answer any questions you might have. Reach out to us!</p>
+                <div class="contact-quick-links animate-on-scroll animate-fade-in-up delay-400">
                     <a href="tel:+97142390917" class="contact-link">
-                        <i class="fas fa-phone"></i>
-                        <span>Call Us</span>
+                        <i class="fas fa-phone"></i><span>Call Us</span>
                     </a>
-                    <a href="mailto:info@micorptrading.com" class="contact-link">
-                        <i class="fas fa-envelope"></i>
-                        <span>Email Us</span>
+                    <a href="mailto:info@micorptrd.com" class="contact-link">
+                        <i class="fas fa-envelope"></i><span>Email Us</span>
                     </a>
-                    <a href="#map" class="contact-link">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Visit Us</span>
+                    <a href="#map-section" class="contact-link"> 
+                        <i class="fas fa-map-marker-alt"></i><span>Visit Us</span>
                     </a>
                 </div>
             </div>
         </section>
 
-
-        <!-- Find Us Section -->
-        <section class="find-us-section">
+        <section id="map-section" class="find-us-section"> 
             <div class="container">
-                <div class="section-header text-center">
-                    <h2>Find Us Easily</h2>
-                    <p>Visit our office or get in touch through any of these channels</p>
+                <div class="section-header">
+                    <h2 class="animate-on-scroll animate-fade-in">Find Us Easily</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">Visit our office or get in touch through any of these channels.</p>
                 </div>
                 
-                <div class="contact-map-container">
-                    <div class="contact-info-wrapper">
-                        <div class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
+                <div class="contact-map-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-xl); align-items: stretch;">
+                    <div class="contact-info-wrapper" style="display: flex; flex-direction: column; gap: var(--spacing-lg);">
+                        <div class="contact-card card animate-on-scroll animate-from-left" style="flex-grow:1; display:flex; flex-direction:row; align-items:center; padding: var(--spacing-lg);">
+                            <div class="contact-icon feature-icon" style="margin-right: var(--spacing-md); flex-shrink:0;"><i class="fas fa-map-marker-alt"></i></div>
                             <div class="contact-details">
                                 <h3>Our Location</h3>
-                                <p>Office No. 709, Fahidi Heights</p>
-                                <p>Al Hamriya, Bur Dubai</p>
-                                <p>Dubai, UAE</p>
+                                <address>Office No. 709, Fahidi Heights<br>Al Hamriya, Bur Dubai<br>Dubai, UAE</address>
                             </div>
                         </div>
-                        
-                        <div class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
+                        <div class="contact-card card animate-on-scroll animate-from-left delay-100" style="flex-grow:1; display:flex; flex-direction:row; align-items:center; padding: var(--spacing-lg);">
+                            <div class="contact-icon feature-icon" style="margin-right: var(--spacing-md); flex-shrink:0;"><i class="fas fa-phone-alt"></i></div>
                             <div class="contact-details">
                                 <h3>Phone Numbers</h3>
-                                <p><a href="tel:+97142390917">+971 4 239 0917</a></p>
-                                <p><a href="tel:+971505552860">+971 50 555 2860</a></p>
+                                <p><a href="tel:+97142390917">+971 4 239 0917</a> (Office)</p>
+                                <p><a href="tel:+971505552860">+971 50 555 2860</a> (Mobile)</p>
                             </div>
                         </div>
-                        
-                        <div class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
+                        <div class="contact-card card animate-on-scroll animate-from-left delay-200" style="flex-grow:1; display:flex; flex-direction:row; align-items:center; padding: var(--spacing-lg);">
+                            <div class="contact-icon feature-icon" style="margin-right: var(--spacing-md); flex-shrink:0;"><i class="fas fa-envelope"></i></div>
                             <div class="contact-details">
-                                <h3>Email Address</h3>
-                                <p><a href="mailto:shanvir@micorptrd.com">shanvir@micorptrd.com</a></p>
-                                <p><a href="mailto:info@micorptrd.com">info@micorptrd.com</a></p>
+                                <h3>Email Addresses</h3>
+                                <p><a href="mailto:shanvir@micorptrd.com">shanvir@micorptrd.com</a> (Sales)</p>
+                                <p><a href="mailto:info@micorptrd.com">info@micorptrd.com</a> (General)</p>
                             </div>
                         </div>
-                        
-                        <div class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
+                        <div class="contact-card card animate-on-scroll animate-from-left delay-300" style="flex-grow:1; display:flex; flex-direction:row; align-items:center; padding: var(--spacing-lg);">
+                            <div class="contact-icon feature-icon" style="margin-right: var(--spacing-md); flex-shrink:0;"><i class="fas fa-clock"></i></div>
                             <div class="contact-details">
                                 <h3>Working Hours</h3>
                                 <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
@@ -125,130 +121,127 @@
                         </div>
                     </div>
                     
-                    <div class="map-wrapper">
-                        <div id="map"></div>
+                    <div class="map-wrapper animate-on-scroll animate-from-right card" style="padding:0; overflow:hidden;">
+                        <div id="map" style="height: 100%; min-height: 450px; width: 100%; border-radius: var(--border-radius-large);"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-           <!-- Contact Form Section -->
-        <section class="contact-form-section">
+        <section class="contact-form-section bg-light">
             <div class="container">
-                <div class="section-header text-center">
-                    <h2>Send Us a Message</h2>
-                    <p>We'll respond to your inquiry as soon as possible</p>
+                <div class="section-header">
+                    <h2 class="animate-on-scroll animate-fade-in">Send Us a Message</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">We'll respond to your inquiry as soon as possible.</p>
                 </div>
                 
-                <div class="form-features-container">
-                    <div class="contact-form-wrapper">
-                        <form id="contactForm" action="#" method="POST">
+                <div class="form-features-container" style="display: grid; grid-template-columns: 3fr 2fr; gap: var(--spacing-xl); align-items: flex-start;">
+                    <div class="contact-form-wrapper card animate-on-scroll animate-from-left" style="padding: var(--spacing-xl);">
+                        <form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST"> <!-- Replace YOUR_FORMSPREE_ID_HERE -->
                             <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder="Your Name*" required>
+                                <label for="name">Your Name*</label>
+                                <input type="text" id="name" name="name" placeholder="e.g., John Doe" required autocomplete="name">
                             </div>
                             <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Your Email*" required>
+                                <label for="email">Your Email*</label>
+                                <input type="email" id="email" name="email" placeholder="e.g., john.doe@example.com" required autocomplete="email">
                             </div>
                             <div class="form-group">
-                                <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
+                                <label for="phone">Your Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="e.g., +971 50 123 4567" autocomplete="tel">
                             </div>
                             <div class="form-group">
+                                <label for="subject">Subject*</label>
                                 <select id="subject" name="subject" required>
-                                    <option value="" disabled selected>Select Subject*</option>
-                                    <option value="general">General Inquiry</option>
-                                    <option value="products">Product Information</option>
-                                    <option value="partnership">Business Partnership</option>
-                                    <option value="support">Customer Support</option>
-                                    <option value="other">Other</option>
+                                    <option value="" disabled selected>Select a Subject</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Product Information">Product Information</option>
+                                    <option value="Business Partnership">Business Partnership</option>
+                                    <option value="Customer Support">Customer Support</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <textarea id="message" name="message" rows="5" placeholder="Your Message*" required></textarea>
+                                <label for="message">Your Message*</label>
+                                <textarea id="message" name="message" rows="5" placeholder="How can we help you today?" required></textarea>
                             </div>
-                            <button type="submit" class="btn-primary">Send Message</button>
+                            <input type="hidden" name="_replyto" value="email"> <!-- For Formspree -->
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
                         </form>
                     </div>
                     
-                    <div class="contact-features">
+                    <div class="contact-features animate-on-scroll animate-from-right" style="display: flex; flex-direction: column; gap: var(--spacing-lg);">
                         <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-headset"></i>
-                            </div>
+                            <div class="feature-icon"><i class="fas fa-headset"></i></div>
                             <div class="feature-content">
                                 <h3>24/7 Customer Support</h3>
-                                <p>Our dedicated team is always ready to assist you with any questions or concerns you may have about our products and services.</p>
+                                <p>Our dedicated team is always ready to assist you.</p>
                             </div>
                         </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
+                        <div class="feature-card delay-100"> <!-- Note: Animate-on-scroll delays might need adjustment if parent has it too -->
+                            <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
                             <div class="feature-content">
                                 <h3>Secure Communication</h3>
-                                <p>All your information and communications with us are protected with industry-standard security measures.</p>
+                                <p>Your information is protected with industry-standard security.</p>
                             </div>
                         </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-bolt"></i>
-                            </div>
+                        <div class="feature-card delay-200">
+                            <div class="feature-icon"><i class="fas fa-bolt"></i></div>
                             <div class="feature-content">
                                 <h3>Quick Response Time</h3>
-                                <p>We pride ourselves on responding to all inquiries within 24 hours during business days.</p>
+                                <p>We aim to respond to all inquiries within 24 business hours.</p>
                             </div>
                         </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
+                         <div class="feature-card delay-300">
+                            <div class="feature-icon"><i class="fas fa-users-cog"></i></div>
                             <div class="feature-content">
                                 <h3>Expert Consultation</h3>
-                                <p>Get free consultation from our industry experts to find the best solutions for your needs.</p>
+                                <p>Get free consultation from our industry experts.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- FAQ Section -->
+
         <section class="faq-section">
             <div class="container">
-                <div class="section-header text-center">
-                    <h2>Frequently Asked Questions</h2>
-                    <p>Find quick answers to common questions</p>
+                <div class="section-header">
+                    <h2 class="animate-on-scroll animate-fade-in">Frequently Asked Questions</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">Find quick answers to common questions.</p>
                 </div>
-                
                 <div class="faq-container">
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            What are your business hours?
-                            <i class="fas fa-chevron-down"></i>
+                    <div class="faq-item animate-on-scroll animate-from-bottom">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+                            What are your business hours? <i class="fas fa-chevron-down"></i>
                         </button>
-                        <div class="faq-answer">
-                            <p>Our office is open Monday through Friday from 9:00 AM to 6:00 PM (UAE Time). We are closed on weekends and public holidays.</p>
+                        <div class="faq-answer" id="faq-answer-1">
+                            <p>Our office is open Monday through Friday from 9:00 AM to 6:00 PM (UAE Time). We are open on Saturdays from 10:00 AM to 4:00 PM and closed on Sundays and public holidays.</p>
                         </div>
                     </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            How can I request a quote?
-                            <i class="fas fa-chevron-down"></i>
+                    <div class="faq-item animate-on-scroll animate-from-bottom delay-100">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+                            How can I request a quote? <i class="fas fa-chevron-down"></i>
                         </button>
-                        <div class="faq-answer">
-                            <p>You can request a quote by filling out our contact form or by calling us directly at +971 4 239 0917.</p>
+                        <div class="faq-answer" id="faq-answer-2">
+                            <p>You can request a quote by filling out our contact form on this page, emailing us at <a href="mailto:sales@micorptrd.com">sales@micorptrd.com</a>, or by calling us directly at <a href="tel:+97142390917">+971 4 239 0917</a>.</p>
                         </div>
                     </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            Do you provide international shipping?
-                            <i class="fas fa-chevron-down"></i>
+                    <div class="faq-item animate-on-scroll animate-from-bottom delay-200">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+                            Do you provide international shipping? <i class="fas fa-chevron-down"></i>
                         </button>
-                        <div class="faq-answer">
-                            <p>Yes, we offer international shipping services to most countries. Please contact us for specific shipping details and rates.</p>
+                        <div class="faq-answer" id="faq-answer-3">
+                            <p>Yes, we offer international shipping services to most countries. Please contact us with your specific requirements, including destination and product details, for shipping information and rates.</p>
+                        </div>
+                    </div>
+                     <div class="faq-item animate-on-scroll animate-from-bottom delay-300">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+                            What types of payment do you accept? <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-4">
+                            <p>We accept various payment methods including bank transfers, major credit cards, and Letters of Credit (LC) for larger orders. Please discuss payment options with our sales team.</p>
                         </div>
                     </div>
                 </div>
@@ -256,12 +249,11 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo" class="footer-logo">
+                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo" class="footer-logo" loading="lazy">
                     <p>Office No. 709, Fahidi Heights, Al Hamriya, Bur Dubai, Dubai, UAE</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -277,20 +269,21 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="products.html">Products</a></li>
                         <li><a href="why-choose-us.html">Why Choose Us</a></li>
+                        <li><a href="clients.html">Clients</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Products</h3>
                     <ul>
-                        <li><a href="products.html">Electronics</a></li>
+                        <li><a href="products.html#electronics">Electronics</a></li>
                         <li><a href="it-products.html">IT Products</a></li>
                         <li><a href="automobiles.html">Automobiles</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Contact Info</h3>
-                    <ul>
+                     <ul class="contact-info">
                         <li><i class="fas fa-phone"></i> <a href="tel:+97142390917">+971 4 239 0917</a></li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:shanvir@micorptrd.com">shanvir@micorptrd.com</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
@@ -298,83 +291,52 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Micorp Trading LLC. All Rights Reserved.</p>
+                <p>© <span class="current-year"></span> Micorp Trading LLC. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="../js/main.js"></script>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <div class="menu-overlay"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/animations.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Map
-            function initMap() {
-                const micorpLocation = [25.2675, 55.3084];
-                const map = L.map('map').setView(micorpLocation, 17);
+            // Initialize Map only on contact page
+            if (document.body.classList.contains('contact-page') && document.getElementById('map')) {
+                const micorpLocation = [25.26743, 55.30085]; // Fahidi Heights approx.
+                const map = L.map('map', { scrollWheelZoom: false }).setView(micorpLocation, 17); // Disable scroll wheel zoom by default
 
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                    maxZoom: 20
                 }).addTo(map);
 
                 const micorpIcon = L.icon({
-                    iconUrl: 'https://cdn-icons-png.flaticon.com/512/447/447031.png',
-                    iconSize: [40, 40],
-                    iconAnchor: [20, 40],
-                    popupAnchor: [0, -40]
+                    iconUrl: '../assets/images/map-marker-icon.png', 
+                    iconSize: [42, 42], 
+                    iconAnchor: [21, 42], 
+                    popupAnchor: [0, -40] 
                 });
-
-                L.marker(micorpLocation, { icon: micorpIcon })
+                
+                const marker = L.marker(micorpLocation, { icon: micorpIcon, alt: "Micorp Trading LLC Location" }) // Add alt text to marker
                     .addTo(map)
                     .bindPopup(`
-                        <div style="text-align: center;">
+                        <div style="text-align: center; font-family: 'Inter', sans-serif;">
                             <strong>Micorp Trading LLC</strong><br>
-                            <small>Office No. 709, Fahidi Heights</small><br>
-                            <a href="https://goo.gl/maps/example" target="_blank" style="color: #2a5bd7;">
+                            <small>Office No. 709, Fahidi Heights, Al Hamriya</small><br>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=25.26743,55.30085" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: bold; margin-top: 5px; display: inline-block;">
                                 Get Directions
                             </a>
                         </div>
                     `)
                     .openPopup();
+                
+                // Re-enable scroll wheel zoom on map focus
+                map.on('focus', function() { map.scrollWheelZoom.enable(); });
+                map.on('blur', function() { map.scrollWheelZoom.disable(); });
             }
-
-            initMap();
-
-            // FAQ Functionality
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', () => {
-                    const answer = question.nextElementSibling;
-                    question.classList.toggle('active');
-                    answer.classList.toggle('show');
-
-                    faqQuestions.forEach(otherQuestion => {
-                        if (otherQuestion !== question) {
-                            otherQuestion.classList.remove('active');
-                            otherQuestion.nextElementSibling.classList.remove('show');
-                        }
-                    });
-                });
-            });
-
-            // Form Submission
-            const contactForm = document.getElementById('contactForm');
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const submitBtn = this.querySelector('button[type="submit"]');
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                submitBtn.disabled = true;
-
-                setTimeout(() => {
-                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-                    setTimeout(() => {
-                        contactForm.reset();
-                        submitBtn.innerHTML = 'Send Message';
-                        submitBtn.disabled = false;
-                    }, 2000);
-                }, 1500);
-            });
         });
     </script>
 </body>

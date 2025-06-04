@@ -4,302 +4,276 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Automobiles | Micorp Trading LLC</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Explore luxury vehicles and commercial transport solutions from Micorp Trading LLC. Premium sedans, SUVs, trucks, and vans.">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../CSS/animations.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
-<body>
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp whatsapp-icon"></i>
+<body class="automobiles-page">
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="Micorp Trading LLC">
-            </a>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">
+                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo">
+                </a>
+                <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-nav-list">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-wrapper">
+                     <ul class="nav-links" id="main-nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li class="dropdown">
+                            <a href="products.html" aria-haspopup="true">Products & Services <i class="fas fa-chevron-down dropdown-indicator"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="products.html#electronics">Electronics</a></li>
+                                <li><a href="it-products.html">IT Products</a></li>
+                                <li><a href="automobiles.html" class="active" aria-current="page">Automobiles</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="why-choose-us.html">Why Choose Us</a></li>
+                        <li><a href="clients.html">Clients</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html">Products & Services</a></li>
-                <li><a href="why-choose-us.html">Why Choose Us</a></li>
-                <li><a href="clients.html">Clients</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Automobiles Hero Section -->
-    <section class="page-hero">
-        <div class="container">
-            <h1 class="reveal">Automobiles</h1>
-            <p class="reveal delay-1">Luxury vehicles and commercial transport solutions</p>
-        </div>
-    </section>
+    <main>
+        <section class="page-hero automobiles-hero">
+             <div class="hero-background">
+                <img src="../assets/images/automobiles-hero-bg.jpg" alt="Montage of luxury and commercial vehicles" loading="eager">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container hero-content">
+                <h1 class="animate-on-scroll animate-fade-in-up">Automobiles</h1>
+                <p class="animate-on-scroll animate-fade-in-up delay-200">Luxury vehicles and commercial transport solutions</p>
+            </div>
+        </section>
 
-    <!-- Luxury Vehicles Section -->
-    <section id="luxury" class="auto-category-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Luxury Vehicles</h2>
-                <p>Premium automobiles from world-renowned manufacturers</p>
-            </div>
-            <div class="vehicles-grid">
-                <div class="vehicle-card reveal">
-                    <div class="vehicle-image">
-                        <img src="images/luxury1.jpg" alt="Luxury Sedan">
-                        <div class="vehicle-badge">New Arrival</div>
-                    </div>
-                    <div class="vehicle-details">
-                        <h3>Premium Sedans</h3>
-                        <div class="vehicle-specs">
-                            <div class="spec-item">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span>Top Models</span>
-                            </div>
-                            <div class="spec-item">
-                                <i class="fas fa-car"></i>
-                                <span>2023 Models</span>
-                            </div>
-                        </div>
-                        <p>Executive sedans combining luxury, performance, and cutting-edge technology.</p>
-                        <div class="vehicle-cta">
-                            <a href="#" class="btn-secondary">View Models</a>
-                            <a href="contact.html" class="btn-primary">Inquire Now</a>
-                        </div>
-                    </div>
+        <section id="luxury" class="auto-category-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="animate-on-scroll animate-fade-in">Luxury Vehicles</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">Premium automobiles from world-renowned manufacturers for an unparalleled driving experience.</p>
                 </div>
-                <div class="vehicle-card reveal delay-1">
-                    <div class="vehicle-image">
-                        <img src="images/luxury2.jpg" alt="Luxury SUV">
-                    </div>
-                    <div class="vehicle-details">
-                        <h3>Luxury SUVs</h3>
-                        <div class="vehicle-specs">
-                            <div class="spec-item">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span>4x4 Options</span>
+                <div class="vehicles-grid">
+                    <div class="vehicle-card animate-on-scroll animate-from-bottom">
+                        <div class="vehicle-image">
+                            <img src="../assets/images/luxury1.jpg" alt="Modern Luxury Sedan" loading="lazy">
+                            <div class="vehicle-badge">New Arrival</div>
+                        </div>
+                        <div class="vehicle-details">
+                            <h3>Premium Sedans</h3>
+                            <div class="vehicle-specs">
+                                <span class="spec-item"><i class="fas fa-tachometer-alt"></i>Top Models</span>
+                                <span class="spec-item"><i class="fas fa-calendar-alt"></i>Latest Models</span>
                             </div>
-                            <div class="spec-item">
-                                <i class="fas fa-car"></i>
-                                <span>2023 Models</span>
+                            <p>Executive sedans combining luxury, performance, and cutting-edge technology.</p>
+                            <div class="vehicle-cta">
+                                <a href="contact.html?subject=Premium-Sedan-Models" class="btn btn-secondary">View Models</a>
+                                <a href="contact.html?subject=Premium-Sedan-Inquiry" class="btn btn-primary">Inquire Now</a>
                             </div>
                         </div>
-                        <p>Spacious and powerful SUVs with premium interiors and advanced safety features.</p>
-                        <div class="vehicle-cta">
-                            <a href="#" class="btn-secondary">View Models</a>
-                            <a href="contact.html" class="btn-primary">Inquire Now</a>
+                    </div>
+                    <div class="vehicle-card animate-on-scroll animate-from-bottom delay-200">
+                        <div class="vehicle-image">
+                            <img src="../assets/images/luxury2.jpg" alt="Spacious Luxury SUV" loading="lazy">
                         </div>
-                    </div>
-                </div>
-                <div class="vehicle-card reveal delay-2">
-                    <div class="vehicle-image">
-                        <img src="images/luxury3.jpg" alt="Sports Car">
-                        <div class="vehicle-badge">Limited Edition</div>
-                    </div>
-                    <div class="vehicle-details">
-                        <h3>Sports Cars</h3>
-                        <div class="vehicle-specs">
-                            <div class="spec-item">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span>High Performance</span>
+                        <div class="vehicle-details">
+                            <h3>Luxury SUVs</h3>
+                             <div class="vehicle-specs">
+                                <span class="spec-item"><i class="fas fa-cogs"></i>4x4 Options</span>
+                                <span class="spec-item"><i class="fas fa-calendar-alt"></i>Latest Models</span>
                             </div>
-                            <div class="spec-item">
-                                <i class="fas fa-car"></i>
-                                <span>2023 Models</span>
+                            <p>Spacious and powerful SUVs with premium interiors and advanced safety features.</p>
+                            <div class="vehicle-cta">
+                                <a href="contact.html?subject=Luxury-SUV-Models" class="btn btn-secondary">View Models</a>
+                                <a href="contact.html?subject=Luxury-SUV-Inquiry" class="btn btn-primary">Inquire Now</a>
                             </div>
                         </div>
-                        <p>High-performance sports cars with exceptional handling and acceleration.</p>
-                        <div class="vehicle-cta">
-                            <a href="#" class="btn-secondary">View Models</a>
-                            <a href="contact.html" class="btn-primary">Inquire Now</a>
+                    </div>
+                    <div class="vehicle-card animate-on-scroll animate-from-bottom delay-400">
+                        <div class="vehicle-image">
+                            <img src="../assets/images/luxury3.jpg" alt="High-Performance Sports Car" loading="lazy">
+                            <div class="vehicle-badge">Limited Edition</div>
+                        </div>
+                        <div class="vehicle-details">
+                            <h3>Sports Cars</h3>
+                            <div class="vehicle-specs">
+                                <span class="spec-item"><i class="fas fa-bolt"></i>High Performance</span>
+                                <span class="spec-item"><i class="fas fa-calendar-alt"></i>Latest Models</span>
+                            </div>
+                            <p>High-performance sports cars with exceptional handling and acceleration.</p>
+                            <div class="vehicle-cta">
+                                <a href="contact.html?subject=Sports-Car-Models" class="btn btn-secondary">View Models</a>
+                                <a href="contact.html?subject=Sports-Car-Inquiry" class="btn btn-primary">Inquire Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Commercial Vehicles Section -->
-    <section id="commercial" class="auto-category-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Commercial Vehicles</h2>
-                <p>Reliable transport solutions for businesses</p>
-            </div>
-            <div class="vehicles-grid">
-                <div class="vehicle-card reveal">
-                    <div class="vehicle-image">
-                        <img src="images/commercial1.jpg" alt="Pickup Truck">
-                    </div>
-                    <div class="vehicle-details">
-                        <h3>Pickup Trucks</h3>
-                        <div class="vehicle-specs">
-                            <div class="spec-item">
-                                <i class="fas fa-truck-pickup"></i>
-                                <span>Heavy Duty</span>
-                            </div>
-                            <div class="spec-item">
-                                <i class="fas fa-gas-pump"></i>
-                                <span>Diesel Options</span>
-                            </div>
-                        </div>
-                        <p>Durable pickup trucks designed for tough working conditions and heavy loads.</p>
-                        <div class="vehicle-cta">
-                            <a href="#" class="btn-secondary">View Models</a>
-                            <a href="contact.html" class="btn-primary">Inquire Now</a>
-                        </div>
-                    </div>
+        <section id="commercial" class="auto-category-section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="animate-on-scroll animate-fade-in">Commercial Vehicles</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">Reliable and robust transport solutions for businesses of all scales.</p>
                 </div>
-                <div class="vehicle-card reveal delay-1">
-                    <div class="vehicle-image">
-                        <img src="images/commercial2.jpg" alt="Delivery Van">
-                    </div>
-                    <div class="vehicle-details">
-                        <h3>Delivery Vans</h3>
-                        <div class="vehicle-specs">
-                            <div class="spec-item">
-                                <i class="fas fa-boxes"></i>
-                                <span>Spacious</span>
+                <div class="vehicles-grid">
+                    <div class="vehicle-card animate-on-scroll animate-from-bottom">
+                        <div class="vehicle-image">
+                            <img src="../assets/images/commercial1.jpg" alt="Heavy Duty Pickup Truck" loading="lazy">
+                        </div>
+                        <div class="vehicle-details">
+                            <h3>Pickup Trucks</h3>
+                            <div class="vehicle-specs">
+                                <span class="spec-item"><i class="fas fa-truck-pickup"></i>Heavy Duty</span>
+                                <span class="spec-item"><i class="fas fa-gas-pump"></i>Diesel Options</span>
                             </div>
-                            <div class="spec-item">
-                                <i class="fas fa-gas-pump"></i>
-                                <span>Fuel Efficient</span>
+                            <p>Durable pickup trucks designed for tough working conditions and heavy loads.</p>
+                            <div class="vehicle-cta">
+                                <a href="contact.html?subject=Pickup-Truck-Models" class="btn btn-secondary">View Models</a>
+                                <a href="contact.html?subject=Pickup-Truck-Inquiry" class="btn btn-primary">Inquire Now</a>
                             </div>
                         </div>
-                        <p>Versatile vans optimized for last-mile delivery and urban logistics.</p>
-                        <div class="vehicle-cta">
-                            <a href="#" class="btn-secondary">View Models</a>
-                            <a href="contact.html" class="btn-primary">Inquire Now</a>
+                    </div>
+                    <div class="vehicle-card animate-on-scroll animate-from-bottom delay-200">
+                        <div class="vehicle-image">
+                            <img src="../assets/images/commercial2.jpg" alt="Versatile Delivery Van" loading="lazy">
                         </div>
-                    </div>
-                </div>
-                <div class="vehicle-card reveal delay-2">
-                    <div class="vehicle-image">
-                        <img src="images/commercial3.jpg" alt="Heavy Truck">
-                    </div>
-                    <div class="vehicle-details">
-                        <h3>Heavy Trucks</h3>
-                        <div class="vehicle-specs">
-                            <div class="spec-item">
-                                <i class="fas fa-truck"></i>
-                                <span>High Capacity</span>
+                        <div class="vehicle-details">
+                            <h3>Delivery Vans</h3>
+                            <div class="vehicle-specs">
+                                <span class="spec-item"><i class="fas fa-box-open"></i>Spacious Cargo</span>
+                                <span class="spec-item"><i class="fas fa-gas-pump"></i>Fuel Efficient</span>
                             </div>
-                            <div class="spec-item">
-                                <i class="fas fa-road"></i>
-                                <span>Long Haul</span>
+                            <p>Versatile vans optimized for last-mile delivery and urban logistics.</p>
+                           <div class="vehicle-cta">
+                                <a href="contact.html?subject=Delivery-Van-Models" class="btn btn-secondary">View Models</a>
+                                <a href="contact.html?subject=Delivery-Van-Inquiry" class="btn btn-primary">Inquire Now</a>
                             </div>
                         </div>
-                        <p>Heavy-duty trucks built for long-distance transport and heavy payloads.</p>
-                        <div class="vehicle-cta">
-                            <a href="#" class="btn-secondary">View Models</a>
-                            <a href="contact.html" class="btn-primary">Inquire Now</a>
+                    </div>
+                    <div class="vehicle-card animate-on-scroll animate-from-bottom delay-400">
+                        <div class="vehicle-image">
+                            <img src="../assets/images/commercial3.jpg" alt="Long Haul Heavy Truck" loading="lazy">
+                        </div>
+                        <div class="vehicle-details">
+                            <h3>Heavy Trucks</h3>
+                            <div class="vehicle-specs">
+                                <span class="spec-item"><i class="fas fa-truck-moving"></i>High Capacity</span>
+                                <span class="spec-item"><i class="fas fa-road"></i>Long Haul</span>
+                            </div>
+                            <p>Heavy-duty trucks built for long-distance transport and heavy payloads.</p>
+                            <div class="vehicle-cta">
+                                <a href="contact.html?subject=Heavy-Truck-Models" class="btn btn-secondary">View Models</a>
+                                <a href="contact.html?subject=Heavy-Truck-Inquiry" class="btn btn-primary">Inquire Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Vehicle Services Section -->
-    <section class="auto-services-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Automobile Services</h2>
-                <p>Comprehensive services for all your vehicle needs</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <i class="fas fa-car-side"></i>
-                    </div>
-                    <h3>Fleet Management</h3>
-                    <p>Complete fleet management solutions including maintenance, tracking, and optimization.</p>
+        <section class="auto-services-section"> <!-- Renamed from it-services-section -->
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="animate-on-scroll animate-fade-in">Automobile Services</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">Comprehensive services for all your vehicle needs, ensuring longevity and performance.</p>
                 </div>
-                <div class="service-card reveal delay-1">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
+                <div class="features-grid"> <!-- Re-using features-grid for layout consistency -->
+                    <div class="feature-card animate-on-scroll animate-from-bottom">
+                        <div class="feature-icon"><i class="fas fa-car-side"></i></div>
+                        <h3>Fleet Management</h3>
+                        <p>Complete fleet management solutions including maintenance, tracking, and optimization.</p>
                     </div>
-                    <h3>Maintenance Packages</h3>
-                    <p>Customized maintenance plans to keep your vehicles in peak condition.</p>
-                </div>
-                <div class="service-card reveal delay-2">
-                    <div class="service-icon">
-                        <i class="fas fa-file-contract"></i>
+                    <div class="feature-card animate-on-scroll animate-from-bottom delay-200">
+                        <div class="feature-icon"><i class="fas fa-tools"></i></div>
+                        <h3>Maintenance Packages</h3>
+                        <p>Customized maintenance plans to keep your vehicles in peak condition.</p>
                     </div>
-                    <h3>Leasing Options</h3>
-                    <p>Flexible leasing solutions for businesses of all sizes.</p>
-                </div>
-                <div class="service-card reveal delay-3">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
+                    <div class="feature-card animate-on-scroll animate-from-bottom delay-300">
+                        <div class="feature-icon"><i class="fas fa-file-contract"></i></div>
+                        <h3>Leasing Options</h3>
+                        <p>Flexible leasing solutions for businesses of all sizes, tailored to your budget.</p>
                     </div>
-                    <h3>Warranty Extensions</h3>
-                    <p>Extended warranty options for additional peace of mind.</p>
+                    <div class="feature-card animate-on-scroll animate-from-bottom delay-400">
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Warranty Extensions</h3>
+                        <p>Extended warranty options for additional peace of mind and vehicle protection.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonials Section -->
-    <section class="auto-testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>Client Testimonials</h2>
-                <p>What our clients say about our automobile solutions</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-content">
-                        <p>"Micorp Trading provided us with a fleet of commercial vehicles that have been extremely reliable. Their after-sales service is exceptional."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="images/client1.jpg" alt="Client">
-                        <div>
-                            <h4>Ahmed Al-Farsi</h4>
-                            <p>Logistics Manager, Gulf Transport Co.</p>
+        <section class="auto-testimonials bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="animate-on-scroll animate-fade-in">Client Testimonials</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">What our clients say about our automobile solutions</p>
+                </div>
+                <div class="testimonials-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <div class="testimonial-card animate-on-scroll animate-from-bottom">
+                        <div class="testimonial-content">
+                            <p>"Micorp Trading provided us with a fleet of commercial vehicles that have been extremely reliable. Their after-sales service is exceptional."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="../assets/images/client1.jpg" alt="Ahmed Al-Farsi, Logistics Manager" loading="lazy">
+                            <div>
+                                <h4>Ahmed Al-Farsi</h4>
+                                <p>Logistics Manager, Gulf Transport Co.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-card reveal delay-1">
-                    <div class="testimonial-content">
-                        <p>"The luxury vehicles we've purchased through Micorp have exceeded our expectations in terms of quality and performance."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="images/client2.jpg" alt="Client">
-                        <div>
-                            <h4>Sarah Johnson</h4>
-                            <p>CEO, Premium Rentals</p>
+                    <div class="testimonial-card animate-on-scroll animate-from-bottom delay-200">
+                        <div class="testimonial-content">
+                            <p>"The luxury vehicles we've purchased through Micorp have exceeded our expectations in terms of quality and performance. Highly recommended!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="../assets/images/client2.jpg" alt="Sarah Johnson, CEO" loading="lazy">
+                            <div>
+                                <h4>Sarah Johnson</h4>
+                                <p>CEO, Premium Rentals</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content reveal">
-                <h2>Interested in our automobile solutions?</h2>
-                <p>Contact us today to discuss your requirements and get a customized offer.</p>
-                <a href="contact.html" class="btn-primary">Contact Our Auto Team</a>
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content animate-on-scroll animate-fade-in">
+                    <h2>Interested in our automobile solutions?</h2>
+                    <p>Contact us today to discuss your requirements and get a customized offer.</p>
+                    <a href="contact.html" class="btn btn-primary anim-pulse">Contact Our Auto Team</a>
+                </div>
             </div>
-        </div>
-    </section>
-    <!-- Footer -->
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo" class="footer-logo">
+                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo" class="footer-logo" loading="lazy">
                     <p>Office No. 709, Fahidi Heights, Al Hamriya, Bur Dubai, Dubai, UAE</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -313,22 +287,23 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="product.html">Products</a></li>
+                        <li><a href="products.html">Products</a></li>
                         <li><a href="why-choose-us.html">Why Choose Us</a></li>
+                        <li><a href="clients.html">Clients</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Products</h3>
                     <ul>
-                        <li><a href="products.html">Electronics</a></li>
+                        <li><a href="products.html#electronics">Electronics</a></li>
                         <li><a href="it-products.html">IT Products</a></li>
                         <li><a href="automobiles.html">Automobiles</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Contact Info</h3>
-                    <ul>
+                    <ul class="contact-info">
                         <li><i class="fas fa-phone"></i> <a href="tel:+97142390917">+971 4 239 0917</a></li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:shanvir@micorptrd.com">shanvir@micorptrd.com</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
@@ -336,12 +311,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Micorp Trading LLC. All Rights Reserved.</p>
+                <p>&copy; <span class="current-year"></span> Micorp Trading LLC. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
+
+    <div class="menu-overlay"></div>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/animations.js" defer></script>
 </body>
 </html>

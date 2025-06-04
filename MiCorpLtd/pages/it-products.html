@@ -4,262 +4,286 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT Products | Micorp Trading LLC</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Explore Micorp Trading LLC's range of IT products including networking equipment, data center solutions, and security systems.">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../CSS/animations.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
-<body>
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp whatsapp-icon"></i>
+<body class="it-products-page">
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="Micorp Trading LLC">
-            </a>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">
+                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo">
+                </a>
+                <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-nav-list">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-wrapper">
+                     <ul class="nav-links" id="main-nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li class="dropdown">
+                            <a href="products.html" aria-haspopup="true">Products & Services <i class="fas fa-chevron-down dropdown-indicator"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="products.html#electronics">Electronics</a></li>
+                                <li><a href="it-products.html" class="active" aria-current="page">IT Products</a></li>
+                                <li><a href="automobiles.html">Automobiles</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="why-choose-us.html">Why Choose Us</a></li>
+                        <li><a href="clients.html">Clients</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html">Products & Services</a></li>
-                <li><a href="why-choose-us.html">Why Choose Us</a></li>
-                <li><a href="clients.html">Clients</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- IT Products Hero Section -->
-    <section class="page-hero">
-        <div class="container">
-            <h1 class="reveal">IT Products</h1>
-            <p class="reveal delay-1">Enterprise-grade hardware and solutions</p>
-        </div>
-    </section>
-
-    <!-- IT Products Section -->
-    <section class="it-products-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our IT Product Portfolio</h2>
-                <p>Reliable solutions for businesses of all sizes</p>
+    <main>
+        <section class="page-hero it-products-hero">
+             <div class="hero-background">
+                <img src="../assets/images/it-hero-bg.jpg" alt="Abstract representation of IT network and data flow" loading="eager">
+                <div class="hero-overlay"></div>
             </div>
+            <div class="container hero-content">
+                <h1 class="animate-on-scroll animate-fade-in-up">IT Products</h1>
+                <p class="animate-on-scroll animate-fade-in-up delay-200">Enterprise-grade hardware and solutions for a connected future.</p>
+            </div>
+        </section>
+
+        <section class="it-products-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="animate-on-scroll animate-fade-in">Our IT Product Portfolio</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">Reliable solutions for businesses of all sizes, powering your digital transformation.</p>
+                </div>
             
-            <!-- Networking Equipment -->
-            <div id="networking" class="product-category reveal">
-                <div class="category-header">
-                    <h3>Networking Equipment</h3>
-                    <p>High-performance networking solutions</p>
+                <div id="networking" class="product-category animate-on-scroll animate-fade-in">
+                    <div class="category-header">
+                        <h3>Networking Equipment</h3>
+                        <p>High-performance networking solutions to keep your business connected and secure.</p>
+                    </div>
+                    <div class="products-grid">
+                        <div class="product-card"> <!-- Re-using product-card for consistent styling -->
+                            <div class="product-image">
+                                <img src="../assets/images/network1.jpg" alt="Enterprise Grade Network Routers" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <h4>Enterprise Routers</h4>
+                                <p>High-capacity routers for enterprise networks with advanced security features.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i> Multi-gigabit throughput</li>
+                                    <li><i class="fas fa-check"></i> Advanced threat protection</li>
+                                    <li><i class="fas fa-check"></i> SD-WAN ready</li>
+                                </ul>
+                                <a href="contact.html?subject=Enterprise-Router-Inquiry" class="btn btn-secondary">Request Quote</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/network2.jpg" alt="Managed and Unmanaged Network Switches" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <h4>Switches</h4>
+                                <p>Managed and unmanaged switches for all network sizes and complexities.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i> PoE/PoE+ options</li>
+                                    <li><i class="fas fa-check"></i> Layer 2/Layer 3 capabilities</li>
+                                    <li><i class="fas fa-check"></i> Stacking & High Availability</li>
+                                </ul>
+                                <a href="contact.html?subject=Network-Switch-Inquiry" class="btn btn-secondary">Request Quote</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/network3.jpg" alt="Enterprise Wireless Access Points" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <h4>Wireless Solutions</h4>
+                                <p>Enterprise-grade Wi-Fi access points, controllers, and management platforms.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i> Wi-Fi 6/6E compatible</li>
+                                    <li><i class="fas fa-check"></i> Cloud-managed options</li>
+                                    <li><i class="fas fa-check"></i> Indoor & Outdoor APs</li>
+                                </ul>
+                                <a href="contact.html?subject=Wireless-Solution-Inquiry" class="btn btn-secondary">Request Quote</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="products-grid">
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="images/network1.jpg" alt="Enterprise Routers">
-                        </div>
-                        <div class="product-details">
-                            <h4>Enterprise Routers</h4>
-                            <p>High-capacity routers for enterprise networks with advanced security features.</p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> Multi-gigabit throughput</li>
-                                <li><i class="fas fa-check"></i> Advanced threat protection</li>
-                                <li><i class="fas fa-check"></i> SD-WAN ready</li>
-                            </ul>
-                            <a href="#" class="btn-secondary">Request Quote</a>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="images/network2.jpg" alt="Switches">
-                        </div>
-                        <div class="product-details">
-                            <h4>Switches</h4>
-                            <p>Managed and unmanaged switches for all network sizes.</p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> PoE options available</li>
-                                <li><i class="fas fa-check"></i> Layer 2/Layer 3 capabilities</li>
-                                <li><i class="fas fa-check"></i> Energy efficient</li>
-                            </ul>
-                            <a href="#" class="btn-secondary">Request Quote</a>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="images/network3.jpg" alt="Wireless Solutions">
-                        </div>
-                        <div class="product-details">
-                            <h4>Wireless Solutions</h4>
-                            <p>Enterprise-grade wireless access points and controllers.</p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> Wi-Fi 6 compatible</li>
-                                <li><i class="fas fa-check"></i> Cloud-managed options</li>
-                                <li><i class="fas fa-check"></i> High-density capable</li>
-                            </ul>
-                            <a href="#" class="btn-secondary">Request Quote</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             
-            <!-- Data Center Solutions -->
-            <div id="datacenter" class="product-category reveal delay-1">
-                <div class="category-header">
-                    <h3>Data Center Solutions</h3>
-                    <p>Infrastructure for modern data centers</p>
+                <div id="datacenter" class="product-category animate-on-scroll animate-fade-in delay-200">
+                    <div class="category-header">
+                        <h3>Data Center Solutions</h3>
+                        <p>Robust infrastructure for modern data centers, ensuring reliability and scalability.</p>
+                    </div>
+                    <div class="products-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/server1.jpg" alt="Rackmount and Blade Enterprise Servers" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <h4>Enterprise Servers</h4>
+                                <p>Powerful rackmount, blade, and tower servers for all workloads.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i> High-availability configs</li>
+                                    <li><i class="fas fa-check"></i> Virtualization-ready</li>
+                                    <li><i class="fas fa-check"></i> Scalable performance</li>
+                                </ul>
+                                <a href="contact.html?subject=Enterprise-Server-Inquiry" class="btn btn-secondary">Request Quote</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/storage1.jpg" alt="SAN, NAS, and Hybrid Data Storage Systems" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <h4>Storage Systems</h4>
+                                <p>SAN, NAS, DAS, and hybrid storage solutions for diverse data needs.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i> All-flash & Hybrid arrays</li>
+                                    <li><i class="fas fa-check"></i> Data deduplication</li>
+                                    <li><i class="fas fa-check"></i> Tiered storage options</li>
+                                </ul>
+                                <a href="contact.html?subject=Storage-System-Inquiry" class="btn btn-secondary">Request Quote</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/backup1.jpg" alt="On-premise and Cloud Data Backup Solutions" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <h4>Backup & Recovery</h4>
+                                <p>Comprehensive data protection, backup appliances, and software.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i> On-prem & Cloud backup</li>
+                                    <li><i class="fas fa-check"></i> Disaster Recovery (DR)</li>
+                                    <li><i class="fas fa-check"></i> Ransomware protection</li>
+                                </ul>
+                                <a href="contact.html?subject=Backup-Solution-Inquiry" class="btn btn-secondary">Request Quote</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="products-grid">
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="images/server1.jpg" alt="Enterprise Servers">
-                        </div>
-                        <div class="product-details">
-                            <h4>Enterprise Servers</h4>
-                            <p>Rackmount and blade servers for all workloads.</p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> High-availability configurations</li>
-                                <li><i class="fas fa-check"></i> Multiple processor options</li>
-                                <li><i class="fas fa-check"></i> Hot-swappable components</li>
-                            </ul>
-                            <a href="#" class="btn-secondary">Request Quote</a>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="images/storage1.jpg" alt="Storage Systems">
-                        </div>
-                        <div class="product-details">
-                            <h4>Storage Systems</h4>
-                            <p>SAN, NAS, and hybrid storage solutions.</p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> All-flash options available</li>
-                                <li><i class="fas fa-check"></i> Scalable architectures</li>
-                                <li><i class="fas fa-check"></i> Data protection features</li>
-                            </ul>
-                            <a href="#" class="btn-secondary">Request Quote</a>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="images/backup1.jpg" alt="Backup Solutions">
-                        </div>
-                        <div class="product-details">
-                            <h4>Backup Solutions</h4>
-                            <p>Comprehensive data protection solutions.</p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> On-prem and cloud options</li>
-                                <li><i class="fas fa-check"></i> Automated backup scheduling</li>
-                                <li><i class="fas fa-check"></i> Disaster recovery ready</li>
-                            </ul>
-                            <a href="#" class="btn-secondary">Request Quote</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             
-            <!-- Security Solutions -->
-            <div class="product-category reveal delay-2">
-                <div class="category-header">
-                    <h3>Security Solutions</h3>
-                    <p>Protecting your digital assets</p>
-                </div>
-                <div class="products-grid">
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="images/security1.jpg" alt="Firewalls">
-                        </div>
-                        <div class="product-details">
-                            <h4>Next-Gen Firewalls</h4>
-                            <p>Advanced threat protection for networks of all sizes.</p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> Intrusion prevention</li>
-                                <li><i class="fas fa-check"></i> Application control</li>
-                                <li><i class="fas fa-check"></i> SSL inspection</li>
-                            </ul>
-                            <a href="#" class="btn-secondary">Request Quote</a>
-                        </div>
+                <div id="security" class="product-category animate-on-scroll animate-fade-in delay-400">
+                    <div class="category-header">
+                        <h3>Security Solutions</h3>
+                        <p>Advanced solutions for protecting your digital assets from evolving cyber threats.</p>
                     </div>
-                    <div class="product-item">
-                        <div class="product-image">
-                            <img src="images/security2.jpg" alt="Endpoint Security">
+                    <div class="products-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/security1.jpg" alt="Next-Generation Network Firewalls" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <h4>Next-Gen Firewalls (NGFW)</h4>
+                                <p>Advanced threat protection, intrusion prevention, and application control.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i> Deep Packet Inspection</li>
+                                    <li><i class="fas fa-check"></i> VPN capabilities</li>
+                                    <li><i class="fas fa-check"></i> Unified Threat Management</li>
+                                </ul>
+                                <a href="contact.html?subject=Firewall-Inquiry" class="btn btn-secondary">Request Quote</a>
+                            </div>
                         </div>
-                        <div class="product-details">
-                            <h4>Endpoint Security</h4>
-                            <p>Comprehensive protection for all endpoints.</p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> Anti-malware protection</li>
-                                <li><i class="fas fa-check"></i> Device control</li>
-                                <li><i class="fas fa-check"></i> Centralized management</li>
-                            </ul>
-                            <a href="#" class="btn-secondary">Request Quote</a>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/security2.jpg" alt="Comprehensive Endpoint Security Software" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <h4>Endpoint Security (EDR/XDR)</h4>
+                                <p>Comprehensive protection for desktops, laptops, servers, and mobile devices.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i> Anti-malware & Anti-ransomware</li>
+                                    <li><i class="fas fa-check"></i> Behavior-based detection</li>
+                                    <li><i class="fas fa-check"></i> Centralized management</li>
+                                </ul>
+                                <a href="contact.html?subject=Endpoint-Security-Inquiry" class="btn btn-secondary">Request Quote</a>
+                            </div>
+                        </div>
+                         <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/security3_placeholder.jpg" alt="Security Information and Event Management (SIEM) System" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <h4>SIEM & SOAR Solutions</h4>
+                                <p>Real-time security monitoring, threat intelligence, and automated response.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i> Log management & analysis</li>
+                                    <li><i class="fas fa-check"></i> Compliance reporting</li>
+                                    <li><i class="fas fa-check"></i> Incident response automation</li>
+                                </ul>
+                                <a href="contact.html?subject=SIEM-Solution-Inquiry" class="btn btn-secondary">Request Quote</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- IT Services Section -->
-    <section class="it-services-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>IT Services</h2>
-                <p>Complementary services for your IT infrastructure</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h3>Network Design & Implementation</h3>
-                    <p>Custom network solutions designed for your specific requirements and implemented by our certified engineers.</p>
+        <section class="it-services-section bg-light"> <!-- Re-using it-services class, styles in main CSS now -->
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="animate-on-scroll animate-fade-in">IT Services</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">Complementary services to maximize your IT infrastructure investment.</p>
                 </div>
-                <div class="service-card reveal delay-1">
-                    <div class="service-icon">
-                        <i class="fas fa-cloud"></i>
+                <div class="features-grid"> <!-- Using features-grid for consistent layout -->
+                    <div class="feature-card animate-on-scroll animate-from-bottom">
+                        <div class="feature-icon"><i class="fas fa-network-wired"></i></div>
+                        <h3>Network Design & Implementation</h3>
+                        <p>Custom network solutions designed for your specific requirements and implemented by our certified engineers.</p>
                     </div>
-                    <h3>Cloud Migration</h3>
-                    <p>Seamless migration to cloud platforms with minimal downtime and maximum efficiency.</p>
-                </div>
-                <div class="service-card reveal delay-2">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
+                    <div class="feature-card animate-on-scroll animate-from-bottom delay-200">
+                        <div class="feature-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+                        <h3>Cloud Migration & Management</h3>
+                        <p>Seamless migration to cloud platforms and ongoing management with minimal downtime and maximum efficiency.</p>
                     </div>
-                    <h3>Security Audits</h3>
-                    <p>Comprehensive security assessments to identify vulnerabilities in your IT infrastructure.</p>
-                </div>
-                <div class="service-card reveal delay-3">
-                    <div class="service-icon">
-                        <i class="fas fa-headset"></i>
+                    <div class="feature-card animate-on-scroll animate-from-bottom delay-300">
+                        <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+                        <h3>Security Audits & Consulting</h3>
+                        <p>Comprehensive security assessments to identify vulnerabilities and expert consulting for robust IT security.</p>
                     </div>
-                    <h3>Managed IT Services</h3>
-                    <p>Outsource your IT operations to our team of experts with flexible service packages.</p>
+                    <div class="feature-card animate-on-scroll animate-from-bottom delay-400">
+                        <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                        <h3>Managed IT Services</h3>
+                        <p>Outsource your IT operations to our team of experts with flexible service packages for proactive support.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content reveal">
-                <h2>Need IT solutions for your business?</h2>
-                <p>Our team of experts can design and implement the perfect IT infrastructure for your needs.</p>
-                <a href="contact.html" class="btn-primary">Contact Our IT Specialists</a>
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content animate-on-scroll animate-fade-in">
+                    <h2>Need IT solutions for your business?</h2>
+                    <p>Our team of experts can design and implement the perfect IT infrastructure for your needs.</p>
+                    <a href="contact.html" class="btn btn-primary anim-pulse">Contact Our IT Specialists</a>
+                </div>
             </div>
-        </div>
-    </section>
-    <!-- Footer -->
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo" class="footer-logo">
+                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo" class="footer-logo" loading="lazy">
                     <p>Office No. 709, Fahidi Heights, Al Hamriya, Bur Dubai, Dubai, UAE</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -273,22 +297,23 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="product.html">Products</a></li>
+                        <li><a href="products.html">Products</a></li>
                         <li><a href="why-choose-us.html">Why Choose Us</a></li>
+                        <li><a href="clients.html">Clients</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Products</h3>
                     <ul>
-                        <li><a href="products.html">Electronics</a></li>
+                        <li><a href="products.html#electronics">Electronics</a></li>
                         <li><a href="it-products.html">IT Products</a></li>
                         <li><a href="automobiles.html">Automobiles</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Contact Info</h3>
-                    <ul>
+                    <ul class="contact-info">
                         <li><i class="fas fa-phone"></i> <a href="tel:+97142390917">+971 4 239 0917</a></li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:shanvir@micorptrd.com">shanvir@micorptrd.com</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
@@ -296,12 +321,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Micorp Trading LLC. All Rights Reserved.</p>
+                <p>&copy; <span class="current-year"></span> Micorp Trading LLC. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
+
+    <div class="menu-overlay"></div>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/animations.js" defer></script>
 </body>
 </html>

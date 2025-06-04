@@ -4,33 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Micorp Trading LLC</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <meta name="description" content="Learn about Micorp Trading LLC, your trusted trading partner in Dubai since 2010, specializing in Electronics, IT Products, and Automobiles.">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="../CSS/animations.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
-<body>
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp whatsapp-icon"></i>
+<body class="about-page">
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Header Section -->
     <header class="site-header">
         <nav class="navbar">
             <div class="container">
                 <a href="index.html" class="logo">
-                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC">
+                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo">
                 </a>
-                <div class="menu-toggle">
+                <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-nav-list">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
                 <div class="nav-wrapper">
-                    <ul class="nav-links">
+                     <ul class="nav-links" id="main-nav-list">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html" class="active">About Us</a></li>
-                        <li><a href="products.html">Products & Services</a></li>
+                        <li><a href="about.html" class="active" aria-current="page">About Us</a></li>
+                        <li class="dropdown">
+                            <a href="products.html" aria-haspopup="true">Products & Services <i class="fas fa-chevron-down dropdown-indicator"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="products.html#electronics">Electronics</a></li>
+                                <li><a href="it-products.html">IT Products</a></li>
+                                <li><a href="automobiles.html">Automobiles</a></li>
+                            </ul>
+                        </li>
                         <li><a href="why-choose-us.html">Why Choose Us</a></li>
                         <li><a href="clients.html">Clients</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -41,61 +55,62 @@
     </header>
 
     <main>
-        <!-- Page Hero Section -->
-        <section class="hero home-hero">
-            <div class="container">
-                <h1 class="reveal">About Micorp Trading LLC</h1>
-                <p class="reveal delay-1">Your Trusted Trading Partner Since 2010</p>
+        <section class="page-hero about-hero"> 
+             <div class="hero-background">
+                <img src="../assets/images/about-hero-bg.jpg" alt="Micorp team collaborating in a modern office" loading="eager"> <!-- Specific hero bg -->
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container hero-content">
+                <h1 class="animate-on-scroll animate-fade-in-up">About Micorp Trading LLC</h1>
+                <p class="animate-on-scroll animate-fade-in-up delay-200">Your Trusted Trading Partner Since 2010</p>
             </div>
         </section>
 
-        <!-- About Content Section -->
         <section class="about-content-section">
             <div class="container">
-                <div class="about-grid">
-                    <div class="about-text reveal">
+                <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-xl); align-items: center;">
+                    <div class="about-text animate-on-scroll animate-from-left">
                         <h2>Our Story</h2>
                         <p>Founded in 2010, Micorp Trading LLC has grown from a small trading company to a premier general trading company in Dubai, specializing in Electronics, IT Products, and Automobiles.</p>
                         <p>With our headquarters in the heart of Dubai, we've built a reputation for reliability, quality, and exceptional customer service across the UAE and beyond.</p>
                         
-                        <h2>Our Mission</h2>
+                        <h2 class="mt-xl">Our Mission</h2>
                         <p>To bridge innovation and reliability by providing high-quality products and exceptional service to our clients, while maintaining the highest standards of business ethics.</p>
                         
-                        <h2>Our Vision</h2>
+                        <h2 class="mt-xl">Our Vision</h2>
                         <p>To become the most trusted trading partner in the region, known for our integrity, quality products, and customer-centric approach.</p>
                     </div>
-                    <div class="about-image reveal delay-1">
-                        <img src="../assets/images/Our-office.jpg" alt="Micorp Office">
+                    <div class="about-image animate-on-scroll animate-from-right">
+                        <img src="../assets/images/Our-office.jpg" alt="Micorp Office Building Exterior" loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Values Section -->
-        <section class="values-section">
+        <section class="values-section bg-light">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="reveal">Our Core Values</h2>
-                    <p class="reveal delay-1">The principles that guide everything we do</p>
+                    <h2 class="animate-on-scroll animate-fade-in">Our Core Values</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">The principles that guide everything we do</p>
                 </div>
                 <div class="values-grid">
-                    <div class="value-card reveal">
-                        <i class="fas fa-shield-alt"></i>
+                    <div class="feature-card animate-on-scroll animate-from-bottom"> <!-- Re-using feature-card style -->
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
                         <h3>Integrity</h3>
                         <p>We conduct our business with the highest ethical standards and transparency.</p>
                     </div>
-                    <div class="value-card reveal delay-1">
-                        <i class="fas fa-star"></i>
+                    <div class="feature-card animate-on-scroll animate-from-bottom delay-200">
+                        <div class="feature-icon"><i class="fas fa-star"></i></div>
                         <h3>Excellence</h3>
                         <p>We strive for excellence in every aspect of our business operations.</p>
                     </div>
-                    <div class="value-card reveal delay-2">
-                        <i class="fas fa-users"></i>
+                    <div class="feature-card animate-on-scroll animate-from-bottom delay-300"> <!-- Adjusted delay -->
+                        <div class="feature-icon"><i class="fas fa-users"></i></div>
                         <h3>Customer Focus</h3>
                         <p>Our customers' success is our priority, and we work tirelessly to exceed their expectations.</p>
                     </div>
-                    <div class="value-card reveal delay-3">
-                        <i class="fas fa-globe"></i>
+                    <div class="feature-card animate-on-scroll animate-from-bottom delay-400"> <!-- Adjusted delay -->
+                        <div class="feature-icon"><i class="fas fa-globe"></i></div>
                         <h3>Global Reach</h3>
                         <p>We maintain strong international partnerships to serve clients worldwide.</p>
                     </div>
@@ -103,31 +118,30 @@
             </div>
         </section>
 
-        <!-- Team Section -->
         <section class="team-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="reveal">Our Leadership</h2>
-                    <p class="reveal delay-1">The driving force behind our success</p>
+                    <h2 class="animate-on-scroll animate-fade-in">Our Leadership</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">The driving force behind our success</p>
                 </div>
                 <div class="team-grid">
-                    <div class="team-member reveal">
+                    <div class="team-member card animate-on-scroll animate-from-bottom"> <!-- Added .card for consistent styling -->
                         <div class="member-image">
-                            <img src="../assets/images/CEO.jpg" alt="CEO">
+                            <img src="../assets/images/CEO.jpg" alt="Shanvir Singh, Founder & CEO" loading="lazy">
                         </div>
                         <h3>Shanvir Singh</h3>
                         <p>Founder & CEO</p>
                     </div>
-                    <div class="team-member reveal delay-1">
+                    <div class="team-member card animate-on-scroll animate-from-bottom delay-200">
                         <div class="member-image">
-                            <img src="../assets/images/manager.jpg" alt="Operations Director">
+                            <img src="../assets/images/manager.jpg" alt="Aisha Al-Mansoori, Operations Director" loading="lazy">
                         </div>
                         <h3>Aisha Al-Mansoori</h3>
                         <p>Operations Director</p>
                     </div>
-                    <div class="team-member reveal delay-2">
+                    <div class="team-member card animate-on-scroll animate-from-bottom delay-400">
                         <div class="member-image">
-                            <img src="../assets/images/OD_image.webp" alt="Sales Manager">
+                            <img src="../assets/images/OD_image.webp" alt="Raj Patel, Sales Manager" loading="lazy">
                         </div>
                         <h3>Raj Patel</h3>
                         <p>Sales Manager</p>
@@ -137,12 +151,11 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo" class="footer-logo">
+                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo" class="footer-logo" loading="lazy">
                     <p>Office No. 709, Fahidi Heights, Al Hamriya, Bur Dubai, Dubai, UAE</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -158,20 +171,21 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="products.html">Products</a></li>
                         <li><a href="why-choose-us.html">Why Choose Us</a></li>
+                        <li><a href="clients.html">Clients</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Products</h3>
                     <ul>
-                        <li><a href="products.html">Electronics</a></li>
-                        <li><a href="products.html">IT Products</a></li>
-                        <li><a href="products.html">Automobiles</a></li>
+                        <li><a href="products.html#electronics">Electronics</a></li>
+                        <li><a href="it-products.html">IT Products</a></li>
+                        <li><a href="automobiles.html">Automobiles</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Contact Info</h3>
-                    <ul>
+                    <ul class="contact-info">
                         <li><i class="fas fa-phone"></i> <a href="tel:+97142390917">+971 4 239 0917</a></li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:shanvir@micorptrd.com">shanvir@micorptrd.com</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
@@ -179,13 +193,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Micorp Trading LLC. All Rights Reserved.</p>
+                <p>&copy; <span class="current-year"></span> Micorp Trading LLC. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="../js/main.js"></script>
-    <script src="../js/animations.js"></script>
+    <div class="menu-overlay"></div>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/animations.js" defer></script>
 </body>
 </html>

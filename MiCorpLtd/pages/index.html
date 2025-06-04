@@ -3,38 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Micorp Trading LLC</title>
-    <meta name="description" content="Premier general trading company in Dubai specializing in Electronics, IT Products, and Automobiles">
-    <!-- Single CSS file reference -->
-    <link rel="stylesheet" href="../CSS/style.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Micorp Trading LLC | Premier Trading in Dubai</title>
+    <meta name="description" content="Premier general trading company in Dubai specializing in Electronics, IT Products, and Automobiles. Your trusted partner for quality and reliability.">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../CSS/animations.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank">
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Header Section -->
     <header class="site-header">
         <nav class="navbar">
             <div class="container">
                 <a href="index.html" class="logo">
-                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC">
+                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo">
                 </a>
-                <div class="menu-toggle" aria-label="Toggle Menu">
+                <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-nav-list">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
                 <div class="nav-wrapper">
-                    <ul class="nav-links">
-                        <li><a href="index.html">Home</a></li>
+                    <ul class="nav-links" id="main-nav-list">
+                        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="products.html">Products & Services</a></li>
+                        <li class="dropdown">
+                            <a href="products.html" aria-haspopup="true">Products & Services <i class="fas fa-chevron-down dropdown-indicator"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="products.html#electronics">Electronics</a></li>
+                                <li><a href="it-products.html">IT Products</a></li>
+                                <li><a href="automobiles.html">Automobiles</a></li>
+                            </ul>
+                        </li>
                         <li><a href="why-choose-us.html">Why Choose Us</a></li>
                         <li><a href="clients.html">Clients</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -44,116 +57,102 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
         <section class="hero home-hero">
             <div class="hero-background">
-                <img src="../assets/images/Home page Background.jpg" alt="Hero Background">
+                <img src="../assets/images/Home page Background.jpg" alt="Dynamic cityscape representing global trade" loading="eager"> <!-- Eager load hero image -->
                 <div class="hero-overlay"></div>
             </div>
             <div class="hero-content">
-                <h1>Trading for <br> Anyone <br>Anywhere <br>Anytime</h1>
-                <p>Your premier partner for Electronics, IT Products, and Automobiles in the UAE and beyond.</p>
-                <div class="hero-buttons">
-                    <a href="about.html" class="btn-primary">Learn More</a>
-                    <a href="contact.html" class="btn-secondary">Contact Us</a>
+                <h1 class="animate-on-scroll animate-from-bottom">Trading for <br> Anyone <br>Anywhere <br>Anytime</h1>
+                <p class="animate-on-scroll animate-from-bottom delay-200">Your premier partner for Electronics, IT Products, and Automobiles in the UAE and beyond.</p>
+                <div class="hero-buttons animate-on-scroll animate-from-bottom delay-400">
+                    <a href="about.html" class="btn btn-primary">Learn More</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="about-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>About Micorp Trading LLC</h2>
-                    <p>Trusted trading partner since 2010</p>
+                    <h2 class="animate-on-scroll animate-fade-in">About Micorp Trading LLC</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">Trusted trading partner since 2010</p>
                 </div>
-                <div class="about-content">
-                    <div class="about-text animate-from-left">
+                <div class="about-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-xl); align-items: center;">
+                    <div class="about-text animate-on-scroll animate-from-left">
                         <h3>Our Story</h3>
                         <p>Founded in 2010, Micorp Trading LLC has established itself as a premier general trading company in Dubai, specializing in Electronics, IT Products, and Automobiles.</p>
                         <p>With our headquarters in the heart of Dubai, we've built a reputation for reliability, quality, and exceptional customer service.</p>
-                        <a href="about.html" class="btn-primary">Read More</a>
+                        <a href="about.html" class="btn btn-primary">Read More</a>
                     </div>
-                    <div class="about-image animate-from-right">
-                        <img src="../assets/images/About_us_office.avif" alt="Our Office">
+                    <div class="about-image animate-on-scroll animate-from-right">
+                        <img src="../assets/images/About_us_office.avif" alt="Micorp Trading LLC modern office interior" loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Products Section -->
-        <section class="products-section">
+        <section class="products-section bg-light">
             <div class="container">
                 <div class="section-header">
-                    <h2>Our Product Categories</h2>
-                    <p>Discover our comprehensive range of high-quality products</p>
+                    <h2 class="animate-on-scroll animate-fade-in">Our Product Categories</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">Discover our comprehensive range of high-quality products</p>
                 </div>
-                <div class="product-categories">
-                    <div class="product-card animate-from-bottom">
+                <div class="products-grid">
+                    <div class="product-card animate-on-scroll animate-from-bottom">
                         <div class="product-image">
-                            <img src="../assets/images/Electronics_Img.jpg" alt="Electronics">
+                            <img src="../assets/images/Electronics_Img.jpg" alt="Assorted modern electronics" loading="lazy">
                         </div>
                         <div class="product-info">
                             <h3>Electronics</h3>
                             <p>Cutting-edge gadgets and home appliances</p>
-                            <a href="products.html#electronics" class="btn-secondary">View Products</a>
+                            <a href="products.html#electronics" class="btn btn-secondary">View Products</a>
                         </div>
                     </div>
-                    <div class="product-card animate-from-bottom delay-1">
+                    <div class="product-card animate-on-scroll animate-from-bottom delay-200">
                         <div class="product-image">
-                            <img src="../assets/images/IT_Products_Img.png__i=AA" alt="IT Products">
+                            <img src="../assets/images/IT_Products_Img.png__i=AA" alt="Various IT hardware components" loading="lazy">
                         </div>
                         <div class="product-info">
                             <h3>IT Products</h3>
                             <p>Enterprise-grade hardware and solutions</p>
-                            <a href="it-products.html" class="btn-secondary">View Products</a>
+                            <a href="it-products.html" class="btn btn-secondary">View Products</a>
                         </div>
                     </div>
-                    <div class="product-card animate-from-bottom delay-2">
+                    <div class="product-card animate-on-scroll animate-from-bottom delay-400">
                         <div class="product-image">
-                            <img src="../assets/images/automobiles.jpg" alt="Automobiles">
+                            <img src="../assets/images/automobiles.jpg" alt="Luxury and commercial automobiles" loading="lazy">
                         </div>
                         <div class="product-info">
                             <h3>Automobiles</h3>
                             <p>Luxury vehicles and commercial transport</p>
-                            <a href="automobiles.html" class="btn-secondary">View Products</a>
+                            <a href="automobiles.html" class="btn btn-secondary">View Products</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Why Choose Us Section -->
         <section class="why-choose-section">
             <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Why Choose Micorp Trading</h2>
-                    <p class="section-subtitle">What sets us apart from the competition</p>
+                <div class="section-header">
+                    <h2 class="animate-on-scroll animate-fade-in">Why Choose Micorp Trading</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">What sets us apart from the competition</p>
                 </div>
-                
                 <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
+                    <div class="feature-card animate-on-scroll animate-from-bottom">
+                        <div class="feature-icon"><i class="fas fa-award"></i></div>
                         <h3>Quality Assurance</h3>
                         <p>All our products undergo rigorous quality checks to ensure they meet international standards.</p>
                     </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
+                    <div class="feature-card animate-on-scroll animate-from-bottom delay-200">
+                        <div class="feature-icon"><i class="fas fa-headset"></i></div>
                         <h3>24/7 Support</h3>
                         <p>Our dedicated support team is available round the clock to assist you with any queries.</p>
                     </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
+                    <div class="feature-card animate-on-scroll animate-from-bottom delay-400">
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
                         <h3>Trusted Partner</h3>
                         <p>With over a decade in business, we've built long-lasting relationships with clients worldwide.</p>
                     </div>
@@ -161,48 +160,48 @@
             </div>
         </section>
 
-        <!-- Clients Section -->
-        <section class="clients-section">
+        <section class="clients-section bg-light">
             <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Our Valued Clients</h2>
-                    <p class="section-subtitle">Trusted by industry leaders worldwide</p>
+                <div class="section-header">
+                    <h2 class="animate-on-scroll animate-fade-in">Our Valued Clients</h2>
+                    <p class="animate-on-scroll animate-fade-in delay-200">Trusted by industry leaders worldwide</p>
                 </div>
-                
                 <div class="clients-grid">
-                    <div class="client-logo">
-                        <img src="../assets/images/ABS_logo.webp" alt="Client Logo">
+                    <div class="client-logo animate-on-scroll animate-scale-in">
+                        <img src="../assets/images/ABS_logo.webp" alt="ABS Client Logo" loading="lazy">
                     </div>
-                    <div class="client-logo">
-                        <img src="../assets/images/UAC_Logo.jpg" alt="Client Logo">
+                    <div class="client-logo animate-on-scroll animate-scale-in delay-100">
+                        <img src="../assets/images/UAC_Logo.jpg" alt="UAC Client Logo" loading="lazy">
                     </div>
-                    <div class="client-logo">
-                        <img src="../assets/images/clients/client3.png" alt="Client Logo">
+                    <div class="client-logo animate-on-scroll animate-scale-in delay-200">
+                        <img src="../assets/images/clients/client3.png" alt="Client Company 3 Logo" loading="lazy">
                     </div>
-                    <div class="client-logo">
-                        <img src="../assets/images/clients/client4.png" alt="Client Logo">
+                    <div class="client-logo animate-on-scroll animate-scale-in delay-300">
+                        <img src="../assets/images/clients/client4.png" alt="Client Company 4 Logo" loading="lazy">
                     </div>
+                </div>
+                 <div class="text-center animate-on-scroll animate-fade-in" style="margin-top: 30px;">
+                    <a href="clients.html" class="btn btn-secondary">View All Clients</a>
                 </div>
             </div>
         </section>
 
-        <!-- Contact CTA Section -->
         <section class="contact-cta">
             <div class="container">
-                <div class="cta-content text-center reveal">
+                <div class="cta-content animate-on-scroll animate-fade-in">
                     <h2>Ready to Get Started?</h2>
                     <p>Contact us today to discuss your requirements</p>
-                    <a href="contact.html" class="btn-primary">Get in Touch</a>
+                    <a href="contact.html" class="btn btn-primary anim-pulse">Get in Touch</a>
                 </div>
             </div>
         </section>
     </main>
-<!-- Footer -->
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo" class="footer-logo">
+                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo" class="footer-logo" loading="lazy">
                     <p>Office No. 709, Fahidi Heights, Al Hamriya, Bur Dubai, Dubai, UAE</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -218,20 +217,21 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="products.html">Products</a></li>
                         <li><a href="why-choose-us.html">Why Choose Us</a></li>
+                        <li><a href="clients.html">Clients</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Products</h3>
                     <ul>
-                        <li><a href="products.html">Electronics</a></li>
+                        <li><a href="products.html#electronics">Electronics</a></li>
                         <li><a href="it-products.html">IT Products</a></li>
                         <li><a href="automobiles.html">Automobiles</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Contact Info</h3>
-                    <ul>
+                    <ul class="contact-info">
                         <li><i class="fas fa-phone"></i> <a href="tel:+97142390917">+971 4 239 0917</a></li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:shanvir@micorptrd.com">shanvir@micorptrd.com</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
@@ -239,13 +239,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Micorp Trading LLC. All Rights Reserved.</p>
+                <p>&copy; <span class="current-year"></span> Micorp Trading LLC. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-    <!-- Scripts -->
-    <script src="../js/main.js"></script>
-    <script src="../js/animations.js"></script>
+
     <div class="menu-overlay"></div>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/animations.js" defer></script>
 </body>
 </html>

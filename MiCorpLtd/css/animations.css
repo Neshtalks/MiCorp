@@ -1,134 +1,19 @@
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideInFromBottom {
-    from { 
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to { 
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideInFromLeft {
-    from { 
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to { 
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInFromRight {
-    from { 
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to { 
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-.animate-from-bottom {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.animate-from-left {
-    animation: slideInFromLeft 1s ease forwards;
-}
-
-.animate-from-right {
-    animation: slideInFromRight 1s ease forwards;
-}
-
-.animate-fade-in {
-    animation: fadeIn 1s ease forwards;
-}
-
-.animate-bounce {
-    animation: bounce 2s infinite;
-}
-
-.delay-1 {
-    animation-delay: 0.2s;
-}
-
-.delay-2 {
-    animation-delay: 0.4s;
-}
-
-.delay-3 {
-    transition-delay: 0.6s;
-}
-
-/* Animation Classes */
-.animate-text {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.5s forwards;
-}
-
-.animate-scale {
-    animation: scaleIn 1s ease-out;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        transform: scale(1.1);
-    }
-    to {
-        transform: scale(1);
-    }
-}
+/* CSS/animations.css */
 
 /* =========================
-   7. Animations & Effects
+   Keyframes
    ========================= */
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-.animate-fade-in {
-    animation: fadeIn 1s ease-out;
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
-
-/* Scroll Reveal Animation */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Advanced Header Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -140,116 +25,21 @@
     }
 }
 
-@keyframes fadeInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes scaleIn {
-    0% {
-        transform: scale(1.2);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes textReveal {
-    0% {
-        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-    }
-    100% {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-}
-
-.animate-text {
-    animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-.animate-scale {
-    animation: scaleIn 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-// Animated counter for statistics
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number');
-    const speed = 200;
-    
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-count');
-        const count = +counter.innerText;
-        const increment = target / speed;
-        
-        if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(animateCounters, 1);
-        } else {
-            counter.innerText = target;
-        }
-    });
-}
-/* Products Section Animations */
-.product-card, .vehicle-card {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.product-card.reveal, .vehicle-card.reveal {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.delay-1 {
-    transition-delay: 0.2s;
-}
-
-.delay-2 {
-    transition-delay: 0.4s;
-}
-
-.delay-3 {
-    transition-delay: 0.6s;
-}
-
-/* Product Card Hover Effects - Simplified */
-.product-card:hover, .vehicle-card:hover {
-    transform: translateY(-5px); /* Reduced from -10px */
-    box-shadow: 0 8px 15px rgba(0,0,0,0.08); /* Reduced shadow */
-    transition: all 0.4s ease; /* Smoother transition */
-}
-
-.product-image, .vehicle-image {
-    overflow: hidden;
-}
-
-.product-image img, .vehicle-image img {
-    transition: transform 0.4s ease-out; /* Reduced duration */
-}
-
-.product-card:hover .product-image img,
-.vehicle-card:hover .vehicle-image img {
-    transform: scale(1.02); /* Reduced scale effect from 1.05 */
-}
-
-/* Simplified Badge Animation */
-.product-badge, .vehicle-badge {
-    animation: fadeInRight 0.4s ease-out forwards; /* Reduced duration */
-}
-
-@keyframes fadeInRight {
+@keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateX(15px); /* Reduced distance from 30px */
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
     }
     to {
         opacity: 1;
@@ -257,153 +47,196 @@ function animateCounters() {
     }
 }
 
-/* Smooth transition for all hover states */
-.product-card {
-    transition: all 0.3s ease-out;
-}
-
-// Tab functionality for clients page
-function initTabs() {
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabContents = document.querySelectorAll('.tab-content');
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const tabId = button.getAttribute('data-tab');
-            
-            // Remove active class from all buttons and contents
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-            
-            // Add active class to clicked button and corresponding content
-            button.classList.add('active');
-            document.getElementById(tabId).classList.add('active');
-        });
-    });
-}
-
-// Testimonial slider functionality
-function initTestimonialSlider() {
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const dots = document.querySelectorAll('.dot');
-    const prevBtn = document.querySelector('.prev-slide');
-    const nextBtn = document.querySelector('.next-slide');
-    let currentSlide = 0;
-    
-    function showSlide(n) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        currentSlide = (n + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
     }
-    
-    function nextSlide() {
-        showSlide(currentSlide + 1);
-    }
-    
-    function prevSlide() {
-        showSlide(currentSlide - 1);
-    }
-    
-    // Auto-rotate slides every 5 seconds
-    let slideInterval = setInterval(nextSlide, 5000);
-    
-    // Pause on hover
-    const slider = document.querySelector('.testimonials-slider');
-    slider.addEventListener('mouseenter', () => {
-        clearInterval(slideInterval);
-    });
-    
-    slider.addEventListener('mouseleave', () => {
-        slideInterval = setInterval(nextSlide, 5000);
-    });
-    
-    // Navigation controls
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 5000);
-    });
-    
-    prevBtn.addEventListener('click', () => {
-        prevSlide();
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 5000);
-    });
-    
-    // Dot navigation
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            showSlide(index);
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 5000);
-        });
-    });
-}
-
-// Form submission handling
-function handleFormSubmission() {
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would typically send the form data to a server
-            // For this example, we'll just show an alert
-            alert(`Thank you for your message, ${name}! We will contact you soon.`);
-            
-            // Reset the form
-            contactForm.reset();
-        });
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
-// Initialize all functions when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Run animations when elements come into view
-    const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.reveal');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.2;
-            
-            if (elementPosition < screenPosition) {
-                element.classList.add('active');
-            }
-        });
-    };
-    
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Run once on page load
-    
-    // Initialize other functionality
-    initTabs();
-    initTestimonialSlider();
-    handleFormSubmission();
-    
-    // Animate counters when stats section comes into view
-    const statsSection = document.querySelector('.stats-section');
-    if (statsSection) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        observer.observe(statsSection);
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
     }
-});
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(42, 91, 215, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px 20px rgba(42, 91, 215, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(42, 91, 215, 0);
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* =========================
+   Animation Utility Classes
+   ========================= */
+
+/* Initial states for scroll animations (applied by JS or directly) */
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.animate-fade-in.animate-on-scroll {
+    /* opacity already 0 */
+}
+.animate-from-bottom.animate-on-scroll {
+    transform: translateY(40px);
+}
+.animate-from-left.animate-on-scroll {
+    transform: translateX(-40px);
+}
+.animate-from-right.animate-on-scroll {
+    transform: translateX(40px);
+}
+.animate-scale-in.animate-on-scroll {
+    transform: scale(0.95);
+}
+
+/* Active states for scroll animations (when element is visible) */
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+}
+
+
+/* Specific Animation Applications (can be used directly or with JS) */
+.anim-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.anim-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.anim-fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.anim-fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.anim-scale-in {
+    animation: scaleIn 0.8s ease-out forwards;
+}
+
+.anim-bounce {
+    animation: bounce 2s infinite;
+}
+
+.anim-pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Delay classes for staggered animations */
+.delay-100 { animation-delay: 0.1s; transition-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; transition-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; transition-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; transition-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; transition-delay: 0.5s; }
+/* Add more as needed */
+
+
+/* Product Card Animations (Example from original, can be refined/integrated) */
+.product-card.reveal, .vehicle-card.reveal { /* This uses .reveal class logic */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s var(--transition-cubic), transform 0.6s var(--transition-cubic);
+}
+
+.product-card.reveal.active, .vehicle-card.reveal.active { /* .active added by JS */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-card.reveal.delay-1, .vehicle-card.reveal.delay-1 { transition-delay: 0.2s; }
+.product-card.reveal.delay-2, .vehicle-card.reveal.delay-2 { transition-delay: 0.4s; }
+.product-card.reveal.delay-3, .vehicle-card.reveal.delay-3 { transition-delay: 0.6s; }
+
+
+/* Text Reveal Animation (Example) */
+.text-reveal {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    transition: clip-path 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.text-reveal.is-visible {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Character by character animation for titles (can be driven by JS) */
+.hero-title .char-animated {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+}

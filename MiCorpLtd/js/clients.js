@@ -1,71 +1,53 @@
-// CLIENTS PAGE - PREMIUM INTERACTIVITY
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize GSAP plugins
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-    
-    // Initialize page components
-    initClientPage();
+    if (document.body.classList.contains('clients-page')) { // Ensure this script runs only on clients.html
+        // Check if GSAP and ScrollTrigger are loaded
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+            console.warn('GSAP or ScrollTrigger not loaded. Clients page animations might not work.');
+            // Fallback or load dynamically if needed
+            // For now, we assume they are loaded via CDN in clients.html if this script is used
+        } else {
+            gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+        }
+        initClientPageInteractions();
+    }
 });
 
-// Sample client data - Replace with your actual data
-const clientsData = [
-    {
-        id: 1,
-        name: "Tech Solutions LLC",
-        industry: "technology",
-        logo: "../assets/images/clients/tech-solutions.png",
-        description: "Leading IT infrastructure provider"
-    },
-    {
-        id: 2,
-        name: "Auto Dynamics",
-        industry: "automotive",
-        logo: "../assets/images/clients/auto-dynamics.png",
-        description: "Premium automobile distributor"
-    },
-    {
-        id: 3,
-        name: "Global Finance Corp",
-        industry: "finance",
-        logo: "../assets/images/clients/global-finance.png",
-        description: "International financial services"
-    },
-    {
-        id: 4,
-        name: "Retail Masters",
-        industry: "retail",
-        logo: "../assets/images/clients/retail-masters.png",
-        description: "Multi-brand retail chain"
-    }
-];
+function initClientPageInteractions() {
+    // Sample client data (could be fetched from an API in a real app)
+    const clientsData = [
+        { id: 1, name: "Tech Solutions Global", industry: "technology", logo: "../assets/images/clients/client-logo-placeholder1.png", description: "Leading IT infrastructure provider." },
+        { id: 2, name: "Auto Dynamics Corp", industry: "automotive", logo: "../assets/images/clients/client-logo-placeholder2.png", description: "Premium automobile distributor." },
+        { id: 3, name: "FinanceMax Group", industry: "finance", logo: "../assets/images/clients/client-logo-placeholder3.png", description: "International financial services." },
+        { id: 4, name: "Retail World Ltd.", industry: "retail", logo: "../assets/images/clients/client-logo-placeholder4.png", description: "Multi-brand retail chain." },
+        { id: 5, name: "LogiConnect Systems", industry: "logistics", logo: "../assets/images/clients/client-logo-placeholder5.png", description: "Global logistics and supply chain." },
+        { id: 6, name: "Innovatech Software", industry: "technology", logo: "../assets/images/clients/client-logo-placeholder6.png", description: "Custom software development." },
+         // Add more clients, ensure unique IDs and correct image paths
+    ];
 
-const testimonialsData = [
-    {
-        id: 1,
-        text: "Micorp Trading has been instrumental in our growth. Their reliable service and quality products have helped us maintain our market leadership.",
-        name: "John Smith",
-        position: "IT Director, Tech Solutions LLC",
-        photo: "../assets/images/testimonials/person1.jpg"
-    },
-    // Add more testimonials...
-];
+    const testimonialsData = [
+        { id: 1, text: "Micorp Trading has been instrumental in our growth. Their reliable service and quality products have helped us maintain our market leadership.", name: "John Smith", position: "IT Director, Tech Solutions Global", photo: "../assets/images/testimonials/person1.jpg" },
+        { id: 2, text: "The automotive parts sourcing from Micorp is top-notch. Always on time and to specification.", name: "Aisha Khan", position: "Procurement Head, Auto Dynamics Corp", photo: "../assets/images/testimonials/person2.jpg" },
+        { id: 3, text: "Their financial IT solutions have streamlined our operations significantly. Highly recommend Micorp.", name: "Carlos Rodriguez", position: "CFO, FinanceMax Group", photo: "../assets/images/testimonials/person3.jpg" },
+         // Add more testimonials with correct image paths
+    ];
 
-function initClientPage() {
-    loadClientData();
+
+    loadClientData(clientsData);
     initClientFilter();
-    initTestimonialSlider();
-    initAnimations();
+    initTestimonialSlider(testimonialsData);
+    initClientPageAnimations(); // GSAP specific animations for this page
+    initCustomCursor(); // If the custom cursor is exclusive to this page
+    // initCaseStudiesInteractions(); // If case studies have specific JS interactions here
 }
 
-function loadClientData() {
-    const clientsGrid = document.querySelector('.clients-grid');
+function loadClientData(clients) {
+    const clientsGrid = document.querySelector('.clients-page .clients-grid');
     if (!clientsGrid) return;
 
-    clientsGrid.innerHTML = clientsData.map(client => `
-        <div class="client-card" data-industry="${client.industry}">
+    clientsGrid.innerHTML = clients.map(client => `
+        <div class="client-card-item" data-industry="${client.industry.toLowerCase()}">
             <div class="client-logo-container">
-                <img src="${client.logo}" alt="${client.name}" class="client-logo">
+                <img src="${client.logo}" alt="${client.name} Logo" class="client-logo" loading="lazy">
             </div>
             <div class="client-info">
                 <h3>${client.name}</h3>
@@ -73,54 +55,92 @@ function loadClientData() {
             </div>
         </div>
     `).join('');
+     // Initial animation for loaded cards
+    if (typeof gsap !== 'undefined') {
+        gsap.fromTo(clientsGrid.querySelectorAll('.client-card-item'),
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out' }
+        );
+    }
 }
 
 function initClientFilter() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const clientCards = document.querySelectorAll('.client-card');
+    const filterBtns = document.querySelectorAll('.clients-page .filter-btn');
+    const clientCards = () => document.querySelectorAll('.clients-page .client-card-item'); // Make it dynamic
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const filter = btn.getAttribute('data-filter');
-            
-            // Update active button
+
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            // Filter cards with animation
-            clientCards.forEach(card => {
-                if (filter === 'all' || card.dataset.industry === filter) {
-                    gsap.to(card, {
-                        opacity: 1,
-                        scale: 1,
-                        duration: 0.4,
-                        display: 'block'
-                    });
-                } else {
-                    gsap.to(card, {
+            const cardsToAnimate = Array.from(clientCards());
+
+            if (typeof gsap !== 'undefined') {
+                // Animate out cards that don't match
+                const cardsToHide = cardsToAnimate.filter(card =>
+                    filter !== 'all' && card.dataset.industry !== filter
+                );
+                if (cardsToHide.length > 0) {
+                    gsap.to(cardsToHide, {
                         opacity: 0,
-                        scale: 0.95,
-                        duration: 0.4,
-                        display: 'none'
+                        scale: 0.9,
+                        duration: 0.3,
+                        ease: 'power2.in',
+                        onComplete: () => cardsToHide.forEach(c => c.style.display = 'none')
                     });
                 }
-            });
+
+                // Animate in cards that match
+                const cardsToShow = cardsToAnimate.filter(card =>
+                    filter === 'all' || card.dataset.industry === filter
+                );
+                 // Set display before animating in
+                cardsToShow.forEach(c => c.style.display = 'block');
+                if (cardsToShow.length > 0) {
+                    gsap.fromTo(cardsToShow,
+                        { opacity: 0, scale: 0.9, y:10 },
+                        {
+                            opacity: 1,
+                            scale: 1,
+                            y:0,
+                            duration: 0.4,
+                            delay: cardsToHide.length > 0 ? 0.3 : 0, // Delay if some cards were hidden
+                            stagger: 0.05,
+                            ease: 'power2.out'
+                        }
+                    );
+                }
+            } else { // Fallback if GSAP is not loaded
+                clientCards().forEach(card => {
+                    if (filter === 'all' || card.dataset.industry === filter) {
+                        card.style.display = 'block'; // Or 'grid', 'flex' depending on card's display type
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
         });
     });
 }
 
-function initTestimonialSlider() {
-    const track = document.querySelector('.testimonial-track');
-    if (!track) return;
 
-    // Populate testimonials
-    track.innerHTML = testimonialsData.map(testimonial => `
-        <div class="testimonial-slide">
+function initTestimonialSlider(testimonials) {
+    const track = document.querySelector('.clients-page .testimonial-track');
+    const dotsContainer = document.querySelector('.clients-page .slider-dots');
+    const prevBtn = document.querySelector('.clients-page .prev-slide');
+    const nextBtn = document.querySelector('.clients-page .next-slide');
+
+    if (!track || !dotsContainer || !prevBtn || !nextBtn || testimonials.length === 0) return;
+
+    track.innerHTML = testimonials.map(testimonial => `
+        <div class="testimonial-slide-item">
             <div class="testimonial-content">
                 <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
                 <p class="testimonial-text">${testimonial.text}</p>
                 <div class="client-details">
-                    <img src="${testimonial.photo}" alt="${testimonial.name}" class="client-photo">
+                    <img src="${testimonial.photo}" alt="${testimonial.name}" class="client-photo" loading="lazy">
                     <div>
                         <h4>${testimonial.name}</h4>
                         <p class="client-position">${testimonial.position}</p>
@@ -130,393 +150,194 @@ function initTestimonialSlider() {
         </div>
     `).join('');
 
-    // Initialize slider controls
-    const prevBtn = document.querySelector('.prev-slide');
-    const nextBtn = document.querySelector('.next-slide');
-    const dots = document.querySelector('.slider-dots');
-    let currentSlide = 0;
-
-    // Create dots
-    dots.innerHTML = testimonialsData.map((_, i) => 
-        `<button class="dot ${i === 0 ? 'active' : ''}" data-slide="${i}"></button>`
+    dotsContainer.innerHTML = testimonials.map((_, i) =>
+        `<button class="dot ${i === 0 ? 'active' : ''}" data-slide="${i}" aria-label="Go to slide ${i + 1}"></button>`
     ).join('');
 
-    // Slider navigation
-    function goToSlide(index) {
-        gsap.to(track, {
-            x: `-${index * 100}%`,
-            duration: 0.6,
-            ease: 'power2.out'
-        });
-        currentSlide = index;
+    const slides = track.querySelectorAll('.testimonial-slide-item');
+    const dots = dotsContainer.querySelectorAll('.dot');
+    let currentSlide = 0;
+    const slideCount = slides.length;
+
+    function goToSlide(index, direction = 0) { // direction: 1 for next, -1 for prev
+        if (index === currentSlide && direction === 0) return; // Avoid re-animating to same slide
+
+        const oldSlide = slides[currentSlide];
+        currentSlide = (index + slideCount) % slideCount;
+        const newSlide = slides[currentSlide];
+
+        if (typeof gsap !== 'undefined') {
+            // Simple fade transition or use GSAP's xPercent for sliding
+            // For sliding with GSAP:
+             gsap.to(track, { xPercent: -100 * currentSlide, duration: 0.7, ease: "power3.inOut" });
+
+            // Or for a fade effect:
+            // gsap.timeline()
+            //    .to(oldSlide, { opacity: 0, duration: 0.3, ease: 'power1.in' })
+            //    .set(oldSlide, { display: 'none' })
+            //    .set(newSlide, { display: 'block', opacity: 0 }) // 'block' or 'flex' depending on slide style
+            //    .to(newSlide, { opacity: 1, duration: 0.4, ease: 'power1.out' });
+
+        } else { // Fallback
+            slides.forEach(s => s.style.display = 'none'); // Hide all
+            newSlide.style.display = 'block'; // Show current
+            newSlide.style.opacity = 1;
+        }
         updateDots();
     }
 
-    prevBtn?.addEventListener('click', () => {
-        currentSlide = (currentSlide - 1 + testimonialsData.length) % testimonialsData.length;
-        goToSlide(currentSlide);
-    });
+    prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1, -1));
+    nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1, 1));
 
-    nextBtn?.addEventListener('click', () => {
-        currentSlide = (currentSlide + 1) % testimonialsData.length;
-        goToSlide(currentSlide);
-    });
-
-    dots.addEventListener('click', (e) => {
-        if (e.target.classList.contains('dot')) {
-            goToSlide(parseInt(e.target.dataset.slide));
-        }
+    dots.forEach(dot => {
+        dot.addEventListener('click', (e) => goToSlide(parseInt(e.target.dataset.slide)));
     });
 
     function updateDots() {
-        document.querySelectorAll('.dot').forEach((dot, i) => {
+        dots.forEach((dot, i) => {
             dot.classList.toggle('active', i === currentSlide);
         });
     }
+
+     // Auto-advance (optional)
+    let autoSlideInterval = setInterval(() => goToSlide(currentSlide + 1, 1), 5000);
+    const sliderElement = document.querySelector('.clients-page .testimonial-slider');
+    sliderElement.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+    sliderElement.addEventListener('mouseleave', () => {
+         clearInterval(autoSlideInterval); // Clear existing before setting new
+         autoSlideInterval = setInterval(() => goToSlide(currentSlide + 1, 1), 5000);
+    });
+
+
+    // Initial setup
+    if (slideCount > 0 && typeof gsap !== 'undefined') {
+        gsap.set(track, { xPercent: 0 }); // Ensure initial position
+        slides.forEach((slide, index) => {
+            if (index !== 0) gsap.set(slide, {}); // Ensure other slides are ready for xPercent
+        });
+    } else if (slideCount > 0) {
+        slides.forEach((s, i) => s.style.display = i === 0 ? 'block' : 'none');
+    }
+    updateDots();
 }
 
-function initAnimations() {
-    // Hero animations
-    gsap.to('.hero-title .char', {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.03,
-        ease: 'power2.out'
+
+function initClientPageAnimations() {
+    if (typeof gsap === 'undefined') return;
+
+    // Hero animations for clients page
+    gsap.fromTo(".clients-page .page-hero h1", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.2, ease: "power3.out" });
+    gsap.fromTo(".clients-page .page-hero p", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.4, ease: "power3.out" });
+
+    // Section header scroll triggers
+    document.querySelectorAll('.clients-page .section-header').forEach(header => {
+        gsap.fromTo(header.querySelector('h2'),
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', scrollTrigger: { trigger: header, start: 'top 85%', toggleActions: 'play none none none' } }
+        );
+        gsap.fromTo(header.querySelector('p'),
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.7, delay: 0.2, ease: 'power2.out', scrollTrigger: { trigger: header, start: 'top 85%', toggleActions: 'play none none none' } }
+        );
     });
 
-    gsap.to('.hero-subtitle', {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        delay: 0.5
+    // Filter buttons animation
+    gsap.fromTo(".clients-page .industry-filter .filter-btn",
+        { opacity: 0, y: 20 },
+        {
+            opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out',
+            scrollTrigger: { trigger: ".clients-page .industry-filter", start: 'top 85%', toggleActions: 'play none none none' }
+        }
+    );
+
+    // Testimonial slider section
+     gsap.fromTo(".clients-page .testimonial-slider",
+        { opacity: 0, scale: 0.95 },
+        {
+            opacity: 1, scale: 1, duration: 0.8, ease: 'power3.out',
+            scrollTrigger: { trigger: ".clients-page .testimonial-slider", start: 'top 80%', toggleActions: 'play none none none' }
+        }
+    );
+
+
+    // Case Study Cards (if present on this page and structured with .case-study-card)
+    document.querySelectorAll('.clients-page .case-study-card').forEach((card, index) => {
+        gsap.fromTo(card,
+            { opacity: 0, y: 50, scale:0.95 },
+            {
+                opacity: 1, y: 0, scale:1, duration: 0.6, ease: 'power3.out',
+                delay: index * 0.1, // Stagger
+                scrollTrigger: { trigger: card, start: 'top 85%', toggleActions: 'play none none none' }
+            }
+        );
+        // Hover for overlay (if GSAP is used for this instead of CSS)
+        const overlay = card.querySelector('.case-study-overlay');
+        if (overlay) {
+            card.addEventListener('mouseenter', () => gsap.to(overlay, { y: '0%', duration: 0.4, ease: 'power2.out' }));
+            card.addEventListener('mouseleave', () => gsap.to(overlay, { y: '100%', duration: 0.3, ease: 'power2.in' }));
+        }
     });
 
-    // Scroll animations
-    gsap.utils.toArray('[data-animate]').forEach(element => {
-        gsap.from(element, {
-            scrollTrigger: {
-                trigger: element,
-                start: 'top 80%'
-            },
-            opacity: 0,
-            y: 30,
-            duration: 0.8
-        });
-    });
+    // CTA Section
+    gsap.fromTo(".clients-page .cta-section .cta-content > *",
+        { opacity: 0, y: 30 },
+        {
+            opacity: 1, y: 0, duration: 0.6, stagger: 0.2, ease: 'power3.out',
+            scrollTrigger: { trigger: ".clients-page .cta-section", start: 'top 80%', toggleActions: 'play none none none' }
+        }
+    );
 }
 
 function initCustomCursor() {
-    const cursor = document.querySelector('.custom-cursor');
-    const follower = document.querySelector('.cursor-follower');
-    
-    if (window.innerWidth > 1024) {
-        document.addEventListener('mousemove', (e) => {
-            gsap.to(cursor, {
-                x: e.clientX,
-                y: e.clientY,
-                duration: 0.1
-            });
-            
-            gsap.to(follower, {
-                x: e.clientX,
-                y: e.clientY,
-                duration: 0.6
-            });
-        });
-        
-        // Add hover effects for interactive elements
-        const hoverElements = document.querySelectorAll('a, button, .client-card, .case-study-card, .filter-btn');
-        
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                gsap.to(cursor, {
-                    scale: 0.5,
-                    backgroundColor: 'white',
-                    duration: 0.3
-                });
-                gsap.to(follower, {
-                    scale: 1.2,
-                    borderColor: 'white',
-                    duration: 0.3
-                });
-            });
-            
-            el.addEventListener('mouseleave', () => {
-                gsap.to(cursor, {
-                    scale: 1,
-                    backgroundColor: '#2a5bd7',
-                    duration: 0.3
-                });
-                gsap.to(follower, {
-                    scale: 1,
-                    borderColor: '#2a5bd7',
-                    duration: 0.3
-                });
-            });
-        });
-    } else {
-        cursor.style.display = 'none';
-        follower.style.display = 'none';
-    }
-}
+    const cursor = document.querySelector('.clients-page .custom-cursor');
+    const follower = document.querySelector('.clients-page .cursor-follower');
 
-function initPageAnimations() {
-    // Hero section animations
-    const heroTitle = document.querySelector('.hero-title');
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    const scrollHint = document.querySelector('.scroll-hint');
+    if (!cursor || !follower || window.innerWidth < 1025) { // Disable on touch devices / smaller screens
+        if(cursor) cursor.style.display = 'none';
+        if(follower) follower.style.display = 'none';
+        return;
+    }
     
-    // Split text for advanced animation
-    if (heroTitle) {
-        const text = heroTitle.textContent;
-        heroTitle.innerHTML = '';
-        
-        for (let i = 0; i < text.length; i++) {
-            const char = document.createElement('span');
-            char.className = 'char';
-            char.textContent = text[i] === ' ' ? '&nbsp;' : text[i];
-            heroTitle.appendChild(char);
+    // Show cursor once JS is ready
+    cursor.style.opacity = '1';
+    follower.style.opacity = '1';
+
+
+    let mouseX = 0, mouseY = 0;
+    let followerX = 0, followerY = 0;
+    const speed = 0.1; // Adjust for follower smoothness (lower = slower/smoother)
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if(cursor) gsap.to(cursor, { x: mouseX, y: mouseY, duration: 0.1, ease: 'power2.out' });
+    });
+
+    function loop() {
+        if(follower) {
+            const distX = mouseX - followerX;
+            const distY = mouseY - followerY;
+            followerX += distX * speed;
+            followerY += distY * speed;
+            gsap.to(follower, { x: followerX, y: followerY, duration: 0, ease: 'none' }); // Update position directly in loop
         }
-        
-        const chars = gsap.utils.toArray('.char');
-        
-        gsap.from(chars, {
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out',
-            stagger: 0.03,
-            delay: 0.3
-        });
+        requestAnimationFrame(loop);
     }
-    
-    gsap.to(heroSubtitle, {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: 'power3.out',
-        delay: 0.8
-    });
-    
-    gsap.to(scrollHint, {
-        opacity: 1,
-        duration: 1,
-        ease: 'power3.out',
-        delay: 1.5
-    });
-    
-    // Section title animations
-    gsap.utils.toArray('[data-animate="title"]').forEach(title => {
-        gsap.from(title, {
-            scrollTrigger: {
-                trigger: title,
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-            },
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            ease: 'power3.out'
+    loop();
+
+
+    const interactiveElements = document.querySelectorAll(
+        '.clients-page a, .clients-page button, .clients-page .filter-btn, .clients-page .client-card-item, .clients-page .case-study-card, .clients-page .slider-controls button, .clients-page .dot'
+    );
+
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            if(cursor) cursor.classList.add('active');
+            if(follower) follower.classList.add('active');
         });
-    });
-    
-    // Section subtitle animations
-    gsap.utils.toArray('[data-animate="subtitle"]').forEach(subtitle => {
-        gsap.from(subtitle, {
-            scrollTrigger: {
-                trigger: subtitle,
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-            },
-            y: 30,
-            opacity: 0,
-            duration: 1,
-            delay: 0.2,
-            ease: 'power3.out'
-        });
-    });
-    
-    // Client card animations
-    gsap.utils.toArray('.client-card').forEach((card, index) => {
-        gsap.from(card, {
-            scrollTrigger: {
-                trigger: card,
-                start: 'top 85%',
-                toggleActions: 'play none none none'
-            },
-            y: 50,
-            opacity: 0,
-            scale: 0.95,
-            duration: 0.8,
-            delay: index * 0.1,
-            ease: 'power3.out'
-        });
-    });
-    
-    // Case study animations
-    gsap.utils.toArray('.case-study-card').forEach((card, index) => {
-        gsap.from(card, {
-            scrollTrigger: {
-                trigger: card,
-                start: 'top 85%',
-                toggleActions: 'play none none none'
-            },
-            y: 50,
-            opacity: 0,
-            scale: 0.95,
-            duration: 0.8,
-            delay: index * 0.1,
-            ease: 'power3.out'
-        });
-    });
-}
-
-function initCaseStudies() {
-    const caseStudyCards = document.querySelectorAll('.case-study-card');
-    
-    caseStudyCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            gsap.to(card.querySelector('.case-study-overlay'), {
-                y: 0,
-                duration: 0.6,
-                ease: 'power3.out'
-            });
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card.querySelector('.case-study-overlay'), {
-                y: '100%',
-                duration: 0.4,
-                ease: 'power3.in'
-            });
-        });
-    });
-}
-
-function initMagneticButtons() {
-    const magneticButtons = document.querySelectorAll('.magnetic-button');
-    
-    magneticButtons.forEach(button => {
-        const btnText = button.querySelector('.btn-text');
-        const btnIcon = button.querySelector('.btn-icon');
-        
-        button.addEventListener('mousemove', (e) => {
-            const rect = button.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const distanceX = x - centerX;
-            const distanceY = y - centerY;
-            
-            gsap.to(button, {
-                x: distanceX * 0.2,
-                y: distanceY * 0.2,
-                duration: 0.5,
-                ease: 'power3.out'
-            });
-            
-            gsap.to(btnText, {
-                x: distanceX * 0.4,
-                y: distanceY * 0.4,
-                duration: 0.5,
-                ease: 'power3.out'
-            });
-            
-            gsap.to(btnIcon, {
-                x: distanceX * 0.6,
-                y: distanceY * 0.6,
-                duration: 0.5,
-                ease: 'power3.out'
-            });
-        });
-        
-        button.addEventListener('mouseleave', () => {
-            gsap.to([button, btnText, btnIcon], {
-                x: 0,
-                y: 0,
-                duration: 0.7,
-                ease: 'elastic.out(1, 0.5)'
-            });
-        });
-    });
-}
-
-function initHeroAnimations() {
-    const title = document.querySelector('.hero-title');
-    const subtitle = document.querySelector('.hero-subtitle');
-    const scroll = document.querySelector('.scroll-hint');
-
-    if (title) {
-        // Split text into characters for animation
-        const chars = title.textContent.split('');
-        title.textContent = '';
-        chars.forEach((char, i) => {
-            const span = document.createElement('span');
-            span.className = 'char';
-            span.textContent = char;
-            span.style.animationDelay = `${i * 0.05}s`;
-            title.appendChild(span);
-        });
-    }
-
-    if (subtitle) {
-        setTimeout(() => {
-            subtitle.style.opacity = '1';
-            subtitle.style.transform = 'translateY(0)';
-        }, 500);
-    }
-
-    if (scroll) {
-        setTimeout(() => {
-            scroll.style.opacity = '1';
-        }, 1000);
-    }
-}
-
-function initScrollAnimations() {
-    const elements = document.querySelectorAll('.reveal-on-scroll');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    elements.forEach(el => observer.observe(el));
-}
-
-function initFilterButtons() {
-    const buttons = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.client-card');
-
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const filter = button.dataset.filter;
-            
-            buttons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-
-            cards.forEach(card => {
-                if (filter === 'all' || card.dataset.industry === filter) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0) scale(1)';
-                    }, 100);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(30px) scale(0.95)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 600);
-                }
-            });
+        el.addEventListener('mouseleave', () => {
+            if(cursor) cursor.classList.remove('active');
+            if(follower) follower.classList.remove('active');
         });
     });
 }
