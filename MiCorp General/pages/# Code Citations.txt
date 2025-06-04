@@ -1,0 +1,419 @@
+# Code Citations
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelector
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelector
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+```
+
+
+## License: unknown
+https://github.com/amagrabi/amagrabi.github.io/blob/0714645a84e5ab1c7337786c13c1f1568137a9db/templates/index.html
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            const
+```
+
+
+## License: unknown
+https://github.com/ayucahyarani/PPW-MiniProject2/blob/84646cf7157839088fdb3a6cebac90eaebe6964c/script.js
+
+```
+/ Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            const
+```
+
