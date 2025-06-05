@@ -4,47 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Why Choose Us | Micorp Trading LLC</title>
-    <meta name="description" content="Discover why Micorp Trading LLC is your ideal partner for electronics, IT, and automotive needs. Quality, reliability, and exceptional service.">
-    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="../CSS/animations.css">
+    <meta name="description" content="Discover why Micorp Trading LLC is your ideal partner. We offer proven track record, competitive pricing, exceptional support, and quality assurance.">
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="why-choose-us-page">
-    <div class="preloader">
-        <div class="spinner"></div>
-    </div>
-
-    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+<body>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- Header Section -->
     <header class="site-header">
         <nav class="navbar">
             <div class="container">
                 <a href="index.html" class="logo">
                     <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo">
                 </a>
-                <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-nav-list">
+                <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
                 <div class="nav-wrapper">
-                     <ul class="nav-links" id="main-nav-list">
+                    <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li class="dropdown">
-                            <a href="products.html" aria-haspopup="true">Products & Services <i class="fas fa-chevron-down dropdown-indicator"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="products.html#electronics">Electronics</a></li>
-                                <li><a href="it-products.html">IT Products</a></li>
-                                <li><a href="automobiles.html">Automobiles</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="products.html">Products & Services</a></li>
                         <li><a href="why-choose-us.html" class="active" aria-current="page">Why Choose Us</a></li>
                         <li><a href="clients.html">Clients</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -55,143 +43,145 @@
     </header>
 
     <main>
+        <!-- Page Hero Section -->
         <section class="page-hero why-choose-hero">
-             <div class="hero-background">
-                <img src="../assets/images/why-choose-us-hero-bg.jpg" alt="Business professionals shaking hands, symbolizing partnership" loading="eager">
+            <div class="hero-background">
+                <img src="../assets/images/Home page Background.jpg" alt="Business Partnership"> <!-- Consider a relevant background -->
                 <div class="hero-overlay"></div>
             </div>
-            <div class="container hero-content">
-                <h1 class="animate-on-scroll animate-fade-in-up">Why Choose Micorp Trading</h1>
-                <p class="animate-on-scroll animate-fade-in-up delay-200">Your success is our priority. Discover the Micorp advantage.</p>
+            <div class="container">
+                <h1 class="reveal">Why Choose Micorp Trading</h1>
+                <p class="reveal delay-1">Discover what sets us apart and makes us your ideal trading partner.</p>
             </div>
         </section>
 
+        <!-- Advantages Section -->
         <section class="advantages-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="animate-on-scroll animate-fade-in">Our Competitive Advantages</h2>
-                    <p class="animate-on-scroll animate-fade-in delay-200">Reasons to partner with us for your trading needs.</p>
+                    <h2 class="reveal">Our Competitive Advantages</h2>
+                    <p class="reveal delay-1">Key reasons to partner with Micorp Trading LLC for your business needs.</p>
                 </div>
                 <div class="advantages-grid">
-                    <div class="feature-card animate-on-scroll animate-from-bottom">
-                        <div class="feature-icon"><i class="fas fa-medal"></i></div>
+                    <div class="advantage-card reveal">
+                        <div class="advantage-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
                         <h3>Proven Track Record</h3>
-                        <p>With over a decade in business, we've successfully delivered thousands of products to satisfied clients across the region.</p>
+                        <p>With over a decade in business, we've successfully delivered thousands of products to satisfied clients across diverse industries.</p>
                     </div>
-                    <div class="feature-card animate-on-scroll animate-from-bottom delay-100">
-                        <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
-                        <h3>Competitive Pricing</h3>
-                        <p>Our strong relationships with manufacturers allow us to offer highly competitive prices without compromising on quality.</p>
+                    <div class="advantage-card reveal delay-1">
+                        <div class="advantage-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Strong Supplier Network</h3>
+                        <p>Our strong relationships with global manufacturers allow us to offer highly competitive prices without compromising on quality.</p>
                     </div>
-                    <div class="feature-card animate-on-scroll animate-from-bottom delay-200">
-                        <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                    <div class="advantage-card reveal delay-2">
+                        <div class="advantage-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
                         <h3>Exceptional Support</h3>
-                        <p>Our dedicated support team is available 24/7 to address any questions or concerns you may have.</p>
+                        <p>Our dedicated support team is committed to providing prompt and effective assistance for any questions or concerns.</p>
                     </div>
-                    <div class="feature-card animate-on-scroll animate-from-bottom delay-300">
-                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                        <h3>Quality Assurance</h3>
-                        <p>All products undergo rigorous quality checks to ensure they meet international standards and your expectations.</p>
-                    </div>
-                     <div class="feature-card animate-on-scroll animate-from-bottom delay-400">
-                        <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
-                        <h3>Reliable Logistics</h3>
-                        <p>Efficient and timely delivery services, ensuring your products arrive safely and on schedule, locally and internationally.</p>
-                    </div>
-                     <div class="feature-card animate-on-scroll animate-from-bottom delay-500">
-                        <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
-                        <h3>Innovative Solutions</h3>
-                        <p>We stay updated with the latest market trends to offer innovative products and solutions tailored to your needs.</p>
+                    <div class="advantage-card reveal delay-3">
+                        <div class="advantage-icon">
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                        <h3>Rigorous Quality Assurance</h3>
+                        <p>All products undergo stringent quality checks to ensure they meet international standards and your specific expectations.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Process Section -->
         <section class="process-section bg-light">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="animate-on-scroll animate-fade-in">Our Process</h2>
-                    <p class="animate-on-scroll animate-fade-in delay-200">How we ensure a seamless and efficient experience from start to finish.</p>
+                    <h2 class="reveal">Our Streamlined Process</h2>
+                    <p class="reveal delay-1">How we ensure a seamless and efficient experience from start to finish.</p>
                 </div>
-                <div class="process-steps" style="display: flex; flex-wrap: wrap; gap: var(--spacing-lg); justify-content: center;">
-                    <div class="process-step card animate-on-scroll animate-from-bottom">
-                        <div class="step-number feature-icon" style="font-size: 1.5rem; font-weight: bold; margin-bottom: var(--spacing-sm);">1</div>
+                <div class="process-steps">
+                    <div class="process-step reveal">
+                        <div class="step-number">1</div>
                         <h3>Requirement Analysis</h3>
-                        <p>We begin by thoroughly understanding your specific needs and requirements through detailed consultations.</p>
+                        <p>We begin by thoroughly understanding your specific needs, objectives, and operational requirements.</p>
                     </div>
-                    <div class="process-step card animate-on-scroll animate-from-bottom delay-100">
-                        <div class="step-number feature-icon" style="font-size: 1.5rem; font-weight: bold; margin-bottom: var(--spacing-sm);">2</div>
-                        <h3>Solution Design</h3>
-                        <p>Our experts design the optimal solution tailored to your business, ensuring it aligns with your goals and budget.</p>
+                    <div class="process-step reveal delay-1">
+                        <div class="step-number">2</div>
+                        <h3>Tailored Solution Design</h3>
+                        <p>Our experts design the optimal product or service solution tailored precisely to your business.</p>
                     </div>
-                    <div class="process-step card animate-on-scroll animate-from-bottom delay-200">
-                        <div class="step-number feature-icon" style="font-size: 1.5rem; font-weight: bold; margin-bottom: var(--spacing-sm);">3</div>
-                        <h3>Product Sourcing</h3>
-                        <p>We leverage our extensive network to source the highest quality products from trusted global manufacturers.</p>
+                    <div class="process-step reveal delay-2">
+                        <div class="step-number">3</div>
+                        <h3>Strategic Product Sourcing</h3>
+                        <p>We leverage our global network to source the highest quality products from trusted manufacturers.</p>
                     </div>
-                    <div class="process-step card animate-on-scroll animate-from-bottom delay-300">
-                        <div class="step-number feature-icon" style="font-size: 1.5rem; font-weight: bold; margin-bottom: var(--spacing-sm);">4</div>
-                        <h3>Delivery & Implementation</h3>
-                        <p>We manage all logistics and provide professional implementation or setup services as required.</p>
+                    <div class="process-step reveal delay-3">
+                        <div class="step-number">4</div>
+                        <h3>Efficient Delivery & Implementation</h3>
+                        <p>We manage all logistics and provide professional implementation services for a smooth rollout.</p>
                     </div>
-                    <div class="process-step card animate-on-scroll animate-from-bottom delay-400">
-                        <div class="step-number feature-icon" style="font-size: 1.5rem; font-weight: bold; margin-bottom: var(--spacing-sm);">5</div>
-                        <h3>Ongoing Support</h3>
-                        <p>We provide continuous post-sales support and assistance to ensure your complete satisfaction and success.</p>
+                    <div class="process-step reveal delay-4"> <!-- Corrected delay class -->
+                        <div class="step-number">5</div>
+                        <h3>Ongoing Support & Partnership</h3>
+                        <p>We provide continuous support and build long-term partnerships to ensure your complete satisfaction.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Testimonials Section -->
         <section class="testimonials-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="animate-on-scroll animate-fade-in">What Our Clients Say</h2>
-                    <p class="animate-on-scroll animate-fade-in delay-200">Hear from our satisfied customers about their experience with Micorp Trading.</p>
+                    <h2 class="reveal">What Our Clients Say</h2>
+                    <p class="reveal delay-1">Hear directly from some of our satisfied customers.</p>
                 </div>
-                <div class="testimonials-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
-                    <div class="testimonial-card animate-on-scroll animate-from-bottom">
-                        <div class="rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal">
                         <div class="testimonial-content">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
                             <p>"Micorp Trading has been our trusted supplier for electronics for the past 5 years. Their reliability and product quality are unmatched in the region."</p>
                         </div>
                         <div class="testimonial-author">
-                            <img src="../assets/images/client1.jpg" alt="Mohammed Al-Habsi, Procurement Manager" loading="lazy">
+                            <img src="../assets/images/client1.jpg" alt="Mohammed Al-Habsi">
                             <div>
                                 <h4>Mohammed Al-Habsi</h4>
                                 <p>Procurement Manager, Tech Solutions LLC</p>
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-card animate-on-scroll animate-from-bottom delay-200">
-                         <div class="rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
+                    <div class="testimonial-card reveal delay-1">
                         <div class="testimonial-content">
-                            <p>"The IT products we've sourced through Micorp have significantly improved our operations. Their technical support team is exceptional."</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p>"The IT products we've sourced through Micorp have significantly improved our operations. Their technical support team is exceptional and very responsive."</p>
                         </div>
                         <div class="testimonial-author">
-                            <img src="../assets/images/client2.jpg" alt="Lisa Chen, CTO" loading="lazy">
+                            <img src="../assets/images/client2.jpg" alt="Lisa Chen">
                             <div>
                                 <h4>Lisa Chen</h4>
-                                <p>CTO, Digital Innovations</p>
+                                <p>CTO, Digital Innovations Hub</p>
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-card animate-on-scroll animate-from-bottom delay-400">
-                        <div class="rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        </div>
+                    <div class="testimonial-card reveal delay-2">
                         <div class="testimonial-content">
-                            <p>"We've purchased multiple luxury vehicles through Micorp Trading. Their attention to detail and after-sales service is outstanding."</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"We've purchased multiple luxury vehicles through Micorp Trading. Their attention to detail and after-sales service is outstanding. A truly premium experience."</p>
                         </div>
                         <div class="testimonial-author">
-                            <img src="../assets/images/client3.jpg" alt="Abdullah Al-Mansoori, CEO" loading="lazy">
+                            <img src="../assets/images/client3.jpg" alt="Abdullah Al-Mansoori">
                             <div>
                                 <h4>Abdullah Al-Mansoori</h4>
-                                <p>CEO, Premium Motors</p>
+                                <p>CEO, Premium Motors Group</p>
                             </div>
                         </div>
                     </div>
@@ -199,53 +189,52 @@
             </div>
         </section>
 
+        <!-- Stats Section -->
         <section class="stats-section bg-light">
             <div class="container">
-                 <div class="section-header">
-                    <h2 class="animate-on-scroll animate-fade-in">Our Milestones</h2>
-                    <p class="animate-on-scroll animate-fade-in delay-200">A testament to our dedication and success in the industry.</p>
+                <div class="section-header">
+                    <h2 class="reveal">Micorp by the Numbers</h2>
+                    <p class="reveal delay-1">Our journey and achievements at a glance.</p>
                 </div>
                 <div class="stats-grid">
-                    <div class="feature-card stat-item animate-on-scroll animate-from-bottom">
-                        <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
-                        <div class="stat-number" data-count="14">0</div>
+                    <div class="stat-item reveal">
+                        <div class="stat-number" data-count="14">0</div> <!-- Updated from 12, example -->
                         <div class="stat-label">Years in Business</div>
                     </div>
-                    <div class="feature-card stat-item animate-on-scroll animate-from-bottom delay-100">
-                        <div class="feature-icon"><i class="fas fa-users-line"></i></div>
-                        <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-item reveal delay-1">
+                        <div class="stat-number" data-count="650">0</div> <!-- Updated from 500 -->
                         <div class="stat-label">Satisfied Clients</div>
                     </div>
-                    <div class="feature-card stat-item animate-on-scroll animate-from-bottom delay-200">
-                        <div class="feature-icon"><i class="fas fa-box-archive"></i></div>
-                        <div class="stat-number" data-count="10000">0</div>
+                    <div class="stat-item reveal delay-2">
+                        <div class="stat-number" data-count="15000">0</div> <!-- Updated from 10000 -->
                         <div class="stat-label">Products Delivered</div>
                     </div>
-                    <div class="feature-card stat-item animate-on-scroll animate-from-bottom delay-300">
-                         <div class="feature-icon"><i class="fas fa-globe-asia"></i></div>
-                        <div class="stat-number" data-count="20">0</div>
-                        <div class="stat-label">Countries Served</div>
+                    <div class="stat-item reveal delay-3">
+                        <div class="stat-number" data-count="98">0</div> <!-- Example: Customer Satisfaction % -->
+                        <div class="stat-label">% Client Satisfaction</div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- CTA Section -->
         <section class="cta-section">
             <div class="container">
-                <div class="cta-content animate-on-scroll animate-fade-in">
-                    <h2>Ready to experience the Micorp difference?</h2>
-                    <p>Contact us today to discuss how we can meet your business needs.</p>
-                    <a href="contact.html" class="btn btn-primary anim-pulse">Get in Touch</a>
+                <div class="cta-content reveal">
+                    <h2>Ready to Experience the Micorp Difference?</h2>
+                    <p>Contact us today to discuss how we can meet your business needs and become your trusted trading partner.</p>
+                    <a href="contact.html" class="btn btn-primary">Get in Touch</a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo" class="footer-logo" loading="lazy">
+                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Footer Logo" class="footer-logo">
                     <p>Office No. 709, Fahidi Heights, Al Hamriya, Bur Dubai, Dubai, UAE</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -259,23 +248,23 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="products.html">Products</a></li>
+                        <li><a href="products.html">Products & Services</a></li>
                         <li><a href="why-choose-us.html">Why Choose Us</a></li>
                         <li><a href="clients.html">Clients</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Products</h3>
-                    <ul>
+                    <h3>Our Products</h3>
+                     <ul>
                         <li><a href="products.html#electronics">Electronics</a></li>
-                        <li><a href="it-products.html">IT Products</a></li>
-                        <li><a href="automobiles.html">Automobiles</a></li>
+                        <li><a href="products.html#it-products">IT Products</a></li>
+                        <li><a href="products.html#automobiles">Automobiles</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Contact Info</h3>
-                    <ul class="contact-info">
+                    <ul>
                         <li><i class="fas fa-phone"></i> <a href="tel:+97142390917">+971 4 239 0917</a></li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:shanvir@micorptrd.com">shanvir@micorptrd.com</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
@@ -283,14 +272,13 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© <span class="current-year"></span> Micorp Trading LLC. All Rights Reserved.</p>
+                <p>&copy; <span id="currentYear">2024</span> Micorp Trading LLC. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <div class="menu-overlay"></div>
-
-    <script src="../js/main.js" defer></script>
-    <script src="../js/animations.js" defer></script>
+    <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
 </body>
 </html>

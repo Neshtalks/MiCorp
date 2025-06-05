@@ -1,43 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
-    if (document.body.classList.contains('clients-page')) { // Ensure this script runs only on clients.html
-        // Check if GSAP and ScrollTrigger are loaded
+    if (document.body.classList.contains('clients-page')) { 
         if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-            console.warn('GSAP or ScrollTrigger not loaded. Clients page animations might not work.');
-            // Fallback or load dynamically if needed
-            // For now, we assume they are loaded via CDN in clients.html if this script is used
+            console.warn('GSAP or ScrollTrigger not loaded. Clients page animations might not work as intended.');
+            // Implement fallback simple animations or ensure GSAP is loaded
+            // For now, we proceed assuming they might be loaded or graceful degradation is acceptable
         } else {
-            gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+            gsap.registerPlugin(ScrollTrigger, ScrollToPlugin); // ScrollToPlugin might not be used here
         }
         initClientPageInteractions();
     }
 });
 
 function initClientPageInteractions() {
-    // Sample client data (could be fetched from an API in a real app)
     const clientsData = [
-        { id: 1, name: "Tech Solutions Global", industry: "technology", logo: "../assets/images/clients/client-logo-placeholder1.png", description: "Leading IT infrastructure provider." },
-        { id: 2, name: "Auto Dynamics Corp", industry: "automotive", logo: "../assets/images/clients/client-logo-placeholder2.png", description: "Premium automobile distributor." },
-        { id: 3, name: "FinanceMax Group", industry: "finance", logo: "../assets/images/clients/client-logo-placeholder3.png", description: "International financial services." },
-        { id: 4, name: "Retail World Ltd.", industry: "retail", logo: "../assets/images/clients/client-logo-placeholder4.png", description: "Multi-brand retail chain." },
-        { id: 5, name: "LogiConnect Systems", industry: "logistics", logo: "../assets/images/clients/client-logo-placeholder5.png", description: "Global logistics and supply chain." },
-        { id: 6, name: "Innovatech Software", industry: "technology", logo: "../assets/images/clients/client-logo-placeholder6.png", description: "Custom software development." },
-         // Add more clients, ensure unique IDs and correct image paths
+        { id: 1, name: "Tech Solutions Global", industry: "technology", logo: "../assets/images/clients/client-logo-placeholder1.png", description: "Leading IT infrastructure provider, enabling digital transformation worldwide." },
+        { id: 2, name: "Auto Dynamics Corp", industry: "automotive", logo: "../assets/images/clients/client-logo-placeholder2.png", description: "Premium automobile distributor and after-sales service specialist." },
+        { id: 3, name: "FinanceMax Group", industry: "finance", logo: "../assets/images/clients/client-logo-placeholder3.png", description: "International financial services and consultancy for modern enterprises." },
+        { id: 4, name: "Retail World Ltd.", industry: "retail", logo: "../assets/images/clients/client-logo-placeholder4.png", description: "Multi-brand retail chain offering diverse consumer products and experiences." },
+        { id: 5, name: "LogiConnect Systems", industry: "logistics", logo: "../assets/images/clients/client-logo-placeholder5.png", description: "Global logistics and supply chain solutions with cutting-edge tracking." },
+        { id: 6, name: "Innovatech Software", industry: "technology", logo: "../assets/images/clients/client-logo-placeholder6.png", description: "Custom software development and AI-driven business intelligence tools." },
+        { id: 7, name: "GreenBuild Ventures", industry: "construction", logo: "../assets/images/clients/client-logo-placeholder-generic1.png", description: "Sustainable construction and green building project management." },
+        { id: 8, name: "HealthFirst Medics", industry: "healthcare", logo: "../assets/images/clients/client-logo-placeholder-generic2.png", description: "Advanced healthcare solutions and medical equipment supplier." }
     ];
 
     const testimonialsData = [
-        { id: 1, text: "Micorp Trading has been instrumental in our growth. Their reliable service and quality products have helped us maintain our market leadership.", name: "John Smith", position: "IT Director, Tech Solutions Global", photo: "../assets/images/testimonials/person1.jpg" },
-        { id: 2, text: "The automotive parts sourcing from Micorp is top-notch. Always on time and to specification.", name: "Aisha Khan", position: "Procurement Head, Auto Dynamics Corp", photo: "../assets/images/testimonials/person2.jpg" },
-        { id: 3, text: "Their financial IT solutions have streamlined our operations significantly. Highly recommend Micorp.", name: "Carlos Rodriguez", position: "CFO, FinanceMax Group", photo: "../assets/images/testimonials/person3.jpg" },
-         // Add more testimonials with correct image paths
+        { id: 1, text: "Micorp Trading has been instrumental in our growth. Their reliable service and quality products have helped us maintain our market leadership in the tech sector.", name: "John Smith", position: "IT Director, Tech Solutions Global", photo: "../assets/images/testimonials/person1.jpg" },
+        { id: 2, text: "The automotive parts sourcing from Micorp is top-notch. Always on time and to specification, which is critical for our operations.", name: "Aisha Khan", position: "Procurement Head, Auto Dynamics Corp", photo: "../assets/images/testimonials/person2.jpg" },
+        { id: 3, text: "Their financial IT solutions have streamlined our operations significantly. Highly recommend Micorp for their expertise and support.", name: "Carlos Rodriguez", position: "CFO, FinanceMax Group", photo: "../assets/images/testimonials/person3.jpg" },
+        { id: 4, text: "Working with Micorp for our retail IT infrastructure has been a game-changer. Efficient, reliable, and always supportive.", name: "Sarah Lee", position: "Operations Manager, Retail World Ltd.", photo: "../assets/images/testimonials/person4.jpg" }
     ];
-
 
     loadClientData(clientsData);
     initClientFilter();
     initTestimonialSlider(testimonialsData);
-    initClientPageAnimations(); // GSAP specific animations for this page
-    initCustomCursor(); // If the custom cursor is exclusive to this page
-    // initCaseStudiesInteractions(); // If case studies have specific JS interactions here
+    if (typeof gsap !== 'undefined') {
+        initClientPageAnimationsGSAP();
+    } else {
+        initClientPageAnimationsCSS(); // Fallback basic CSS animations
+    }
+    initCustomCursor(); 
 }
 
 function loadClientData(clients) {
@@ -45,7 +46,7 @@ function loadClientData(clients) {
     if (!clientsGrid) return;
 
     clientsGrid.innerHTML = clients.map(client => `
-        <div class="client-card-item" data-industry="${client.industry.toLowerCase()}">
+        <div class="client-card-item animate-on-scroll" data-industry="${client.industry.toLowerCase()}" style="opacity:0;"> <!-- Initial opacity for JS animation -->
             <div class="client-logo-container">
                 <img src="${client.logo}" alt="${client.name} Logo" class="client-logo" loading="lazy">
             </div>
@@ -55,74 +56,90 @@ function loadClientData(clients) {
             </div>
         </div>
     `).join('');
-     // Initial animation for loaded cards
-    if (typeof gsap !== 'undefined') {
-        gsap.fromTo(clientsGrid.querySelectorAll('.client-card-item'),
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out' }
-        );
+    
+    // Trigger CSS animations if GSAP is not available after loading
+    if (typeof gsap === 'undefined') {
+        setTimeout(() => { // Allow DOM to update
+             document.querySelectorAll('.clients-page .client-card-item.animate-on-scroll').forEach(card => {
+                card.style.opacity = '1'; // Make them visible
+                // The CSS 'animate-on-scroll' and 'is-visible' logic will handle the animation if IntersectionObserver is active from main.js
+            });
+        },0);
     }
 }
 
 function initClientFilter() {
     const filterBtns = document.querySelectorAll('.clients-page .filter-btn');
-    const clientCards = () => document.querySelectorAll('.clients-page .client-card-item'); // Make it dynamic
+    const clientsGrid = document.querySelector('.clients-page .clients-grid'); // Get the grid container
+
+    if (!clientsGrid || filterBtns.length === 0) return;
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            const filter = btn.getAttribute('data-filter');
+            const filterValue = btn.getAttribute('data-filter');
 
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            const cardsToAnimate = Array.from(clientCards());
+            const clientCards = Array.from(clientsGrid.children); // Get current children
 
             if (typeof gsap !== 'undefined') {
-                // Animate out cards that don't match
-                const cardsToHide = cardsToAnimate.filter(card =>
-                    filter !== 'all' && card.dataset.industry !== filter
-                );
-                if (cardsToHide.length > 0) {
-                    gsap.to(cardsToHide, {
-                        opacity: 0,
-                        scale: 0.9,
-                        duration: 0.3,
-                        ease: 'power2.in',
-                        onComplete: () => cardsToHide.forEach(c => c.style.display = 'none')
-                    });
-                }
-
-                // Animate in cards that match
-                const cardsToShow = cardsToAnimate.filter(card =>
-                    filter === 'all' || card.dataset.industry === filter
-                );
-                 // Set display before animating in
-                cardsToShow.forEach(c => c.style.display = 'block');
-                if (cardsToShow.length > 0) {
-                    gsap.fromTo(cardsToShow,
-                        { opacity: 0, scale: 0.9, y:10 },
-                        {
+                gsap.to(clientCards, {
+                    opacity: 0,
+                    scale: 0.95,
+                    duration: 0.25,
+                    stagger: 0.03,
+                    ease: 'power2.in',
+                    onComplete: () => {
+                        clientCards.forEach(card => {
+                            const cardIndustry = card.getAttribute('data-industry');
+                            if (filterValue === 'all' || cardIndustry === filterValue) {
+                                card.style.display = 'block'; // Or 'grid', 'flex' depending on item's display
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                        // Animate in the visible cards
+                        const visibleCards = clientCards.filter(card => card.style.display !== 'none');
+                        gsap.to(visibleCards, {
                             opacity: 1,
                             scale: 1,
-                            y:0,
-                            duration: 0.4,
-                            delay: cardsToHide.length > 0 ? 0.3 : 0, // Delay if some cards were hidden
+                            duration: 0.35,
                             stagger: 0.05,
-                            ease: 'power2.out'
-                        }
-                    );
-                }
+                            ease: 'power2.out',
+                            delay: 0.1
+                        });
+                    }
+                });
             } else { // Fallback if GSAP is not loaded
-                clientCards().forEach(card => {
-                    if (filter === 'all' || card.dataset.industry === filter) {
-                        card.style.display = 'block'; // Or 'grid', 'flex' depending on card's display type
+                clientCards.forEach(card => {
+                    const cardIndustry = card.getAttribute('data-industry');
+                    if (filterValue === 'all' || cardIndustry === filterValue) {
+                        card.style.display = 'block';
+                        card.style.opacity = '0'; // For simple fade-in
+                        setTimeout(() => card.style.opacity = '1', 50); // Trigger fade-in
                     } else {
                         card.style.display = 'none';
                     }
+                    card.style.transition = 'opacity 0.3s ease';
                 });
             }
         });
     });
+
+    // Initially, trigger the 'all' filter if present, or just show all cards
+    const initialActiveFilter = document.querySelector('.clients-page .filter-btn.active');
+    if (initialActiveFilter) {
+        // initialActiveFilter.click(); // Don't auto-click to avoid animation on load if GSAP runs later for entry
+        // Instead, ensure cards are correctly displayed initially by GSAP or CSS
+        if (typeof gsap !== 'undefined') {
+             setTimeout(() => { // After initial GSAP page load animations
+                gsap.to(clientsGrid.children, { opacity: 1, scale: 1, duration: 0.5, stagger: 0.07, ease: 'power2.out' });
+            }, 500); // Delay to ensure page load animations (if any) are done
+        } else {
+            Array.from(clientsGrid.children).forEach(card => card.style.opacity = '1');
+        }
+    }
 }
 
 
@@ -131,8 +148,10 @@ function initTestimonialSlider(testimonials) {
     const dotsContainer = document.querySelector('.clients-page .slider-dots');
     const prevBtn = document.querySelector('.clients-page .prev-slide');
     const nextBtn = document.querySelector('.clients-page .next-slide');
+    const sliderElement = document.querySelector('.clients-page .testimonial-slider');
 
-    if (!track || !dotsContainer || !prevBtn || !nextBtn || testimonials.length === 0) return;
+
+    if (!track || !dotsContainer || !prevBtn || !nextBtn || testimonials.length === 0 || !sliderElement) return;
 
     track.innerHTML = testimonials.map(testimonial => `
         <div class="testimonial-slide-item">
@@ -158,36 +177,29 @@ function initTestimonialSlider(testimonials) {
     const dots = dotsContainer.querySelectorAll('.dot');
     let currentSlide = 0;
     const slideCount = slides.length;
+    let autoSlideInterval;
 
-    function goToSlide(index, direction = 0) { // direction: 1 for next, -1 for prev
-        if (index === currentSlide && direction === 0) return; // Avoid re-animating to same slide
-
-        const oldSlide = slides[currentSlide];
-        currentSlide = (index + slideCount) % slideCount;
-        const newSlide = slides[currentSlide];
+    function goToSlide(index) {
+        if (slideCount <= 1) return;
+        
+        currentSlide = (index + slideCount) % slideCount; // Loop correctly
 
         if (typeof gsap !== 'undefined') {
-            // Simple fade transition or use GSAP's xPercent for sliding
-            // For sliding with GSAP:
-             gsap.to(track, { xPercent: -100 * currentSlide, duration: 0.7, ease: "power3.inOut" });
-
-            // Or for a fade effect:
-            // gsap.timeline()
-            //    .to(oldSlide, { opacity: 0, duration: 0.3, ease: 'power1.in' })
-            //    .set(oldSlide, { display: 'none' })
-            //    .set(newSlide, { display: 'block', opacity: 0 }) // 'block' or 'flex' depending on slide style
-            //    .to(newSlide, { opacity: 1, duration: 0.4, ease: 'power1.out' });
-
-        } else { // Fallback
-            slides.forEach(s => s.style.display = 'none'); // Hide all
-            newSlide.style.display = 'block'; // Show current
-            newSlide.style.opacity = 1;
+            gsap.to(track, { 
+                xPercent: -100 * currentSlide, 
+                duration: 0.7, 
+                ease: "power3.inOut" 
+            });
+        } else { 
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            track.style.transition = 'transform 0.7s ease-in-out';
         }
         updateDots();
+        resetAutoSlide();
     }
 
-    prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1, -1));
-    nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1, 1));
+    prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+    nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
 
     dots.forEach(dot => {
         dot.addEventListener('click', (e) => goToSlide(parseInt(e.target.dataset.slide)));
@@ -196,135 +208,153 @@ function initTestimonialSlider(testimonials) {
     function updateDots() {
         dots.forEach((dot, i) => {
             dot.classList.toggle('active', i === currentSlide);
+            dot.setAttribute('aria-current', i === currentSlide);
         });
     }
+    
+    function startAutoSlide() {
+        if (slideCount <= 1) return;
+        clearInterval(autoSlideInterval); // Clear existing
+        autoSlideInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
+    }
 
-     // Auto-advance (optional)
-    let autoSlideInterval = setInterval(() => goToSlide(currentSlide + 1, 1), 5000);
-    const sliderElement = document.querySelector('.clients-page .testimonial-slider');
+    function resetAutoSlide() {
+        if (slideCount <= 1) return;
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
     sliderElement.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-    sliderElement.addEventListener('mouseleave', () => {
-         clearInterval(autoSlideInterval); // Clear existing before setting new
-         autoSlideInterval = setInterval(() => goToSlide(currentSlide + 1, 1), 5000);
-    });
+    sliderElement.addEventListener('mouseleave', () => startAutoSlide());
 
+    // Swipe functionality for touch devices
+    let touchstartX = 0;
+    let touchendX = 0;
+    const swipeThreshold = 50; // Minimum swipe distance
 
+    track.addEventListener('touchstart', function(event) {
+        touchstartX = event.changedTouches[0].screenX;
+        clearInterval(autoSlideInterval); // Pause on touch
+    }, {passive: true});
+
+    track.addEventListener('touchend', function(event) {
+        touchendX = event.changedTouches[0].screenX;
+        handleSwipe();
+        startAutoSlide(); // Resume on touch end
+    }, {passive: true});
+
+    function handleSwipe() {
+        if (touchendX < touchstartX - swipeThreshold) { // Swiped left
+            goToSlide(currentSlide + 1);
+        }
+        if (touchendX > touchstartX + swipeThreshold) { // Swiped right
+            goToSlide(currentSlide - 1);
+        }
+    }
+    
     // Initial setup
-    if (slideCount > 0 && typeof gsap !== 'undefined') {
-        gsap.set(track, { xPercent: 0 }); // Ensure initial position
-        slides.forEach((slide, index) => {
-            if (index !== 0) gsap.set(slide, {}); // Ensure other slides are ready for xPercent
-        });
-    } else if (slideCount > 0) {
-        slides.forEach((s, i) => s.style.display = i === 0 ? 'block' : 'none');
+    if (slideCount > 0) {
+        if (typeof gsap !== 'undefined') {
+            gsap.set(track, { width: `${slideCount * 100}%` }); // Set track width for xPercent
+            gsap.set(slides, { width: `${100 / slideCount}%` }); // Set individual slide width
+            gsap.set(track, { xPercent: 0 }); 
+        } else {
+            track.style.width = `${slideCount * 100}%`;
+            slides.forEach(slide => slide.style.width = `${100 / slideCount}%`);
+            track.style.transform = `translateX(0%)`;
+        }
     }
     updateDots();
+    startAutoSlide();
 }
 
 
-function initClientPageAnimations() {
-    if (typeof gsap === 'undefined') return;
+function initClientPageAnimationsGSAP() {
+    // Hero animations
+    gsap.from(".clients-page .page-hero h1", { opacity: 0, y: 50, duration: 0.8, delay: 0.2, ease: "power3.out" });
+    gsap.from(".clients-page .page-hero p", { opacity: 0, y: 40, duration: 0.8, delay: 0.4, ease: "power3.out" });
 
-    // Hero animations for clients page
-    gsap.fromTo(".clients-page .page-hero h1", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.2, ease: "power3.out" });
-    gsap.fromTo(".clients-page .page-hero p", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.4, ease: "power3.out" });
-
-    // Section header scroll triggers
+    // Section headers - using the global .animate-on-scroll via main.js is often better for consistency
+    // but if specific GSAP is needed:
     document.querySelectorAll('.clients-page .section-header').forEach(header => {
-        gsap.fromTo(header.querySelector('h2'),
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', scrollTrigger: { trigger: header, start: 'top 85%', toggleActions: 'play none none none' } }
-        );
-        gsap.fromTo(header.querySelector('p'),
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.7, delay: 0.2, ease: 'power2.out', scrollTrigger: { trigger: header, start: 'top 85%', toggleActions: 'play none none none' } }
-        );
+        gsap.from(header.querySelectorAll("h2, p"), {
+            opacity: 0, y: 30, duration: 0.6, stagger: 0.15, ease: 'power2.out',
+            scrollTrigger: { trigger: header, start: 'top 88%', toggleActions: 'play none none none' }
+        });
     });
 
-    // Filter buttons animation
-    gsap.fromTo(".clients-page .industry-filter .filter-btn",
-        { opacity: 0, y: 20 },
-        {
-            opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out',
-            scrollTrigger: { trigger: ".clients-page .industry-filter", start: 'top 85%', toggleActions: 'play none none none' }
-        }
-    );
+    // Filter buttons
+    gsap.from(".clients-page .industry-filter .filter-btn", {
+        opacity: 0, y: 20, duration: 0.5, stagger: 0.08, ease: 'power2.out',
+        scrollTrigger: { trigger: ".clients-page .industry-filter", start: 'top 90%', toggleActions: 'play none none none' }
+    });
+    
+    // Testimonial slider section container
+     gsap.from(".clients-page .testimonial-slider", {
+        opacity: 0, scale: 0.98, duration: 0.8, ease: 'power3.out',
+        scrollTrigger: { trigger: ".clients-page .testimonial-slider", start: 'top 85%', toggleActions: 'play none none none' }
+    });
 
-    // Testimonial slider section
-     gsap.fromTo(".clients-page .testimonial-slider",
-        { opacity: 0, scale: 0.95 },
-        {
-            opacity: 1, scale: 1, duration: 0.8, ease: 'power3.out',
-            scrollTrigger: { trigger: ".clients-page .testimonial-slider", start: 'top 80%', toggleActions: 'play none none none' }
-        }
-    );
+    // Case Study Cards
+    document.querySelectorAll('.clients-page .case-study-card').forEach((card) => {
+        // This relies on .animate-on-scroll from main.js which is better for global consistency.
+        // If specific GSAP is required for these cards beyond the global scroll animation:
+        // gsap.from(card, { /* GSAP specific animation here if needed */ });
 
-
-    // Case Study Cards (if present on this page and structured with .case-study-card)
-    document.querySelectorAll('.clients-page .case-study-card').forEach((card, index) => {
-        gsap.fromTo(card,
-            { opacity: 0, y: 50, scale:0.95 },
-            {
-                opacity: 1, y: 0, scale:1, duration: 0.6, ease: 'power3.out',
-                delay: index * 0.1, // Stagger
-                scrollTrigger: { trigger: card, start: 'top 85%', toggleActions: 'play none none none' }
-            }
-        );
-        // Hover for overlay (if GSAP is used for this instead of CSS)
-        const overlay = card.querySelector('.case-study-overlay');
+        // Hover for overlay (GSAP driven can be smoother)
+        const overlay = card.querySelector('.case-study-overlay h3'); // Assuming overlay has h3
+        const image = card.querySelector('.case-study-image img');
         if (overlay) {
-            card.addEventListener('mouseenter', () => gsap.to(overlay, { y: '0%', duration: 0.4, ease: 'power2.out' }));
-            card.addEventListener('mouseleave', () => gsap.to(overlay, { y: '100%', duration: 0.3, ease: 'power2.in' }));
+            const tl = gsap.timeline({ paused: true });
+            tl.to(overlay, { y: '0%', duration: 0.4, ease: 'power2.out' })
+              .to(image, { scale: 1.08, duration: 0.4, ease: 'power2.out' }, 0); // Synchronize image scale
+
+            card.addEventListener('mouseenter', () => tl.play());
+            card.addEventListener('mouseleave', () => tl.reverse());
         }
     });
 
     // CTA Section
-    gsap.fromTo(".clients-page .cta-section .cta-content > *",
-        { opacity: 0, y: 30 },
-        {
-            opacity: 1, y: 0, duration: 0.6, stagger: 0.2, ease: 'power3.out',
-            scrollTrigger: { trigger: ".clients-page .cta-section", start: 'top 80%', toggleActions: 'play none none none' }
-        }
-    );
+    gsap.from(".clients-page .cta-section .cta-content > *", {
+        opacity: 0, y: 30, duration: 0.6, stagger: 0.15, ease: 'power3.out',
+        scrollTrigger: { trigger: ".clients-page .cta-section", start: 'top 85%', toggleActions: 'play none none none' }
+    });
 }
+
+function initClientPageAnimationsCSS() {
+    // This function is a placeholder if you need to trigger CSS animations
+    // specifically when GSAP is not available.
+    // Most entry animations are handled by .animate-on-scroll and IntersectionObserver from main.js
+    // So, specific triggers here might not be necessary unless you want to add more.
+    console.log("Using CSS fallbacks for clients page animations.");
+}
+
 
 function initCustomCursor() {
     const cursor = document.querySelector('.clients-page .custom-cursor');
     const follower = document.querySelector('.clients-page .cursor-follower');
 
-    if (!cursor || !follower || window.innerWidth < 1025) { // Disable on touch devices / smaller screens
+    if (!cursor || !follower || window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 1025) { 
         if(cursor) cursor.style.display = 'none';
         if(follower) follower.style.display = 'none';
         return;
     }
     
-    // Show cursor once JS is ready
-    cursor.style.opacity = '1';
-    follower.style.opacity = '1';
-
+    gsap.set(cursor, { xPercent: -50, yPercent: -50 });
+    gsap.set(follower, { xPercent: -50, yPercent: -50 });
 
     let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
-    const speed = 0.1; // Adjust for follower smoothness (lower = slower/smoother)
-
-    document.addEventListener('mousemove', (e) => {
+    
+    window.addEventListener('mousemove', e => {
         mouseX = e.clientX;
         mouseY = e.clientY;
-        if(cursor) gsap.to(cursor, { x: mouseX, y: mouseY, duration: 0.1, ease: 'power2.out' });
+        gsap.to(cursor, 0.05, { x: mouseX, y: mouseY }); // Faster update for main cursor
+        gsap.to(follower, 0.3, { x: mouseX, y: mouseY, ease: "power2.out" }); // Smoother follow
     });
 
-    function loop() {
-        if(follower) {
-            const distX = mouseX - followerX;
-            const distY = mouseY - followerY;
-            followerX += distX * speed;
-            followerY += distY * speed;
-            gsap.to(follower, { x: followerX, y: followerY, duration: 0, ease: 'none' }); // Update position directly in loop
-        }
-        requestAnimationFrame(loop);
-    }
-    loop();
-
+    // Show cursor once JS is ready and positioning is set
+    cursor.style.opacity = '1';
+    follower.style.opacity = '1';
 
     const interactiveElements = document.querySelectorAll(
         '.clients-page a, .clients-page button, .clients-page .filter-btn, .clients-page .client-card-item, .clients-page .case-study-card, .clients-page .slider-controls button, .clients-page .dot'
@@ -332,12 +362,12 @@ function initCustomCursor() {
 
     interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
-            if(cursor) cursor.classList.add('active');
-            if(follower) follower.classList.add('active');
+            gsap.to(cursor, 0.2, { scale: 1.8, backgroundColor: 'rgba(255,255,255,0.5)' });
+            gsap.to(follower, 0.3, { scale: 1.5, borderColor: 'var(--light-text)', backgroundColor: 'rgba(var(--primary-rgb), 0.1)' });
         });
         el.addEventListener('mouseleave', () => {
-            if(cursor) cursor.classList.remove('active');
-            if(follower) follower.classList.remove('active');
+            gsap.to(cursor, 0.2, { scale: 1, backgroundColor: 'var(--primary-color)' });
+            gsap.to(follower, 0.3, { scale: 1, borderColor: 'var(--primary-color)', backgroundColor: 'transparent' });
         });
     });
 }

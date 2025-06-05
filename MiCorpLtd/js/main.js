@@ -1,306 +1,248 @@
-// js/main.js
-
 document.addEventListener('DOMContentLoaded', () => {
-    initApp();
-});
-
-function initApp() {
-    handlePreloader();
-    initMobileMenu();
-    initSmoothScroll();
-    initNavbarScrollEffect();
-    updateDynamicYear();
-    initFaqAccordion();
-    initGeneralScrollAnimations(); // Basic scroll animations for elements with .animate-on-scroll
-    handleContactForm(); // Example: if contact form is on multiple pages or for global handling
-}
-
-function handlePreloader() {
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
-        window.addEventListener('load', () => {
-            preloader.classList.add('loaded');
-        });
-    }
-}
-
-function initMobileMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navWrapper = document.querySelector('.nav-wrapper');
+    const navLinks = document.querySelectorAll('.nav-wrapper .nav-links a'); // Target links within nav-wrapper
     const body = document.body;
-    const menuOverlay = document.querySelector('.menu-overlay');
-    const navLinks = navWrapper ? navWrapper.querySelectorAll('.nav-links a') : [];
-    const dropdownToggles = navWrapper ? navWrapper.querySelectorAll('.dropdown > a') : [];
+    const siteHeader = document.querySelector('.site-header');
 
-
-    if (!menuToggle || !navWrapper) return;
-
-    menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu();
+    // Add index to nav items for staggered animation if needed by CSS
+    document.querySelectorAll('.nav-links li').forEach((link, index) => {
+        link.style.setProperty('--item-index', index);
     });
 
-    if (menuOverlay) {
-        menuOverlay.addEventListener('click', closeMenu);
-    }
-
-    navLinks.forEach(link => {
-        // Close menu if it's not a dropdown toggle link
-        if (!link.parentElement.classList.contains('dropdown')) {
-            link.addEventListener('click', closeMenu);
-        }
-    });
-    
-    dropdownToggles.forEach(toggle => {
-        const parentDropdown = toggle.parentElement;
-        if (parentDropdown.classList.contains('dropdown')) {
-            toggle.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768 && parentDropdown.querySelector('.dropdown-menu')) {
-                    e.preventDefault(); // Prevent navigation for main dropdown link on mobile
-                    parentDropdown.classList.toggle('active');
-                }
-            });
-        }
-    });
-
-
-    function toggleMenu() {
+    // Toggle menu
+    menuToggle?.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent click from bubbling to document
         const isActive = menuToggle.classList.toggle('active');
         navWrapper.classList.toggle('active', isActive);
         body.classList.toggle('menu-open', isActive);
-        if (menuOverlay) menuOverlay.classList.toggle('active', isActive);
-        menuToggle.setAttribute('aria-expanded', isActive);
-    }
+    });
 
-    function closeMenu() {
-        menuToggle.classList.remove('active');
-        navWrapper.classList.remove('active');
-        body.classList.remove('menu-open');
-        if (menuOverlay) menuOverlay.classList.remove('active');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        // Close any open dropdowns within the mobile menu
-        navWrapper.querySelectorAll('.dropdown.active').forEach(dropdown => {
-            dropdown.classList.remove('active');
+    // Close menu when a link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navWrapper.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navWrapper.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
         });
-    }
+    });
 
-    // Close menu on window resize if screen becomes larger
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && body.classList.contains('menu-open')) {
-            closeMenu();
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navWrapper && navWrapper.classList.contains('active') &&
+            !navWrapper.contains(e.target) &&
+            !menuToggle.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            navWrapper.classList.remove('active');
+            body.classList.remove('menu-open');
         }
     });
-}
+    
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navWrapper && navWrapper.classList.contains('active')) {
+            menuToggle.classList.remove('active');
+            navWrapper.classList.remove('active');
+            body.classList.remove('menu-open');
+        }
+    });
 
-function initSmoothScroll() {
+
+    // Navbar scroll effect (optional, if you want background change on scroll)
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (siteHeader) {
+            if (scrollTop > 50) {
+                siteHeader.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            } else {
+                siteHeader.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)'; // Keep initial shadow
+            }
+            // Basic hide/show navbar on scroll
+            // if (scrollTop > lastScrollTop && scrollTop > siteHeader.offsetHeight) {
+            //     // Scroll Down
+            //     siteHeader.style.top = `-${siteHeader.offsetHeight}px`;
+            // } else {
+            //     // Scroll Up
+            //     siteHeader.style.top = "0";
+            // }
+        }
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    });
+
+    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            // Ensure it's a valid internal link and not just "#"
-            if (href.length > 1 && document.querySelector(href)) {
-                e.preventDefault();
+            // Check if it's a simple hash for the current page
+            if (href.startsWith('#') && href.length > 1) {
                 const targetElement = document.querySelector(href);
-                const header = document.querySelector('.site-header');
-                const headerHeight = header ? header.offsetHeight : 0;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                if (targetElement) {
+                    e.preventDefault();
+                    const headerOffset = siteHeader ? siteHeader.offsetHeight : 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
-
-function initNavbarScrollEffect() {
-    const header = document.querySelector('.site-header');
-    if (!header) return;
-
-    const scrollThreshold = 50; // Pixels to scroll before effect triggers
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > scrollThreshold) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-}
-
-function updateDynamicYear() {
-    document.querySelectorAll('.current-year').forEach(span => {
-        span.textContent = new Date().getFullYear();
-    });
-    // For older specific IDs, though .current-year is better
-    const yearSpans = ['currentYear', 'currentYearAbout', 'currentYearAuto', 'currentYearClients', 'currentYearContact', 'currentYearIT', 'currentYearProducts', 'currentYearWhy'];
-    yearSpans.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = new Date().getFullYear();
-    });
-}
-
-function initFaqAccordion() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        const questionButton = item.querySelector('.faq-question');
-        const answerPanel = item.querySelector('.faq-answer');
-
-        if (questionButton && answerPanel) {
-            questionButton.addEventListener('click', () => {
-                const isExpanded = questionButton.getAttribute('aria-expanded') === 'true';
-
-                // Optional: Accordion behavior (close others)
-                // faqItems.forEach(otherItem => {
-                //     if (otherItem !== item) {
-                //         otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-                //         otherItem.querySelector('.faq-question').classList.remove('active');
-                //         otherItem.querySelector('.faq-answer').classList.remove('show');
-                //         otherItem.querySelector('.faq-answer').style.maxHeight = null;
-                //     }
-                // });
-
-                questionButton.setAttribute('aria-expanded', String(!isExpanded));
-                questionButton.classList.toggle('active', !isExpanded);
-                answerPanel.classList.toggle('show', !isExpanded);
-
-                if (!isExpanded) {
-                    answerPanel.style.maxHeight = answerPanel.scrollHeight + "px";
-                } else {
-                    answerPanel.style.maxHeight = null;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
                 }
-            });
-        }
-    });
-}
-
-function initGeneralScrollAnimations() {
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    if (animatedElements.length === 0) return;
-
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                // Optional: unobserve after animation if it should only run once
-                // obs.unobserve(entry.target);
-            } else {
-                 // Optional: remove class if animation should replay when scrolling back up
-                 // entry.target.classList.remove('is-visible');
             }
         });
-    }, {
-        threshold: 0.1, // Trigger when 10% of the element is visible
-        // rootMargin: "0px 0px -50px 0px" // Example: trigger 50px earlier from bottom
     });
 
-    animatedElements.forEach(element => {
-        observer.observe(element);
-    });
-}
-
-
-function handleContactForm() {
-    const contactForm = document.getElementById('contactForm'); // Assuming one main contact form
-    const formStatusEl = document.getElementById('formStatus');
-
-    if (contactForm && formStatusEl) {
+    // Contact Form Handling (Contact Page)
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            const form = e.target;
-            const formData = new FormData(form);
-            const submitButton = form.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.innerHTML;
-
-            // Basic client-side validation (enhance as needed)
-            let isValid = true;
-            ['name', 'email', 'subject', 'message'].forEach(fieldName => {
-                const field = form.elements[fieldName];
-                if (field && field.required && !field.value.trim()) {
-                    isValid = false;
-                    // Add some visual indication for missing fields if desired
-                    field.style.borderColor = 'var(--accent-color-error)';
-                } else if (field) {
-                    field.style.borderColor = ''; // Reset border
-                }
-            });
-
-            if (!isValid) {
-                formStatusEl.textContent = "Please fill in all required fields.";
-                formStatusEl.className = 'form-status form-error';
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all required fields (*).');
                 return;
             }
 
-
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
             submitButton.disabled = true;
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            formStatusEl.textContent = '';
-            formStatusEl.className = 'form-status';
+            submitButton.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
 
-
-            // Simulate form submission (replace with actual fetch to Formspree or backend)
-            if (form.action.includes('formspree.io')) { // If using Formspree
-                 try {
-                    const response = await fetch(form.action, {
-                        method: form.method,
-                        body: formData,
-                        headers: { 'Accept': 'application/json' }
-                    });
-                    if (response.ok) {
-                        formStatusEl.textContent = "Thanks for your message! We'll be in touch soon.";
-                        formStatusEl.className = 'form-status form-success';
-                        form.reset();
-                        submitButton.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-                    } else {
-                        const data = await response.json();
-                        if (data.errors) {
-                            formStatusEl.textContent = data.errors.map(err => err.message).join(', ');
-                        } else {
-                            formStatusEl.textContent = "Oops! There was a problem submitting your form.";
-                        }
-                        formStatusEl.className = 'form-status form-error';
-                        submitButton.innerHTML = originalButtonText;
-                    }
-                } catch (error) {
-                    formStatusEl.textContent = "Oops! There was a network error. Please try again.";
-                    formStatusEl.className = 'form-status form-error';
-                    submitButton.innerHTML = originalButtonText;
-                } finally {
-                    if (formStatusEl.className.includes('form-success')) {
-                         setTimeout(() => {
-                            submitButton.innerHTML = originalButtonText;
-                            submitButton.disabled = false;
-                            formStatusEl.textContent = '';
-                         }, 3000);
-                    } else {
-                        submitButton.disabled = false;
-                    }
-                }
-            } else {
-                // Fallback for non-Formspree or local testing
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Simulate success
+                submitButton.innerHTML = 'Message Sent! <i class="fas fa-check"></i>';
+                alert('Thank you for your message. We will contact you soon!');
+                contactForm.reset();
+                
                 setTimeout(() => {
-                    formStatusEl.textContent = "Thank you! Your message has been 'sent' (simulated).";
-                    formStatusEl.className = 'form-status form-success';
-                    form.reset();
-                    submitButton.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-                    setTimeout(() => {
-                        submitButton.innerHTML = originalButtonText;
-                        submitButton.disabled = false;
-                        formStatusEl.textContent = '';
-                    }, 3000);
-                }, 1500);
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                }, 2000);
+
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('There was an error sending your message. Please try again.');
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
             }
         });
     }
-}
 
-// Leaflet Map Initialization (can be called specifically from contact.html or conditionally here)
-// Moved to contact.html inline script for page-specific dependency loading.
-// If you prefer it here, ensure Leaflet JS is loaded globally or conditionally.
-/*
-function initLeafletMap() {
+    // FAQ Functionality (Contact Page)
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const isActive = question.classList.toggle('active');
+            
+            if (answer) {
+                if (isActive) {
+                    answer.classList.add('show');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.classList.remove('show');
+                    answer.style.maxHeight = null;
+                }
+            }
+
+            // Optional: Close other FAQs
+            faqQuestions.forEach(otherQuestion => {
+                if (otherQuestion !== question && otherQuestion.classList.contains('active')) {
+                    otherQuestion.classList.remove('active');
+                    const otherAnswer = otherQuestion.nextElementSibling;
+                    if (otherAnswer) {
+                        otherAnswer.classList.remove('show');
+                        otherAnswer.style.maxHeight = null;
+                    }
+                }
+            });
+        });
+    });
+
+    // Initialize Leaflet Map (Contact Page)
     if (document.getElementById('map')) {
-        // ... map code from contact.html ...
+        try {
+            const micorpLocation = [25.2675, 55.3084]; // Coordinates for Fahidi Heights (approx)
+            const map = L.map('map').setView(micorpLocation, 16);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            const micorpIcon = L.icon({
+                iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png', // Default Leaflet icon
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+                shadowSize: [41, 41]
+            });
+
+            L.marker(micorpLocation, { icon: micorpIcon })
+                .addTo(map)
+                .bindPopup(`
+                    <div style="text-align: center; font-family: var(--font-primary);">
+                        <strong style="color: var(--primary-color); font-size: 1.1em;">Micorp Trading LLC</strong><br>
+                        <small>Office No. 709, Fahidi Heights<br>Al Hamriya, Bur Dubai, Dubai, UAE</small><br>
+                        <a href="https://www.google.com/maps/search/?api=1&query=25.2675,55.3084" target="_blank" style="color: var(--primary-dark); text-decoration: underline; font-weight: 500;">
+                            Get Directions
+                        </a>
+                    </div>
+                `)
+                .openPopup();
+        } catch (e) {
+            console.error("Error initializing Leaflet map. Make sure Leaflet library is loaded.", e);
+            const mapDiv = document.getElementById('map');
+            if (mapDiv) {
+                mapDiv.innerHTML = "<p style='text-align:center; padding-top: 50px;'>Map could not be loaded. Please check your internet connection or contact support.</p>";
+            }
+        }
     }
-}
-*/
+
+    // Stats Counter Animation (Why Choose Us Page)
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const animateStat = (element) => {
+        const target = +element.getAttribute('data-count');
+        const duration = 1500; // 1.5 seconds
+        const frameDuration = 1000 / 60; // 60 FPS
+        const totalFrames = Math.round(duration / frameDuration);
+        let frame = 0;
+
+        const counter = setInterval(() => {
+            frame++;
+            const progress = frame / totalFrames;
+            const currentCount = Math.round(target * progress);
+            
+            element.textContent = currentCount;
+
+            if (frame === totalFrames) {
+                clearInterval(counter);
+                element.textContent = target; // Ensure final value is exact
+            }
+        }, frameDuration);
+    };
+
+    const statObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateStat(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    statNumbers.forEach(stat => {
+        statObserver.observe(stat);
+    });
+
+});

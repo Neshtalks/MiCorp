@@ -4,58 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Clients | Micorp Trading LLC</title>
-    <meta name="description" content="Discover the industry leaders and prestigious organizations across various sectors who trust Micorp Trading LLC for their business needs.">
-    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Discover the industry leaders and diverse businesses that trust Micorp Trading LLC for their electronics, IT, and automotive needs.">
+    
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/animations.css">
+    <link rel="stylesheet" href="../CSS/clients.css"> <!-- Specific styles for clients page -->
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <link rel="stylesheet" href="../CSS/animations.css">
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/clients.css"> <!-- Specific CSS for this page -->
-    
-    <!-- GSAP for advanced animations on this page -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js" defer></script> <!-- If used by clients.js -->
-
 </head>
-<body class="clients-page"> <!-- Add class for page-specific JS/CSS targeting -->
-    <div class="preloader">
-        <div class="spinner"></div>
-    </div>
-
-    <!-- Custom Cursor Elements (for clients.css) -->
-    <div class="custom-cursor"></div>
-    <div class="cursor-follower"></div>
-
-    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+<body class="clients-page"> <!-- Added class for page-specific targeting -->
+     <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- Header Section -->
     <header class="site-header">
         <nav class="navbar">
             <div class="container">
                 <a href="index.html" class="logo">
                     <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo">
                 </a>
-                <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-nav-list">
+                <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
                 <div class="nav-wrapper">
-                     <ul class="nav-links" id="main-nav-list">
+                    <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li class="dropdown">
-                            <a href="products.html" aria-haspopup="true">Products & Services <i class="fas fa-chevron-down dropdown-indicator"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="products.html#electronics">Electronics</a></li>
-                                <li><a href="it-products.html">IT Products</a></li>
-                                <li><a href="automobiles.html">Automobiles</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="products.html">Products & Services</a></li>
                         <li><a href="why-choose-us.html">Why Choose Us</a></li>
                         <li><a href="clients.html" class="active" aria-current="page">Clients</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -66,126 +46,94 @@
     </header>
 
     <main>
-        <section class="page-hero clients-hero"> <!-- Specific class for potential styling overrides -->
+        <!-- Page Hero Section -->
+        <section class="page-hero">
              <div class="hero-background">
-                <img src="../assets/images/clients-hero-bg.jpg" alt="Global network connections representing client partnerships" loading="eager">
+                <img src="../assets/images/clients/client-hero-bg.jpg" alt="Global Partnerships"> <!-- Example image -->
                 <div class="hero-overlay"></div>
             </div>
-            <div class="container hero-content">
-                <!-- GSAP will animate individual characters if .hero-title .char-animated is used in JS -->
-                <h1>Our Trusted Clients</h1>
-                <p>Partnering with leading businesses across diverse industries</p>
+            <div class="container">
+                <h1 class="reveal hero-title">Our Trusted Clients</h1> <!-- Added hero-title -->
+                <p class="reveal delay-1 hero-subtitle">Partnering with leading businesses across diverse industries.</p> <!-- Added hero-subtitle -->
             </div>
         </section>
 
+        <!-- Clients Grid Section -->
         <section class="clients-grid-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Our Client Portfolio</h2>
-                    <p>Discover the prestigious organizations that trust our services and expertise.</p>
+                    <h2 class="reveal" data-animate="title">Our Client Portfolio</h2>
+                    <p class="reveal delay-1" data-animate="subtitle">Discover the prestigious organizations that trust our services and solutions.</p>
                 </div>
 
-                <div class="industry-filter">
-                    <button class="filter-btn active" data-filter="all" type="button">All Industries</button>
-                    <button class="filter-btn" data-filter="technology" type="button">Technology</button>
-                    <button class="filter-btn" data-filter="automotive" type="button">Automotive</button>
-                    <button class="filter-btn" data-filter="finance" type="button">Finance</button>
-                    <button class="filter-btn" data-filter="retail" type="button">Retail</button>
-                    <button class="filter-btn" data-filter="logistics" type="button">Logistics</button>
+                <div class="industry-filter reveal">
+                    <button class="filter-btn active" data-filter="all">All Industries</button>
+                    <button class="filter-btn" data-filter="technology">Technology</button>
+                    <button class="filter-btn" data-filter="automotive">Automotive</button>
+                    <button class="filter-btn" data-filter="finance">Finance</button>
+                    <button class="filter-btn" data-filter="retail">Retail</button>
                 </div>
 
                 <div class="clients-grid">
-                    <!-- Client cards will be dynamically loaded by js/clients.js -->
-                    <!-- Placeholder for structure:
-                    <div class="client-card-item" data-industry="technology">
-                        <div class="client-logo-container">
-                            <img src="../assets/images/clients/client-logo-placeholder1.png" alt="Client Name Logo" class="client-logo">
-                        </div>
-                        <div class="client-info">
-                            <h3>Client Name</h3>
-                            <p>Client description.</p>
-                        </div>
-                    </div>
-                    -->
+                    <!-- Client cards will be loaded by clients.js -->
+                    <p class="loading-message">Loading clients...</p> 
                 </div>
             </div>
         </section>
 
-        <section class="testimonials-section bg-light">
+        <!-- Testimonials Section -->
+        <section class="testimonials-section"> <!-- This section style comes from style.css -->
             <div class="container">
                 <div class="section-header">
-                    <h2>Client Testimonials</h2>
-                    <p>What our valued partners say about their experience with Micorp Trading.</p>
+                    <h2 class="reveal" data-animate="title">Client Testimonials</h2>
+                    <p class="reveal delay-1" data-animate="subtitle">What our valued partners say about their experience with Micorp Trading.</p>
                 </div>
-                <div class="testimonial-slider">
+                <div class="testimonial-slider reveal">
                     <div class="testimonial-track">
-                        <!-- Testimonials will be dynamically loaded by js/clients.js -->
+                        <!-- Testimonials will be loaded by clients.js -->
+                         <p class="loading-message">Loading testimonials...</p>
                     </div>
                     <div class="slider-controls">
-                        <button class="prev-slide" aria-label="Previous Testimonial"><i class="fas fa-chevron-left"></i></button>
-                        <div class="slider-dots">
-                            <!-- Dots will be generated by js/clients.js -->
-                        </div>
-                        <button class="next-slide" aria-label="Next Testimonial"><i class="fas fa-chevron-right"></i></button>
+                        <button class="prev-slide" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+                        <div class="slider-dots"></div>
+                        <button class="next-slide" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <!-- Optional: Case Studies Section (if you want to include it here) -->
-        <section class="case-studies-section">
+
+        <!-- Case Studies Section (Optional - Add if you have case studies) -->
+        <!-- 
+        <section class="case-studies-section bg-light">
             <div class="container">
                 <div class="section-header">
-                    <h2>Success Stories</h2>
-                    <p>See how we've helped businesses like yours achieve their goals.</p>
+                    <h2 class="reveal" data-animate="title">Success Stories</h2>
+                    <p class="reveal delay-1" data-animate="subtitle">Explore how we've helped businesses like yours achieve their goals.</p>
                 </div>
                 <div class="case-studies-grid">
-                     <!-- Example Case Study Card (Can be populated by JS or static) -->
-                    <a href="#" class="case-study-card animate-on-scroll animate-from-bottom">
-                        <div class="case-study-image">
-                            <img src="../assets/images/case-study-placeholder1.jpg" alt="Case Study 1" loading="lazy">
-                            <div class="case-study-overlay"><h3>Tech Solution Implementation</h3></div>
-                        </div>
-                        <div class="case-study-content">
-                            <span class="client-name">Tech Solutions Global</span>
-                            <h3>Boosted Efficiency by 40% with New IT Infrastructure</h3>
-                            <p class="case-study-excerpt">Micorp Trading implemented a state-of-the-art IT infrastructure, resulting in a significant performance increase and operational cost reduction for TSG...</p>
-                            <span class="btn-link">Read More <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </a>
-                     <a href="#" class="case-study-card animate-on-scroll animate-from-bottom delay-200">
-                        <div class="case-study-image">
-                            <img src="../assets/images/case-study-placeholder2.jpg" alt="Case Study 2" loading="lazy">
-                             <div class="case-study-overlay"><h3>Automotive Fleet Upgrade</h3></div>
-                        </div>
-                         <div class="case-study-content">
-                            <span class="client-name">Auto Dynamics Corp</span>
-                            <h3>Modernized Fleet for Enhanced Logistics</h3>
-                            <p class="case-study-excerpt">Provided a new fleet of commercial vehicles, improving delivery times and fuel efficiency for Auto Dynamics Corp's expanding operations...</p>
-                             <span class="btn-link">Read More <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </a>
-                    <!-- Add more case study cards as needed -->
-                </div>
+                    </div>
             </div>
         </section>
+        -->
 
+         <!-- CTA Section -->
         <section class="cta-section">
             <div class="container">
-                <div class="cta-content text-center animate-on-scroll animate-fade-in">
-                    <h2>Partner with Micorp Trading</h2>
-                    <p>Join our growing list of satisfied clients and experience the Micorp difference.</p>
-                    <a href="contact.html" class="btn btn-primary anim-pulse">Become a Client</a>
+                <div class="cta-content reveal">
+                    <h2>Become a Valued Partner</h2>
+                    <p>Join our growing list of satisfied clients. Contact us to discuss how Micorp Trading can support your business.</p>
+                    <a href="contact.html" class="btn btn-primary">Partner With Us</a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo" class="footer-logo" loading="lazy">
+                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Footer Logo" class="footer-logo">
                     <p>Office No. 709, Fahidi Heights, Al Hamriya, Bur Dubai, Dubai, UAE</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -199,23 +147,23 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="products.html">Products</a></li>
+                        <li><a href="products.html">Products & Services</a></li>
                         <li><a href="why-choose-us.html">Why Choose Us</a></li>
                         <li><a href="clients.html">Clients</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Products</h3>
-                    <ul>
+                    <h3>Our Products</h3>
+                     <ul>
                         <li><a href="products.html#electronics">Electronics</a></li>
-                        <li><a href="it-products.html">IT Products</a></li>
-                        <li><a href="automobiles.html">Automobiles</a></li>
+                        <li><a href="products.html#it-products">IT Products</a></li>
+                        <li><a href="products.html#automobiles">Automobiles</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Contact Info</h3>
-                    <ul class="contact-info">
+                    <ul>
                         <li><i class="fas fa-phone"></i> <a href="tel:+97142390917">+971 4 239 0917</a></li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:shanvir@micorptrd.com">shanvir@micorptrd.com</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
@@ -223,16 +171,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span class="current-year"></span> Micorp Trading LLC. All Rights Reserved.</p>
+                <p>&copy; <span id="currentYear">2024</span> Micorp Trading LLC. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <div class="menu-overlay"></div>
-
-    <script src="../js/main.js" defer></script>
-    <!-- animations.js might not be needed if clients.js handles all GSAP, or if main.js handles general scroll -->
-    <!-- <script src="../js/animations.js" defer></script> -->
-    <script src="../js/clients.js" defer></script> 
+    <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/clients.js"></script> <!-- Specific JS for clients page -->
 </body>
 </html>

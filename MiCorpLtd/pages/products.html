@@ -4,48 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products & Services | Micorp Trading LLC</title>
-    <meta name="description" content="Explore our wide range of Electronics, IT products, and Automotive solutions offered by Micorp Trading LLC.">
-    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Explore our wide range of Electronics, IT Products, and Automotive solutions offered by Micorp Trading LLC.">
     
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/animations.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="../CSS/animations.css">
-    <link rel="stylesheet" href="../CSS/style.css">
 </head>
-<body class="products-page">
-    <div class="preloader">
-        <div class="spinner"></div>
-    </div>
-
-    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+<body>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/97142390917" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- Header Section -->
     <header class="site-header">
         <nav class="navbar">
             <div class="container">
                 <a href="index.html" class="logo">
                     <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo">
                 </a>
-                <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-nav-list">
+                <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
                 <div class="nav-wrapper">
-                     <ul class="nav-links" id="main-nav-list">
+                    <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li class="dropdown">
-                            <a href="products.html" class="active" aria-current="page" aria-haspopup="true">Products & Services <i class="fas fa-chevron-down dropdown-indicator"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="products.html#electronics" class="active" aria-current="page">Electronics</a></li>
-                                <li><a href="it-products.html">IT Products</a></li>
-                                <li><a href="automobiles.html">Automobiles</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="why-choose-us.html">Why Choose Us</a></li> 
+                        <li><a href="products.html" class="active" aria-current="page">Products & Services</a></li>
+                        <li><a href="why-choose-us.html">Why Choose Us</a></li>
                         <li><a href="clients.html">Clients</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -55,241 +44,226 @@
     </header>
 
     <main>
-        <section class="page-hero products-hero">
+        <!-- Page Hero Section -->
+        <section class="page-hero">
              <div class="hero-background">
-                <img src="../assets/images/products-hero-bg.jpg" alt="Diverse range of products including electronics, IT equipment, and cars" loading="eager">
+                <img src="../assets/images/IT_Products_Img.jpg" alt="Diverse Products Showcase">
                 <div class="hero-overlay"></div>
             </div>
-            <div class="container hero-content">
-                <h1 class="animate-on-scroll animate-fade-in-up">Our Products & Services</h1>
-                <p class="animate-on-scroll animate-fade-in-up delay-200">Delivering excellence in Electronics, IT, and Automotive solutions</p>
+            <div class="container">
+                <h1 class="reveal">Our Products & Services</h1>
+                <p class="reveal delay-1">Delivering excellence in Electronics, IT, and Automotive solutions</p>
             </div>
         </section>
 
+        <!-- Electronics Section -->
         <section id="electronics" class="products-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="animate-on-scroll animate-fade-in">Electronics</h2>
-                    <p class="animate-on-scroll animate-fade-in delay-200">We offer a comprehensive range of electronics, from the latest gadgets to home appliances.</p>
+                    <h2 class="reveal">Electronics</h2>
+                    <p class="reveal delay-1">A comprehensive range of the latest gadgets to essential home appliances.</p>
                 </div>
                 <div class="products-grid">
-                    <div class="product-card animate-on-scroll animate-from-bottom">
+                    <div class="product-card reveal">
                         <div class="product-image">
-                            <img src="../assets/images/electronics/mobile-devices.jpg" alt="Mobile Phones and Smart Devices" loading="lazy">
-                            <span class="product-badge">Popular</span>
+                            <img src="../assets/images/electronics/mobile-devices.jpg" alt="Mobile Phones and Smart Devices">
+                            <span class="product-badge">Latest Tech</span>
                         </div>
                         <div class="product-info">
                             <h3>Mobile & Smart Devices</h3>
                             <ul class="product-features">
                                 <li><i class="fas fa-mobile-alt"></i> Smartphones & Tablets</li>
                                 <li><i class="fas fa-headphones"></i> Audio Accessories</li>
-                                <li><i class="fas fa-camera"></i> Cameras & Drones</li>
+                                <li><i class="fas fa-laptop"></i> Laptops & Peripherals</li>
                             </ul>
-                            <a href="contact.html?subject=Mobile-Smart-Devices-Inquiry" class="btn btn-primary">Inquire Products</a>
+                            <a href="contact.html?subject=electronics_inquiry" class="btn btn-primary">Inquire Electronics</a>
                         </div>
                     </div>
-                    <div class="product-card animate-on-scroll animate-from-bottom delay-200">
+                    <div class="product-card reveal delay-1">
                         <div class="product-image">
-                            <img src="../assets/images/electronics/smart-home.jpg" alt="Smart Home Automation Solutions" loading="lazy">
+                            <img src="../assets/images/electronics/smart-home.jpg" alt="Smart Home Automation Systems">
                             <span class="product-badge">Smart Living</span>
                         </div>
                         <div class="product-info">
                             <h3>Smart Home Solutions</h3>
-                             <ul class="product-features">
+                            <ul class="product-features">
                                 <li><i class="fas fa-home"></i> Smart Appliances</li>
-                                <li><i class="fas fa-lightbulb"></i> Lighting & Automation</li>
-                                <li><i class="fas fa-shield-alt"></i> Security Systems</li>
+                                <li><i class="fas fa-lightbulb"></i> Intelligent Lighting</li>
+                                <li><i class="fas fa-shield-alt"></i> Home Security Systems</li>
                             </ul>
-                            <a href="contact.html?subject=Smart-Home-Inquiry" class="btn btn-primary">Explore More</a>
+                            <a href="contact.html?subject=smarthome_inquiry" class="btn btn-primary">Explore Smart Home</a>
                         </div>
                     </div>
-                    <div class="product-card animate-on-scroll animate-from-bottom delay-300">
+                    <div class="product-card reveal delay-2">
                         <div class="product-image">
-                            <img src="../assets/images/electronics/entertainment.jpg" alt="Home Entertainment Systems" loading="lazy">
-                            <span class="product-badge">Premium</span>
+                            <img src="../assets/images/electronics/entertainment.jpg" alt="Home Entertainment Systems">
+                            <span class="product-badge">Premium Audio/Video</span>
                         </div>
                         <div class="product-info">
                             <h3>Entertainment Systems</h3>
                             <ul class="product-features">
-                                <li><i class="fas fa-tv"></i> TVs & Projectors</li>
-                                <li><i class="fas fa-volume-up"></i> Audio Systems</li>
+                                <li><i class="fas fa-tv"></i> High-Definition TVs</li>
+                                <li><i class="fas fa-volume-up"></i> Advanced Audio Systems</li>
                                 <li><i class="fas fa-gamepad"></i> Gaming Consoles</li>
                             </ul>
-                            <a href="contact.html?subject=Entertainment-Systems-Inquiry" class="btn btn-primary">Learn More</a>
+                            <a href="contact.html?subject=entertainment_inquiry" class="btn btn-primary">Discover Entertainment</a>
                         </div>
                     </div>
-                    <div class="product-card animate-on-scroll animate-from-bottom delay-400">
+                    <div class="product-card reveal delay-3">
                         <div class="product-image">
-                            <img src="../assets/images/electronics/wearables.jpg" alt="Wearable Technology and Gadgets" loading="lazy">
-                            <span class="product-badge">New</span>
+                            <img src="../assets/images/electronics/wearables.jpg" alt="Wearable Technology and Gadgets">
+                            <span class="product-badge">New Arrivals</span>
                         </div>
                         <div class="product-info">
                             <h3>Wearable Technology</h3>
                             <ul class="product-features">
                                 <li><i class="fas fa-watch"></i> Smartwatches</li>
                                 <li><i class="fas fa-running"></i> Fitness Trackers</li>
-                                <li><i class="fas fa-heartbeat"></i> Health Monitors</li>
+                                <li><i class="fas fa-vr-cardboard"></i> VR/AR Devices</li>
                             </ul>
-                            <a href="contact.html?subject=Wearable-Tech-Inquiry" class="btn btn-primary">Discover More</a>
+                            <a href="contact.html?subject=wearables_inquiry" class="btn btn-primary">Shop Wearables</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="it-products" class="products-section bg-light"> 
+        <!-- IT Products Section -->
+        <section id="it-products" class="products-section bg-light">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="animate-on-scroll animate-fade-in">IT Products</h2>
-                    <p class="animate-on-scroll animate-fade-in delay-200">Comprehensive IT solutions for your business needs</p>
+                    <h2 class="reveal">IT Products</h2>
+                    <p class="reveal delay-1">Comprehensive IT solutions for your business needs</p>
                 </div>
                 <div class="products-grid">
-                    <div class="product-card animate-on-scroll animate-from-bottom">
+                    <div class="product-card reveal">
                         <div class="product-image">
-                            <img src="../assets/images/Hardware_solution.jpg" alt="Enterprise Hardware Solutions" loading="lazy">
-                            <span class="product-badge">Enterprise</span>
+                            <img src="../assets/images/Hardware_solution.jpg" alt="Enterprise Hardware Solutions">
+                            <span class="product-badge">Enterprise Grade</span>
                         </div>
                         <div class="product-info">
                             <h3>Hardware Solutions</h3>
-                            <p>Enterprise-grade servers, workstations, and networking equipment</p>
+                            <p>Robust servers, workstations, and networking equipment.</p>
                             <ul class="product-features">
                                 <li><i class="fas fa-server"></i> Servers & Storage</li>
                                 <li><i class="fas fa-network-wired"></i> Networking Gear</li>
-                                <li><i class="fas fa-desktop"></i> PCs & Workstations</li>
+                                <li><i class="fas fa-desktop"></i> Workstations & PCs</li>
                             </ul>
-                            <a href="it-products.html#networking" class="btn btn-primary">Explore Hardware</a>
+                            <a href="it-products.html" class="btn btn-primary">More IT Hardware</a>
                         </div>
                     </div>
-                    <div class="product-card animate-on-scroll animate-from-bottom delay-200">
+                    <div class="product-card reveal delay-1">
                         <div class="product-image">
-                            <img src="../assets/images/Software_solution.jpg" alt="Business Software Solutions" loading="lazy">
-                            <span class="product-badge">Professional</span>
+                            <img src="../assets/images/Software_solution.jpg" alt="Business Software Solutions">
+                            <span class="product-badge">Professional Suites</span>
                         </div>
                         <div class="product-info">
                             <h3>Software Solutions</h3>
-                            <p>Licensed software and enterprise applications</p>
+                            <p>Licensed software, OS, and enterprise solutions.</p>
                             <ul class="product-features">
                                 <li><i class="fas fa-cogs"></i> Enterprise Software</li>
-                                <li><i class="fas fa-user-shield"></i> Security Solutions</li>
-                                <li><i class="fas fa-cloud"></i> Cloud Services</li>
+                                <li><i class="fas fa-shield-alt"></i> Security Solutions</li>
+                                <li><i class="fas fa-cloud"></i> Cloud Services & Licenses</li>
                             </ul>
-                            <a href="it-products.html#security" class="btn btn-primary">Discover Software</a>
+                            <a href="it-products.html#software" class="btn btn-primary">Explore Software</a>
                         </div>
                     </div>
                 </div>
-                 <div class="text-center animate-on-scroll animate-fade-in" style="margin-top: var(--spacing-xl);">
-                    <a href="it-products.html" class="btn btn-secondary">View All IT Products</a>
+                 <div class="text-center mt-20 reveal delay-2">
+                     <a href="it-products.html" class="btn btn-secondary">View All IT Products & Services</a>
                 </div>
             </div>
         </section>
 
+        <!-- Automobiles Section -->
         <section id="automobiles" class="products-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="animate-on-scroll animate-fade-in">Automotive Solutions</h2>
-                    <p class="animate-on-scroll animate-fade-in delay-200">Premium vehicles for discerning clients</p>
+                    <h2 class="reveal">Automotive Solutions</h2>
+                    <p class="reveal delay-1">Premium vehicles for discerning clients and robust commercial options</p>
                 </div>
-                <div class="vehicles-grid"> 
-                    <div class="vehicle-card animate-on-scroll animate-from-bottom"> 
+                <div class="vehicles-grid">
+                    <div class="vehicle-card reveal">
                         <div class="vehicle-image">
-                            <img src="../assets/images/Luxury Car.webp" alt="Luxury Vehicles Showcase" loading="lazy">
-                            <span class="vehicle-badge">Premium</span>
+                            <img src="../assets/images/Luxury Car.webp" alt="Luxury Sedans and SUVs">
+                            <span class="vehicle-badge">Premium Selection</span>
                         </div>
                         <div class="vehicle-details">
                             <h3>Luxury Vehicles</h3>
                             <div class="vehicle-specs">
-                                <span class="spec-item"><i class="fas fa-car"></i> Premium Brands</span>
+                                <span class="spec-item"><i class="fas fa-car-side"></i> Premium Brands</span>
                                 <span class="spec-item"><i class="fas fa-star"></i> High-End Models</span>
                             </div>
-                            <p>Experience luxury and performance with our premium vehicle selection</p>
+                            <p>Experience unparalleled luxury and performance with our curated selection of premium vehicles.</p>
                             <div class="vehicle-cta">
-                                <a href="automobiles.html#luxury" class="btn btn-primary">Explore Luxury</a>
-                                <a href="contact.html?subject=Luxury-Vehicle-Inquiry" class="btn btn-secondary">Inquire Now</a>
+                                <a href="automobiles.html#luxury" class="btn btn-primary">Inquire Luxury</a>
                             </div>
                         </div>
                     </div>
-                    <div class="vehicle-card animate-on-scroll animate-from-bottom delay-200"> 
+                    <div class="vehicle-card reveal delay-1">
                         <div class="vehicle-image">
-                            <img src="../assets/images/Commercial_images.jpg" alt="Commercial Vehicles Fleet" loading="lazy">
-                            <span class="vehicle-badge">Commercial</span>
+                            <img src="../assets/images/Commercial_images.jpg" alt="Commercial Trucks and Vans">
+                            <span class="vehicle-badge">Business Fleet</span>
                         </div>
                         <div class="vehicle-details">
                             <h3>Commercial Vehicles</h3>
                             <div class="vehicle-specs">
-                                <span class="spec-item"><i class="fas fa-truck"></i> Commercial Fleet</span>
-                                <span class="spec-item"><i class="fas fa-cog"></i> Custom Solutions</span>
+                                <span class="spec-item"><i class="fas fa-truck"></i> Fleet Solutions</span>
+                                <span class="spec-item"><i class="fas fa-cog"></i> Custom Options</span>
                             </div>
-                            <p>Reliable commercial vehicles for your business needs</p>
+                            <p>Reliable and efficient commercial vehicles tailored to meet your business operational needs.</p>
                             <div class="vehicle-cta">
-                                <a href="automobiles.html#commercial" class="btn btn-primary">View Commercial</a>
-                                <a href="contact.html?subject=Commercial-Vehicle-Inquiry" class="btn btn-secondary">Inquire Now</a>
+                                <a href="automobiles.html#commercial" class="btn btn-primary">Inquire Commercial</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                 <div class="text-center animate-on-scroll animate-fade-in" style="margin-top: var(--spacing-xl);">
-                    <a href="automobiles.html" class="btn btn-secondary">View All Automobiles</a>
+                <div class="text-center mt-20 reveal delay-2">
+                     <a href="automobiles.html" class="btn btn-secondary">View All Automotive Solutions</a>
                 </div>
             </div>
         </section>
         
-        <section class="products-section bg-light">
+        <!-- This .p-grid was in your original products.html, if it's for a different type of product display, keep it, otherwise it might be redundant -->
+        <!-- <section class="p-grid products-section bg-light">
             <div class="container">
-                <div class="section-header"> 
-                    <h2 class="animate-on-scroll animate-fade-in">Other Featured Products</h2>
-                    <p class="animate-on-scroll animate-fade-in delay-200">Discover more from our quality product range</p>
+                <div class="p-grid__header section-header">
+                    <h2>Additional Products Showcase</h2>
+                    <p>Discover our range of quality products</p>
                 </div>
-                <div class="products-grid"> 
-                    <div class="product-card animate-on-scroll animate-from-bottom"> 
-                        <div class="product-image">
-                            <img src="../assets/images/product1.jpg" alt="Sample Featured Product 1" loading="lazy">
+                <div class="p-grid__container products-grid">
+                    <div class="p-card product-card reveal">
+                        <div class="p-card__image product-image">
+                            <img src="../assets/images/product1.jpg" alt="Generic Product 1">
                         </div>
-                        <div class="product-info">
-                            <h3>Featured Product 1</h3>
-                            <p>Brief description of featured product 1. Highlighting key features and benefits for the customer.</p>
-                            <a href="contact.html?subject=FeaturedProduct1-Inquiry" class="btn btn-primary">Details</a>
-                        </div>
-                    </div>
-                     <div class="product-card animate-on-scroll animate-from-bottom delay-200">
-                        <div class="product-image">
-                            <img src="../assets/images/product2_placeholder.jpg" alt="Sample Featured Product 2" loading="lazy"> 
-                        </div>
-                        <div class="product-info">
-                            <h3>Featured Product 2</h3>
-                            <p>Brief description of featured product 2. Built for durability and performance in demanding environments.</p>
-                             <a href="contact.html?subject=FeaturedProduct2-Inquiry" class="btn btn-primary">Details</a>
-                        </div>
-                    </div>
-                     <div class="product-card animate-on-scroll animate-from-bottom delay-300"> 
-                        <div class="product-image">
-                            <img src="../assets/images/product3_placeholder.jpg" alt="Sample Featured Product 3" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>Featured Product 3</h3>
-                            <p>Innovative solution designed for modern challenges. Explore its unique capabilities and advantages.</p>
-                            <a href="contact.html?subject=FeaturedProduct3-Inquiry" class="btn btn-primary">Details</a>
+                        <div class="p-card__content product-info">
+                            <h3 class="p-card__title">Specialized Product A</h3>
+                            <p class="p-card__description">Detailed description for specialized product A.</p>
+                             <a href="contact.html?subject=special_product_A" class="btn btn-primary">Inquire Now</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
+        <!-- CTA Section -->
         <section class="cta-section">
             <div class="container">
-                <div class="cta-content animate-on-scroll animate-fade-in">
+                <div class="cta-content reveal">
                     <h2>Ready to Explore Our Solutions?</h2>
-                    <p>Contact us today to discuss your requirements</p>
-                    <a href="contact.html" class="btn btn-primary anim-pulse">Get in Touch</a>
+                    <p>Contact us today to discuss your specific requirements and let our experts guide you to the perfect products and services.</p>
+                    <a href="contact.html" class="btn btn-primary">Get in Touch</a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Logo" class="footer-logo" loading="lazy">
+                    <img src="../assets/images/MiCORP_Logo.jpg" alt="Micorp Trading LLC Footer Logo" class="footer-logo">
                     <p>Office No. 709, Fahidi Heights, Al Hamriya, Bur Dubai, Dubai, UAE</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -303,23 +277,23 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="products.html">Products</a></li>
+                        <li><a href="products.html">Products & Services</a></li>
                         <li><a href="why-choose-us.html">Why Choose Us</a></li>
                         <li><a href="clients.html">Clients</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Products</h3>
-                    <ul>
+                    <h3>Our Products</h3>
+                     <ul>
                         <li><a href="products.html#electronics">Electronics</a></li>
-                        <li><a href="it-products.html">IT Products</a></li>
-                        <li><a href="automobiles.html">Automobiles</a></li>
+                        <li><a href="products.html#it-products">IT Products</a></li>
+                        <li><a href="products.html#automobiles">Automobiles</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Contact Info</h3>
-                    <ul class="contact-info">
+                    <ul>
                         <li><i class="fas fa-phone"></i> <a href="tel:+97142390917">+971 4 239 0917</a></li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:shanvir@micorptrd.com">shanvir@micorptrd.com</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
@@ -327,14 +301,13 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span class="current-year"></span> Micorp Trading LLC. All Rights Reserved.</p>
+                <p>&copy; <span id="currentYear">2024</span> Micorp Trading LLC. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <div class="menu-overlay"></div>
-
-    <script src="../js/main.js" defer></script>
-    <script src="../js/animations.js" defer></script>
+    <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
 </body>
 </html>
