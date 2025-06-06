@@ -218,7 +218,3 @@ This website provides a strong foundation. Potential future enhancements could i
 *   **Layout Issues on Specific Devices:**
     *   Use browser developer tools to inspect the CSS and identify which rules are causing the problem.
     *   Adjust media queries in `style.css` as needed.
-
----
-
-We hope this website serves Micorp Trading LLC effectively in achieving its business objectives! Please don't hesitate to reach out if you have any questions.
