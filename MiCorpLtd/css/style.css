@@ -52,7 +52,7 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 16px; /* Base font size */
+    font-size: 16px; /* Base font size - rem units will be relative to this */
 }
 
 body {
@@ -68,11 +68,11 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 20px; /* Default horizontal padding */
 }
 
 section {
-    padding: 80px 0;
+    padding: clamp(40px, 8vw, 80px) 0; /* Fluid vertical padding */
 }
 
 img {
@@ -98,16 +98,31 @@ ul {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.3;
-    color: var(--dark-color);
+    color: var(--dark-color); /* Default heading color for sections outside hero */
 }
 
-h1 { font-size: 2.8rem; margin-bottom: 1rem; }
-h2 { font-size: 2.2rem; margin-bottom: 0.75rem; }
-h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+/* Responsive Typography using clamp() */
+h1 {
+    font-size: clamp(2rem, 5vw + 1rem, 3.2rem); /* Min, Preferred, Max */
+    margin-bottom: clamp(0.8rem, 2vw, 1.2rem);
+}
+h2 { /* Section headers */
+    font-size: clamp(1.8rem, 4vw + 1rem, 2.5rem);
+    margin-bottom: 0.75rem;
+}
+h3 { /* Card titles, smaller section titles */
+    font-size: clamp(1.2rem, 2.5vw + 0.8rem, 1.6rem);
+    margin-bottom: 0.5rem;
+}
+p, li, .card-description { /* General body text, list items, card descriptions */
+    font-size: clamp(0.9rem, 1.5vw + 0.7rem, 1rem);
+    line-height: 1.7; /* Slightly increased for readability */
+}
+
 
 .section-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: clamp(40px, 6vw, 60px); /* Fluid margin */
 }
 
 .section-header h2 {
@@ -128,7 +143,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 }
 
 .section-header p {
-    font-size: 1.1rem;
+    /* font-size: 1.1rem; /* Overridden by general p rule with clamp */
     color: var(--gray-color);
     max-width: 700px;
     margin: 0 auto;
@@ -136,14 +151,14 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 
 .btn, button[type="submit"] {
     display: inline-block;
-    padding: 12px 30px;
+    padding: clamp(10px, 1.5vw, 12px) clamp(20px, 3vw, 30px); /* Fluid padding */
     border-radius: var(--border-radius);
     font-weight: 600;
     text-align: center;
     cursor: pointer;
     transition: var(--transition);
     border: 2px solid transparent;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1.8vw, 1rem); /* Fluid font size for buttons */
 }
 
 .btn-primary, button[type="submit"].btn-primary {
@@ -197,14 +212,14 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 }
 
 .logo img {
-    height: 45px; /* Adjusted for consistency */
+    height: clamp(35px, 5vw, 45px); /* Fluid logo height */
     width: auto;
     object-fit: contain;
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: clamp(15px, 3vw, 30px); /* Fluid gap */
 }
 
 .nav-links a {
@@ -213,7 +228,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     font-weight: 500;
     position: relative;
     padding: 5px 0;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem); /* Fluid font size for nav links */
 }
 
 .nav-links a.active,
@@ -232,7 +247,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 }
 
 .menu-toggle {
-    display: none; /* Hidden by default, shown in media query */
+    display: none;
     flex-direction: column;
     justify-content: space-around;
     width: 30px;
@@ -255,12 +270,10 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 .menu-toggle.active span:nth-child(1) {
     transform: translateY(10.5px) rotate(45deg);
 }
-
 .menu-toggle.active span:nth-child(2) {
     opacity: 0;
     transform: translateX(-20px);
 }
-
 .menu-toggle.active span:nth-child(3) {
     transform: translateY(-10.5px) rotate(-45deg);
 }
@@ -274,22 +287,22 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--light-color);
+    color: var(--light-color); /* Base text color for hero is white */
     overflow: hidden;
-    margin-top: calc(-1 * var(--header-height)); /* Offset the body padding-top */
+    margin-top: calc(-1 * var(--header-height));
 }
 
 .home-hero {
     height: 100vh;
-    min-height: 600px;
+    min-height: 500px; /* Adjusted min-height for smaller screens */
 }
 
-.page-hero { /* For inner pages */
+.page-hero {
     height: 50vh;
-    min-height: 350px;
+    min-height: 300px; /* Adjusted min-height */
 }
-.why-choose-hero { background-image: url('../assets/images/About_us_office.avif'); } /* Example, use specific images */
-.contact-hero .hero-background img { object-position: center 60%;} /* Example for contact page focus */
+.why-choose-hero { background-image: url('../assets/images/About_us_office.avif'); }
+.contact-hero .hero-background img { object-position: center 60%;}
 
 
 .hero-background {
@@ -300,7 +313,6 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     height: 100%;
     z-index: 1;
 }
-
 .hero-background img {
     width: 100%;
     height: 100%;
@@ -321,59 +333,64 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
      background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
 }
 
-
 .hero-content, .page-hero .container {
     position: relative;
     z-index: 3;
-    padding-top: var(--header-height); /* Ensure content is below fixed header */
+    padding-top: var(--header-height);
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
 }
-.home-hero .hero-content h1{
+
+.hero-content h1, .page-hero h1 {
+    font-size: clamp(2rem, 6vw + 1rem, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: var(--light-color); /* Explicitly white */
+}
+
+.home-hero .hero-content h1 {
+    font-size: clamp(2.5rem, 7vw + 1rem, 5rem);
     text-align: left;
+    /* color: var(--light-color); /* Inherits */
 }
-.home-hero .hero-content p{
+
+.hero-content p, .page-hero p {
+    font-size: clamp(1rem, 2.5vw + 0.5rem, 1.25rem);
+    margin-bottom: clamp(1.5rem, 4vw, 2rem);
+    opacity: 1; /* Full white vibrancy */
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    color: var(--light-color); /* Explicitly white */
+}
+
+.home-hero .hero-content p {
     text-align: left;
     max-width: 600px;
     margin-left: 0;
+    /* color: var(--light-color); /* Inherits */
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(15px, 3vw, 20px);
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .home-hero .hero-buttons {
     justify-content: flex-start;
 }
 
-.hero-content h1, .page-hero h1 {
-    font-size: 3.5rem; /* Standardized */
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.hero-content p, .page-hero p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
 
 /* =========================
    4. Common Section Styles
    ========================= */
-.about-section, .products-section, .why-choose-section, .clients-section, .contact-cta,
-.about-content-section, .values-section, .team-section, .advantages-section, .process-section,
-.testimonials-section, .stats-section, .it-products-section, .auto-category-section,
-.it-services-section, .auto-services-section, .auto-testimonials, .find-us-section,
-.contact-form-section, .faq-section, .clients-grid-section, .map-section {
-    /* Common padding is already set in section tag */
-}
 
 .cta-section {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
@@ -394,13 +411,11 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     border-color: var(--light-gray-color);
 }
 
-
-/* Base Card Style */
 .feature-card, .product-card, .value-card, .team-member, .advantage-card,
 .process-step, .testimonial-card, .stat-item, .vehicle-card, .client-card,
 .service-card, .contact-card, .faq-item {
     background: var(--light-color);
-    padding: 30px;
+    padding: clamp(20px, 3vw, 30px);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow-light);
     transition: var(--transition);
@@ -414,19 +429,18 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     box-shadow: var(--box-shadow);
 }
 
-/* Grids */
 .features-grid, .product-categories, .values-grid, .team-grid, .advantages-grid,
 .testimonials-grid, .stats-grid, .products-grid, .vehicles-grid, .clients-grid,
 .services-grid, .departments-grid, .case-studies-grid {
     display: grid;
-    gap: 30px;
+    gap: clamp(20px, 4vw, 30px);
 }
 
 .features-grid, .values-grid, .advantages-grid, .stats-grid, .services-grid, .departments-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 .product-categories, .team-grid, .testimonials-grid, .products-grid, .vehicles-grid, .clients-grid, .case-studies-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 
@@ -434,11 +448,10 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
    5. Page Specific Styles
    ========================= */
 
-/* Home Page */
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: clamp(30px, 5vw, 50px);
     align-items: center;
 }
 .about-text {
@@ -475,10 +488,10 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 .product-info p {
     color: var(--gray-color);
     margin-bottom: 20px;
-    min-height: 48px; /* To align buttons if text length varies */
+    min-height: 4.8em;
 }
 
-.feature-icon { /* For why-choose-us feature cards */
+.feature-icon {
     width: 70px;
     height: 70px;
     background-color: rgba(0, 184, 212, 0.1);
@@ -491,12 +504,11 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     margin: 0 auto 20px;
 }
 .feature-card h3 {
-    font-size: 1.3rem;
     margin-bottom: 10px;
 }
 
 .clients-section .client-logo {
-    height: 120px; /* Was 200px, adjusted for better grid fit */
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -506,8 +518,8 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     box-shadow: var(--box-shadow-light);
 }
 .clients-section .client-logo img {
-    max-height: 80px; /* Was 100%, adjusted */
-    max-width: 180px; /* Was 200px */
+    max-height: 80px;
+    max-width: 180px;
     width: auto;
     object-fit: contain;
     filter: none !important;
@@ -515,8 +527,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     -webkit-filter: none !important;
 }
 
-/* About Page */
-.about-content-section .about-grid { /* Renamed from about-content for clarity */
+.about-content-section .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -528,11 +539,11 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     aspect-ratio: 4/3;
     object-fit: cover;
 }
-.value-card i, .advantage-icon i, .department-icon i { /* Shared icon style for values, advantages */
+.value-card i, .advantage-icon i, .department-icon i {
     font-size: 2rem;
     color: var(--primary-color);
     margin-bottom: 15px;
-    display: block; /* Center icon */
+    display: block;
 }
 .value-card .fas, .advantage-card .fas {
     width: 70px;
@@ -560,7 +571,6 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     object-fit: cover;
 }
 
-/* Products Page (General, IT, Automobiles, Electronics) */
 .product-badge, .vehicle-badge {
     position: absolute;
     top: 15px;
@@ -581,14 +591,13 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     align-items: center;
     gap: 10px;
     margin-bottom: 8px;
-    font-size: 0.9rem;
 }
 .product-features i {
     color: var(--primary-color);
-    width: 18px; /* For alignment */
+    width: 18px;
 }
 
-.vehicle-image { /* Similar to product-image */
+.vehicle-image {
     height: 250px;
     overflow: hidden;
     border-radius: var(--border-radius) var(--border-radius) 0 0;
@@ -630,14 +639,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     margin-top: 20px;
 }
 
-.p-grid { /* From products.html, seems like a duplicate product grid */
-    /* Styles for .p-grid, .p-card if needed, or merge with .products-grid */
-}
-.p-card__image img {
-    /* Ensure proper styling if used */
-}
-
-.it-products-section .product-item { /* From it-products.html */
+.it-products-section .product-item {
     background: var(--light-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow-light);
@@ -648,7 +650,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     transform: translateY(-8px);
     box-shadow: var(--box-shadow);
 }
-.it-products-section .product-image img { /* Ensure this uses general image styling */
+.it-products-section .product-image img {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -657,7 +659,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     padding: 20px;
 }
 .it-products-section .product-details h4 {
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 2vw, 1.2rem);
     margin-bottom: 10px;
 }
 .it-products-section .category-header {
@@ -665,23 +667,18 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     padding-bottom: 15px;
     border-bottom: 1px solid #eee;
 }
-.it-products-section .category-header h3{
-    font-size: 1.8rem;
-}
 
-
-/* Why Choose Us Page */
 .process-steps {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: clamp(20px, 3vw, 30px);
     justify-content: center;
     margin-top: 40px;
 }
 .process-step {
     flex: 1;
     min-width: 200px;
-    max-width: 250px; /* To prevent very wide cards on large screens if few items */
+    max-width: 280px;
     position: relative;
 }
 .step-number {
@@ -698,7 +695,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     margin: 0 auto 20px;
 }
 .testimonial-content .rating {
-    color: #fbbf24; /* Gold for stars */
+    color: #fbbf24;
     margin-bottom: 15px;
 }
 .testimonial-author {
@@ -714,24 +711,23 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     border-radius: 50%;
     object-fit: cover;
 }
-.testimonial-author h4 { font-size: 1.1rem; margin-bottom: 3px; }
-.testimonial-author p { font-size: 0.9rem; color: var(--gray-color); margin: 0; font-style: normal; }
+.testimonial-author h4 { font-size: clamp(1rem, 1.8vw, 1.1rem); margin-bottom: 3px; }
+.testimonial-author p { font-size: clamp(0.8rem, 1.5vw, 0.9rem); color: var(--gray-color); margin: 0; font-style: normal; }
 
 .stat-number {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 5vw, 3rem);
     font-weight: bold;
     color: var(--primary-color);
     margin-bottom: 10px;
 }
 .stat-label {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2vw, 1.1rem);
     color: var(--gray-color);
 }
 
-/* Contact Page */
 .contact-hero .contact-quick-links {
     display: flex;
-    gap: 20px;
+    gap: clamp(15px, 3vw, 20px);
     justify-content: center;
     margin-top: 30px;
     flex-wrap: wrap;
@@ -756,16 +752,16 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 
 .contact-map-container {
     display: grid;
-    grid-template-columns: 1fr 1.2fr; /* Adjust ratio as needed */
-    gap: 40px;
-    align-items: flex-start; /* Align items to the top */
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(20px, 4vw, 40px);
+    align-items: flex-start;
 }
 .contact-info-wrapper {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.contact-card .contact-icon { /* Specific for contact page info cards */
+.contact-card .contact-icon {
     font-size: 1.5rem;
     color: var(--primary-color);
     background: rgba(0, 184, 212, 0.1);
@@ -779,7 +775,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     flex-shrink: 0;
 }
 .contact-card {
-    display: flex; /* Overriding base card text-align center */
+    display: flex;
     align-items: flex-start;
     text-align: left;
     padding: 20px;
@@ -800,13 +796,13 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 #map {
     width: 100%;
     height: 100%;
-    min-height: 400px; /* Ensure map has height */
+    min-height: 400px;
 }
 
 .form-features-container {
     display: grid;
-    grid-template-columns: 1.5fr 1fr; /* Form larger */
-    gap: 40px;
+    grid-template-columns: 1.5fr 1fr;
+    gap: clamp(20px, 4vw, 40px);
     align-items: flex-start;
 }
 .contact-form-wrapper {
@@ -845,7 +841,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     flex-direction: column;
     gap: 20px;
 }
-.contact-features .feature-card { /* Override base card style */
+.contact-features .feature-card {
     display: flex;
     align-items: flex-start;
     text-align: left;
@@ -853,7 +849,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 }
 .contact-features .feature-icon {
     margin-right: 15px;
-    margin-bottom: 0; /* Reset from base card */
+    margin-bottom: 0;
     flex-shrink: 0;
 }
 .faq-item button.faq-question {
@@ -862,7 +858,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     border: none;
     padding: 20px;
     text-align: left;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2vw, 1.1rem);
     font-weight: 500;
     display: flex;
     justify-content: space-between;
@@ -885,7 +881,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     padding: 0 20px;
 }
 .faq-answer.show {
-    max-height: 300px; /* Adjust as needed */
+    max-height: 300px;
     padding: 0 20px 20px;
 }
 .faq-answer p, .faq-answer ul {
@@ -900,20 +896,19 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 .footer {
     background-color: var(--dark-color);
     color: rgba(255, 255, 255, 0.8);
-    padding: 80px 0 0;
+    padding: clamp(50px, 8vw, 80px) 0 0;
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-bottom: 60px;
+    gap: clamp(30px, 5vw, 40px);
+    margin-bottom: clamp(40px, 6vw, 60px);
 }
 
 .footer-col:first-child {
     display: flex;
     flex-direction: column;
-    /* align-items: flex-start; For left align, center for center */
 }
 
 .footer-logo {
@@ -922,7 +917,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 }
 
 .footer-col h3 {
-    font-size: 1.3rem;
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
     margin-bottom: 20px;
     position: relative;
     padding-bottom: 10px;
@@ -945,6 +940,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 
 .footer-col ul li a, .footer-col p, .footer-col li {
     color: rgba(255, 255, 255, 0.7);
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
 }
 .footer-col ul li a:hover {
     color: var(--light-color);
@@ -961,9 +957,6 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     display: flex;
     gap: 15px;
     margin-top: 20px;
-}
-.footer-col:first-child .social-links {
-    /* justify-content: flex-start; For left align */
 }
 
 .social-links a {
@@ -991,6 +984,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 .footer-bottom p {
     color: rgba(255, 255, 255, 0.6);
     margin-bottom: 0;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
 }
 
 /* =========================
@@ -1000,15 +994,15 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 60px;
-    height: 60px;
+    width: clamp(50px, 8vw, 60px);
+    height: clamp(50px, 8vw, 60px);
     background-color: var(--success-color);
     color: var(--light-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 3vw, 1.8rem);
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
     z-index: 999;
 }
@@ -1023,38 +1017,65 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 /* =========================
    8. Responsive Styles
    ========================= */
+
 @media (max-width: 992px) {
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
-    h3 { font-size: 1.3rem; }
-    section { padding: 60px 0; }
+    .container {
+        /* max-width: 960px; /* Already part of .container logic */
+    }
 
     .about-content, .about-content-section .about-grid,
     .contact-map-container, .form-features-container {
         grid-template-columns: 1fr;
     }
     .about-image, .about-content-section .about-image {
-        order: -1; /* Image on top on mobile */
+        order: -1;
         margin-bottom: 30px;
     }
     .about-text, .about-content-section .about-text { text-align: center; }
-    .home-hero .hero-content h1, .home-hero .hero-content p { text-align: center; max-width: 100%; margin-left:auto; margin-right:auto; }
-    .home-hero .hero-buttons { justify-content: center; }
 
-    .footer-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-    .footer-col:first-child { align-items: center; text-align: center; }
-    .footer-col:first-child .social-links { justify-content: center; }
-    .footer-col h3::after { left: 50%; transform: translateX(-50%); }
+    .home-hero .hero-content h1 {
+        text-align: center;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+     .home-hero .hero-content p {
+        text-align: center;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .home-hero .hero-buttons {
+        justify-content: center;
+    }
 
+    .footer-col:first-child {
+        align-items: center;
+        text-align: center;
+    }
+    .footer-col:first-child .social-links {
+        justify-content: center;
+    }
+    .footer-col h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 @media (max-width: 768px) {
     html { font-size: 15px; }
-    h1, .hero-content h1, .page-hero h1 { font-size: 2.2rem; }
-    .hero-content p, .page-hero p { font-size: 1.1rem; }
 
-    .home-hero { min-height: 500px; }
-    .page-hero { height: 40vh; min-height: 300px; }
+    .hero-content h1, .page-hero h1 {
+        font-size: clamp(1.8rem, 8vw + 0.5rem, 3rem);
+        margin-bottom: 1rem;
+    }
+     .home-hero .hero-content h1 {
+        font-size: clamp(2rem, 9vw + 0.5rem, 3.5rem);
+    }
+    .hero-content p, .page-hero p {
+        font-size: clamp(0.9rem, 4vw + 0.5rem, 1.1rem);
+        margin-bottom: 1.5rem;
+    }
 
     .menu-toggle { display: flex; }
     .nav-wrapper {
@@ -1070,7 +1091,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
         transition: transform 0.35s ease-in-out, opacity 0.35s ease-in-out, visibility 0.35s ease-in-out;
         overflow-y: auto;
         padding: 30px;
-        z-index: 999; /* Below header but above content */
+        z-index: 999;
     }
     .nav-wrapper.active {
         transform: translateX(0);
@@ -1079,7 +1100,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     }
     .nav-links {
         flex-direction: column;
-        align-items: flex-start; /* Or center */
+        align-items: flex-start;
         gap: 0;
     }
     .nav-links li {
@@ -1089,7 +1110,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     }
     .nav-wrapper.active .nav-links li {
         animation: fadeInBottomNav 0.3s ease forwards;
-        animation-delay: calc(0.07s * var(--item-index)); /* Stagger animation */
+        animation-delay: calc(0.07s * var(--item-index));
     }
     @keyframes fadeInBottomNav {
         to { opacity: 1; transform: translateY(0); }
@@ -1101,40 +1122,53 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
         border-bottom: 1px solid var(--light-gray-color);
     }
     .nav-links li:last-child a { border-bottom: none; }
-    .nav-links a.active::after { display: none; } /* No underline for mobile active link text */
+    .nav-links a.active::after { display: none; }
 
     body.menu-open { overflow: hidden; }
 
     .product-categories, .team-grid, .testimonials-grid, .products-grid, .vehicles-grid, .clients-grid, .case-studies-grid,
     .features-grid, .values-grid, .advantages-grid, .stats-grid, .services-grid, .departments-grid {
-        grid-template-columns: 1fr; /* Single column for smaller screens */
-    }
-    .process-steps { flex-direction: column; align-items: center; }
-    .process-step { max-width: 100%; }
-
-    .hero-buttons { flex-direction: column; align-items: center; }
-    .hero-buttons .btn { width: 80%; max-width: 280px; }
-
-    .contact-map-container {
         grid-template-columns: 1fr;
     }
+    .process-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    .process-step {
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .hero-buttons .btn:last-child {
+        margin-bottom: 0;
+    }
+
     .map-wrapper { height: 300px; }
     #map { min-height: 300px; }
 
-    .form-features-container {
-        grid-template-columns: 1fr;
-    }
     .contact-features { margin-top: 30px; }
 
-    .whatsapp-float { width: 50px; height: 50px; font-size: 1.5rem; bottom: 20px; right: 20px; }
+    .whatsapp-float {
+        bottom: 20px; right: 20px;
+    }
+    .container {
+        padding: 0 15px;
+    }
 }
 
 @media (max-width: 480px) {
     html { font-size: 14px; }
-    h1, .hero-content h1, .page-hero h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.6rem; }
-    .section-header p { font-size: 1rem; }
-    section { padding: 50px 0; }
 
     .footer-grid { gap: 20px; }
     .footer-col { margin-bottom: 20px; }
