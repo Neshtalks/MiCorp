@@ -42,22 +42,22 @@
   ],
   "screenshots": [
     {
-      "src": "./assets/images/screenshots/mobile-screenshot1.jpg",
-      "sizes": "1080x1920",
+      "src": "./assets/images/screenshots/mobile-screenshot1.png",
+      "sizes": "457x1019",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Main view on mobile"
     },
     {
       "src": "./assets/images/screenshots/mobile-screenshot2.png",
-      "sizes": "1080x1920",
+      "sizes": "457x1019",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Product details on mobile"
     },
     {
       "src": "./assets/images/screenshots/desktop-screenshot1.png",
-      "sizes": "1920x1080",
+      "sizes": "457x1019",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Homepage on desktop"
