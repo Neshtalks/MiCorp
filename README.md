@@ -1,4 +1,4 @@
-# Micorp Trading LLC - Official Website Project
+# MiCorp Trading LLC - Official Website Project
 
 **Welcome to the documentation for the Micorp Trading LLC website!** This document provides an overview of your new online platform, its features, and how it's designed to support your business goals.
 
